@@ -1,0 +1,77 @@
+<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Root.master" CodeBehind="Default.aspx.cs" Inherits="CustomerPortal._Default" %>
+<%@ MasterType VirtualPath="~/Main.master" %>
+<%@ Register assembly="DevExpress.Dashboard.v14.2.Web, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.DashboardWeb" tagprefix="dx" %>
+
+<asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
+        <script type="text/javascript">
+
+    </script>
+        <div>
+            <dx:ASPxPanel ID="pnlDashboard" runat="server" Width="100%" Height="36%">
+                <PanelCollection>
+                    <dx:PanelContent runat="server">
+                        <dx:ASPxDashboardViewer runat="server" Width="100%" Height="64%" ID="ASPxDashboardViewer1">
+                        </dx:ASPxDashboardViewer>
+                    </dx:PanelContent>
+                </PanelCollection>
+            </dx:ASPxPanel>
+        </div>
+        <div>
+            <dx:ASPxPanel ID="pnlOpenProjects" runat="server" Width="100%" Height="50%">
+                <PanelCollection>
+                    <dx:PanelContent runat="server">
+                        <dx:ASPxGridView ID="gvOpenProjects" runat="server" AutoGenerateColumns="False" DataSourceID="dsOpenProjects" KeyFieldName="ProjectID">
+                            <Columns>
+                                <dx:GridViewDataTextColumn FieldName="ProjectID" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="1" Visible="False">
+                                    <EditFormSettings Visible="False" />
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="Request Type" ShowInCustomizationForm="True" VisibleIndex="2">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="LastName" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="3">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="FirstName" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="4">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="MI" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="5">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn FieldName="Status" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="6">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataDateColumn FieldName="Requested" ShowInCustomizationForm="True" VisibleIndex="7">
+                                </dx:GridViewDataDateColumn>
+                                <dx:GridViewDataDateColumn FieldName="ScheduleByDeadline" ShowInCustomizationForm="True" VisibleIndex="8">
+                                </dx:GridViewDataDateColumn>
+                                <dx:GridViewDataTextColumn FieldName="URL" ReadOnly="True" ShowInCustomizationForm="True" Visible="False" VisibleIndex="9">
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataHyperLinkColumn Caption="ID" FieldName="URL" ShowInCustomizationForm="True" VisibleIndex="0">
+                                    <PropertiesHyperLinkEdit TextField="ProjectID">
+                                    </PropertiesHyperLinkEdit>
+                                </dx:GridViewDataHyperLinkColumn>
+                            </Columns>
+                            <SettingsPager Visible="False">
+                            </SettingsPager>
+                            <Settings ShowFilterRow="True" />
+                            <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+                        </dx:ASPxGridView>
+                    </dx:PanelContent>
+                </PanelCollection>
+            </dx:ASPxPanel>
+        </div>
+
+
+
+
+    <%-- DXCOMMENT: Configure your datasource for ASPxGridView --%>
+
+
+<%-- DXCOMMENT: Configure your datasource for ASPxGridView --%>
+        <asp:SqlDataSource ID="dsOpenProjects" runat="server"  ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_MainPageOpenProjects" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:SessionParameter Name="EmployerID" SessionField="WorkingEmployerID" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+
+
+
+
+
+</asp:Content>
+

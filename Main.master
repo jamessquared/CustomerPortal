@@ -1,0 +1,353 @@
+<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/Root.master" CodeBehind="Main.master.cs" Inherits="CustomerPortal.MainMaster" %>
+
+
+<%-- DXCOMMENT: Page Main.master is a master page that contains central area layout --%>
+<asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
+        <div class="MainMenuPane">  
+            
+            <asp:Table runat="server" Width="100%">
+                <asp:TableRow>
+                    <asp:TableCell Width="50%">
+                            <dx:ASPxRibbon ID="ribMainMenu" runat="server" ShowFileTab="False" OnCommandExecuted="ribMainMenu_CommandExecuted" Width="100%">
+                                <Tabs>
+                                    <dx:RibbonTab Name="Main" Text="Main">
+                                        <Groups>
+                                            <dx:RibbonGroup Text="">
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="btnLogOut" Size="Large" Text="Log Out" ToolTip="Leave the Customer Portal">
+                                                        <LargeImage Url="~/Images/MainMenu/Log Out.png">
+                                                        </LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                            </dx:RibbonGroup>
+                                        </Groups>
+                                    </dx:RibbonTab>
+                                    <dx:RibbonTab Name="Projects" Text="Projects">
+                                        <Groups>
+                                            <dx:RibbonGroup Name="New" Text="">
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="New" NavigateUrl="~/Projects/NewProject.aspx" Size="Large" Text="New" ToolTip="Create a new project.">
+                                                        <LargeImage Url="~/Images/MainMenu/NewProject.png">
+                                                        </LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                            </dx:RibbonGroup>
+                                            <dx:RibbonGroup Name="Find">
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="Find" NavigateUrl="~/Projects/FindProject.aspx" Size="Large" Text="Find"  ToolTip="Allows the user to view both completed and in-process projects.">
+                                                        <LargeImage Url="~\Images\MainMenu\FindProject.png"></LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                            </dx:RibbonGroup>
+                                        </Groups>
+                                    </dx:RibbonTab>
+                                    <dx:RibbonTab Name="Reports" Text="Reports">
+                                        <Groups>
+                                            <dx:RibbonGroup Name="Project"  Text="Project">
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="ActiveProjects" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Active Projects" Size="Large" Text="Active"  ToolTip="Displays a list of the projects which have not yet been completed.">
+                                                        <LargeImage Url="~\Images\Reports\ProjectReport.png"></LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                    <dx:RibbonButtonItem Name="CompletedProjects" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Completed Projects" Size="Large" Text="Completed"  ToolTip="Display a list of Projects which were completed during a given time period.  The default time period will be the last 30 days.">
+                                                        <LargeImage Url="~\Images\Reports\ProjectReport.png"></LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                             </dx:RibbonGroup>
+                                            <dx:RibbonGroup Name="Analysis" Text="Analysis">
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="ResultsAnalysis" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Results Analysis" Size="Large" Text="Results Analysis"  ToolTip="Aids the user in determining the accuracy and effectiveness of their Protocols.">
+                                                        <LargeImage Url="~\Images\Reports\AnalysisReport.png"></LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                             </dx:RibbonGroup>
+                                            <dx:RibbonGroup Name="Summary" Text="Summary">
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="LifeCycle" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Project Life Cycle Summary" Size="Large" Text="Project Life Cycle"  ToolTip="Displays key information about completed projects for a given time period.">
+                                                        <LargeImage Url="~\Images\Reports\SummaryReport.png"></LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                    <dx:RibbonButtonItem Name="FurtherEvaluation" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Further Evaluation" Size="Large" Text="Further Evaluation"  ToolTip="Displays a list of projects which required Further Evalution for a given time period.">
+                                                        <LargeImage Url="~\Images\Reports\SummaryReport.png"></LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                    <dx:RibbonButtonItem Name="Protocols" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Protocol Summary" Size="Large" Text="Protocols Used"  ToolTip="Displays a list of the Protocols and the frequency used during a given time period.">
+                                                        <LargeImage Url="~\Images\Reports\SummaryReport.png"></LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                    <dx:RibbonButtonItem Name="CancelledProjects" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Cancelled Project Summary" Size="Large" Text="Projects Cancelled"  ToolTip="Displays a list of projects cancelled during a given time period..">
+                                                        <LargeImage Url="~\Images\Reports\SummaryReport.png"></LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                             </dx:RibbonGroup>
+                                        </Groups>
+                                    </dx:RibbonTab>
+                                    <dx:RibbonTab Name="AccountManagement" Text="Account Management">
+                                        <Groups>
+                                            <dx:RibbonGroup Name="Users" Text="">
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="UserAccountManagement" NavigateUrl="~/Account/UserManagement.aspx" Size="Large" Text="Users"  ToolTip="Users can be added, modified and deleted.">
+                                                        <LargeImage Url="~\Images\MainMenu\ManageUsers.png"></LargeImage>
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                             </dx:RibbonGroup>
+                                        </Groups>
+                                    </dx:RibbonTab>
+                                </Tabs>
+                            </dx:ASPxRibbon>
+                    </asp:TableCell>
+                    <asp:TableCell Width="20%"></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Right" Width="30%">
+                        <dx:ASPxComboBox ID="cbxCompany" ClientID="cbxCompany" runat="server" DataSourceID="dsUserCompanies"  HorizontalAlign="Left" ValueField="ID" ValueType="System.Int32" Width="100%" OnSelectedIndexChanged="cbxCompany_SelectedIndexChanged" TextField="Name" AutoPostBack="True" Caption="  Select Company">
+                            <Columns>
+                                <dx:ListBoxColumn Caption="Name" FieldName="Name" Width="250px" />
+                                <dx:ListBoxColumn Caption="City" FieldName="City" Width="100px" />
+                                <dx:ListBoxColumn Caption="State" FieldName="State" Width="25px" />
+                                <dx:ListBoxColumn Caption="ID" FieldName="ID" Visible="False" />
+                            </Columns>
+                        </dx:ASPxComboBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+
+        </div>
+        <div class="contentPane">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" >
+
+            </asp:ContentPlaceHolder>
+        </div>
+    
+        <%-- Data Source --%>
+       <asp:SqlDataSource ID="dsUserCompanies" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetUserCompanies" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:SessionParameter Name="ParentCompanyID" SessionField="ParentCompanyID" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
+
+       <asp:SqlDataSource ID="dsUserNotifications" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetUserNotifications" SelectCommandType="StoredProcedure" OnDataBinding="dsUserNotifications_DataBinding">
+                                <SelectParameters>
+                                    <asp:SessionParameter DefaultValue="" Name="EmployerID" SessionField="WorkingEmployerID" Type="Int64" />
+                                    <asp:SessionParameter DefaultValue="" Name="UserName" SessionField="UserName" Type="String" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+
+      <%-- Popup Containers --%>
+        <div>
+            <%-- User Login --%>
+            <dx:ASPxPopupControl ID="pupctrlUserLogin" runat="server" Modal="True" ShowCloseButton="false" ShowHeader="false"  PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pupctrlUserLogin"  PopupAnimationType="None" EnableViewState="False" Width="300px" CloseAction="None" FooterText="" HeaderText="" PopupElementID="pupctrlLogin" >
+                <ContentCollection>
+                    <dx:PopupControlContentControl runat="server" Width="100%" >
+                        <asp:Table ID="MainTable" runat="server"  Width="100%">
+                            <asp:TableRow Width="100%">
+                                <asp:TableCell>
+                                    <dx:ASPxImage ID="ASPxImage1" runat="server" ShowLoadingImage="true" ImageUrl="~/Images/Popups/Login.png" BackgroundImage-HorizontalPosition="left"> <BackgroundImage HorizontalPosition="left"></BackgroundImage></dx:ASPxImage>
+                                </asp:TableCell>
+                                <asp:TableCell >
+                                        <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Please login" Font-Size="X-Large" ></dx:ASPxLabel>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                        </asp:Table>
+                        <br />
+                        <asp:Table runat="server" Width="100%">
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <dx:ASPxLabel ID="ASPxLabel3" runat="server" Font-Size="Small" Text="To view these pages, please sign in with your username and password below:" ></dx:ASPxLabel>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <dx:ASPxLabel ID="lblWarningBadUserorPassword" runat="server" Font-Size="Small" Text="User Name/Password is incorrect!" ForeColor="Red"  Visible="false" >
+                                    </dx:ASPxLabel>                                
+                                </asp:TableCell>
+                            </asp:TableRow>
+                        </asp:Table>
+                        <br />
+                        <asp:Table runat="server"  Width="100%">
+                            <asp:TableRow>
+                                <asp:TableCell ><dx:ASPxLabel ID="lblUserName" runat="server"   Text="User Name:" Font-Size="Medium" ></dx:ASPxLabel>
+                                </asp:TableCell>
+                                <asp:TableCell>
+                                    <dx:ASPxTextBox ID="txtUserName" runat="server"  ></dx:ASPxTextBox>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell><br></asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell >&nbsp;&nbsp;<dx:ASPxLabel ID="lblUserPassword" runat="server" Text="Password:" Font-Size="Medium"></dx:ASPxLabel>
+                            </asp:TableCell>
+                                <asp:TableCell>
+                                    <dx:ASPxTextBox ID="txtUserPassword" runat="server" Password="true"></dx:ASPxTextBox>    
+                            </asp:TableCell>
+                            </asp:TableRow>
+                        </asp:Table>
+      
+                        <asp:Table runat="server" Width="100%" >
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <br />
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow HorizontalAlign="Center">
+                                <asp:TableCell>
+                                    <dx:ASPxButton ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login"></dx:ASPxButton>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <br />
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            <asp:TableRow HorizontalAlign="Center">
+                                <asp:TableCell>
+                                    <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" NavigateUrl="~/Account/ResetPassword.aspx" Text="Forgot password?"></dx:ASPxHyperLink>
+                                </asp:TableCell>
+                                <asp:TableCell></asp:TableCell>
+                            </asp:TableRow>
+                        </asp:Table>
+                    </dx:PopupControlContentControl>
+                </ContentCollection>
+            </dx:ASPxPopupControl>
+        </div>
+        <div>
+            <%-- Password Expired --%>
+           <dx:ASPxPopupControl ID="pupctlPasswordExpired" runat="server" Modal="True" ShowCloseButton="false" ShowHeader="false"  PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pupctrlUserLogin"  PopupAnimationType="None" EnableViewState="False" Width="300px" CloseAction="None" FooterText="" HeaderText="" PopupElementID="pupctlPasswordExpired">
+                <ContentCollection>
+                    <dx:PopupControlContentControl runat="server">
+                        <asp:Table runat="server" Width="100%">
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <dx:ASPxImage ID="ASPxImage2" runat="server" ShowLoadingImage="true" ImageUrl="~/Images/General/Info.png"></dx:ASPxImage>
+                                </asp:TableCell>
+                                <asp:TableCell></asp:TableCell>
+                                <asp:TableCell>
+                                    <asp:Table runat="server">
+                                        <asp:TableRow HorizontalAlign="Center">
+                                            <asp:TableCell><dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Password Expired!" Font-Size="X-Large"></dx:ASPxLabel></asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow>
+                                            <asp:TableCell><br /></asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow HorizontalAlign="Justify">
+                                            <asp:TableCell><dx:ASPxLabel ID="ASPxLabel6" runat="server" Text="Your password has expired and needs to be changed in order to access Customer Portal information."></dx:ASPxLabel></asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow>
+                                            <asp:TableCell><br /></asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            </asp:Table>
+                        <asp:Table runat="server" Width="100%" HorizontalAlign="Center">
+                                <asp:TableRow HorizontalAlign="Center" >
+                                    <asp:TableCell><dx:ASPxButton ID="btnpupctlPasswordExpired" runat="server" OnClick="btnGoToChangePassword_Click" Text="Ok" HorizontalAlign="Center">  </dx:ASPxButton></asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>                        
+                    </dx:PopupControlContentControl>
+                </ContentCollection>
+            </dx:ASPxPopupControl>
+        </div>
+         <div>
+           <%-- Notifications --%>
+           <dx:ASPxPopupControl ID="pupctrlNotifications" runat="server"  Modal="True" ShowCloseButton="false" ShowHeader="false"  PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pupctrlUserLogin"  PopupAnimationType="None" EnableViewState="False" Width="600px" CloseAction="None" FooterText="" HeaderText="" PopupElementID="pupctrlNotifications" ViewStateMode="Enabled">
+                    <ContentCollection>
+                        <dx:PopupControlContentControl runat="server">
+                            <asp:Table runat="server" Width="100%">
+                                <asp:TableRow>
+                                    <%-- popup Image --%>
+                                    <asp:TableCell HorizontalAlign="Center">
+                                        <dx:ASPxImage ID="ASPxImage3" runat="server" ShowLoadingImage="true" ImageUrl="~/Images/Popups/Notifications.png"></dx:ASPxImage></asp:TableCell>
+                                    <asp:TableCell>&nbsp;&nbsp;&nbsp;</asp:TableCell>
+                                    <%-- Notication table --%>
+                                   <asp:TableCell>
+                                            <asp:Table runat="server" Width="100%">
+                                                <asp:TableRow><asp:TableCell><dx:ASPxLabel ID="ASPxLabel2" runat="server" Text="Notifications" Font-Size="X-Large"></dx:ASPxLabel></asp:TableCell></asp:TableRow> 
+                                                <asp:TableRow><asp:TableCell><br /></asp:TableCell></asp:TableRow><asp:TableRow><asp:TableCell><dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="Please review the following notes concerning these projects and then take the appropriate action."></dx:ASPxLabel></asp:TableCell></asp:TableRow>    
+                                                <asp:TableRow><asp:TableCell><br /></asp:TableCell></asp:TableRow>                                     
+                                                <asp:TableRow>
+                                                        <asp:TableCell>
+                                                                 <dx:ASPxGridView ID="gvNotifications" runat="server" AutoGenerateColumns="False" DataSourceID="dsUserNotifications" Width="100%" KeyFieldName="ID">
+                                                                    <ClientSideEvents BeginCallback="function(s, e) {}" />                                                                    
+                                                                        <Columns>        
+                                                                            <dx:GridViewDataTextColumn FieldName="ID" Visible="False" VisibleIndex="0" ReadOnly="True" ><EditFormSettings Visible="False" /></dx:GridViewDataTextColumn>
+                                                                            <dx:GridViewDataTextColumn FieldName="EmployerID"  Visible="False" VisibleIndex="1" ReadOnly="True"></dx:GridViewDataTextColumn>
+                                                                            <dx:GridViewDataTextColumn FieldName="UserID"  Visible="False" VisibleIndex="2" ReadOnly="True"></dx:GridViewDataTextColumn>
+                                                                            <dx:GridViewDataTextColumn FieldName="ProjectID"  Visible="False" VisibleIndex="3"></dx:GridViewDataTextColumn>
+
+                                                                            <dx:GridViewDataHyperLinkColumn Caption="ID" FieldName="Url" VisibleIndex="4" Width="10%">
+                                                                                <PropertiesHyperLinkEdit TextField="ProjectID">
+                                                                                </PropertiesHyperLinkEdit>
+                                                                            </dx:GridViewDataHyperLinkColumn>
+                                                                            <dx:GridViewDataTextColumn FieldName="Patient"  ReadOnly="True" VisibleIndex="5"></dx:GridViewDataTextColumn>
+                                                                            <dx:GridViewDataTextColumn FieldName="Message" VisibleIndex="6" Width="50%"></dx:GridViewDataTextColumn>     
+                                                                            <dx:GridViewDataTextColumn FieldName="Reply"  VisibleIndex="7" ReadOnly="True" Visible="False" ></dx:GridViewDataTextColumn>                                                                    
+                                                                            <dx:GridViewDataCheckColumn FieldName="SendReply" Visible="False" VisibleIndex="8">
+                                                                            </dx:GridViewDataCheckColumn>
+                                                                            <dx:GridViewDataDateColumn Caption="Created" FieldName="EnteredOn" VisibleIndex="9" Width="10%">
+                                                                            </dx:GridViewDataDateColumn>
+                                                                            <dx:GridViewDataTextColumn FieldName="EnteredByName" Caption="From"  VisibleIndex="10" ReadOnly="True" Width="30%"></dx:GridViewDataTextColumn>
+                                                                        </Columns>
+                                                                    
+                                                                        <SettingsBehavior AllowGroup="False" AllowSort="False" />
+                                                                        <SettingsPager Visible="False"></SettingsPager>
+                                                                        <SettingsEditing Mode="EditForm"></SettingsEditing>
+                                                                        <Settings ShowGroupButtons="False" ShowHeaderFilterBlankItems="False" />
+                                                                        <SettingsDataSecurity AllowDelete="False" AllowInsert="False" />
+                                                                    </dx:ASPxGridView>                                                        
+                                                            </asp:TableCell>
+                                                        </asp:TableRow>          
+                                                <asp:TableRow><asp:TableCell><br/></asp:TableCell>
+                                            </asp:TableRow>                            
+                                    </asp:Table>                                    
+                        </asp:TableCell>
+                        </asp:TableRow>
+                            </asp:Table>                            
+                            <asp:Table runat="server" Width="100%" HorizontalAlign="Center">
+                                <asp:TableRow HorizontalAlign="Center" >
+                                    <asp:TableCell><dx:ASPxButton ID="btnNotificationsPopupOk" runat="server" OnClick="btnNotificationsPopupOk_Click" Text="Ok" HorizontalAlign="Center">  </dx:ASPxButton></asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>  
+                        </dx:PopupControlContentControl>
+                </ContentCollection>
+             </dx:ASPxPopupControl>
+         </div>
+        <div>
+            <%-- User Login --%>
+
+            <dx:ASPxPopupControl ID="pupctrlLogOut" runat="server" Modal="True" ShowCloseButton="false" ShowHeader="false"  PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pupctrlUserLogin"  PopupAnimationType="None" EnableViewState="False" Width="300px" CloseAction="None" FooterText="" HeaderText="" PopupElementID="pupctrlLogOut">
+                <ContentCollection>
+                    <dx:PopupControlContentControl runat="server">
+                        <asp:Table runat="server" Width="100%">
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <dx:ASPxImage ID="ASPxImage4" runat="server" ShowLoadingImage="true" ImageUrl="~/Images/Popups/logout.png"></dx:ASPxImage>
+                                </asp:TableCell>
+                                <asp:TableCell></asp:TableCell>
+                                <asp:TableCell></asp:TableCell>
+                                <asp:TableCell>
+                                    <asp:Table runat="server">
+                                        <asp:TableRow HorizontalAlign="Center">
+                                            <asp:TableCell><dx:ASPxLabel ID="ASPxLabel7" runat="server" Text="Logout" Font-Size="X-Large"></dx:ASPxLabel></asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow>
+                                            <asp:TableCell><br /></asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow HorizontalAlign="Justify">
+                                            <asp:TableCell><dx:ASPxLabel ID="ASPxLabel8" runat="server" Text="Do you wish to leave the Customer Portal?"></dx:ASPxLabel></asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow>
+                                            <asp:TableCell><br /></asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            </asp:Table>
+                        <asp:Table runat="server" Width="100%" HorizontalAlign="Center">
+                                <asp:TableRow HorizontalAlign="Center" >
+                                    <asp:TableCell></asp:TableCell>
+                                    <asp:TableCell><dx:ASPxButton ID="btnYes" runat="server" OnClick="btnYes_Click"  Text="Yes" HorizontalAlign="Center">  </dx:ASPxButton></asp:TableCell>
+                                    <asp:TableCell><dx:ASPxButton ID="btnNo" runat="server"  OnClick="btnNo_Click" Text="No" HorizontalAlign="Center">  </dx:ASPxButton></asp:TableCell>
+                                    <asp:TableCell></asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>                        
+                    </dx:PopupControlContentControl>
+                </ContentCollection>
+            </dx:ASPxPopupControl>
+         </div>
+       </asp:Content>
