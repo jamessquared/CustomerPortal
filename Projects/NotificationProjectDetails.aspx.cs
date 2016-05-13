@@ -1,23 +1,87 @@
 ﻿namespace CustomerPortal.Projects
 {
+    using CustomerPortal.Classes;
+    using CustomerPortal.Utility;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.UI;
-    using System.Web.UI.WebControls;
-    using System.Data;
-    using System.Drawing;
-    using System.Configuration;
-    using System.Net.Mail;
-    using System.Net;
-    using System.Text;
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
+    using System.Drawing;
+    using System.Net.Mail;
+    using System.Text;
+    using System.Web;
+    using System.Web.UI;
 
     public partial class NotificationProjectDetails : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            // Redirect to Login if NOT logged in
+            if (Session["ContactID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
+
+            // Set Login Header
+            CustomerPortal.RootMaster siteMasterPage = (CustomerPortal.RootMaster)this.Master;
+            if (siteMasterPage != null)
+            {
+                siteMasterPage.SetLoginLabels();
+            }
+
+            // Validate that the user has access to this page
+            if (Session["Privileges"] != null)
+            {
+                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                Priviliges p = priv["Find Project"];
+
+                if (p.AllowAccess == 0)
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
+            }
+
+            try
+            {
+                if (Request.QueryString.HasKeys())
+                {
+                    Session["ProjectID"] = Request.QueryString["ProjectID"];
+                    Session["NotificationID"] = Request.QueryString["NotificationID"];
+
+                    if (Session["ProjectID"] != null && string.IsNullOrEmpty(memNotifications.Text) == true)
+                    {
+                        LoadProjectData();
+
+                        // Mark controls
+                        Session["FieldsToCorrect"] = string.Empty;
+                        dsNotification.DataBind();
+                        DataView dv = (DataView)dsNotification.Select(DataSourceSelectArguments.Empty);
+                        if (dv != null)
+                        {
+                            DataRow dr = dv.Table.Rows[0];
+                            if (dr["Message"] != null)
+                            {
+                                memNotifications.Text = dr["Message"].ToString();
+                            }
+
+                            if (dr["FieldsToCorrect"] != null && string.IsNullOrEmpty(dr["FieldsToCorrect"].ToString()) == false)
+                            {
+                                Session["FieldsToCorrect"] = Session["FieldsToCorrect"].ToString() + dr["FieldsToCorrect"].ToString();
+                                HighlightIssues(dr["FieldsToCorrect"].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Notification Project Details - Page_Load");
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            } 
+        }
+
         protected void HighlightIssues(string issues)
         {
             if (issues.Contains("Name"))
@@ -76,7 +140,7 @@
 
             if (issues.Contains("SpecialInstructions"))
             {
-                txtbxSpecialInstructions.BackColor = Color.Yellow;
+                memSpecialInstructions.BackColor = Color.Yellow;
             }
 
             if (issues.Contains("RequestType"))
@@ -105,148 +169,165 @@
 
         protected void LoadProjectData()
         {
-            dsProjectDetails.DataBind();
-            DataView dv = (DataView)dsProjectDetails.Select(DataSourceSelectArguments.Empty);
-
-            txtbxProjectID.Text = dv[0]["ID"].ToString();
-            txtbxLastName.Text = dv[0]["LastName"].ToString();
-            txtbxFirstName.Text = dv[0]["FirstName"].ToString();
-            txtbxMI.Text = dv[0]["MI"].ToString();
-            txtbxPrimaryAddressline.Text = dv[0]["PrimaryAddressline"].ToString();
-            txtbxSecondaryAddressline.Text = dv[0]["SecondaryAddressline"].ToString();
-            txtbxCity.Text = dv[0]["City"].ToString();
-            txtbxState.Text = dv[0]["State"].ToString();
-            txtbxPostalCode.Text = dv[0]["PostalCode"].ToString();
-            txtbxDOB.Text = dv[0]["DOB"].ToString();
-            txtbxPhone.Text = dv[0]["Phone1"].ToString();
-            txtbxSecondPhone.Text = dv[0]["Phone2"].ToString();
-            txtbxEmail.Text = dv[0]["PatientEmail"].ToString();
-            txtbxJobTitle.Text = dv[0]["JobTitle"].ToString();
-            txtbxSpecialInstructions.Text = dv[0]["SpecialInstructions"].ToString();
-            txtbxRequestType.Text = dv[0]["RequestType"].ToString();
-            txtbxScheduleBy.Text = dv[0]["ScheduledByDeadline"].ToString();
-            txtbxCompleteBy.Text = dv[0]["CompletedByDeadline"].ToString();
-            // Load Protocols
-            dsProjectDetailsViewProtocolInfo.DataBind();
-
-            // Load Notes
-            dsProjectDetailsViewNotes.DataBind();
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (Request.QueryString.HasKeys())
+            try
             {
-                Session["ProjectID"] = Request.QueryString["ProjectID"];
-                Session["NotificationID"] = Request.QueryString["NotificationID"];
+                dsProjectDetails.DataBind();
+                DataView dv = (DataView)dsProjectDetails.Select(DataSourceSelectArguments.Empty);
 
-                if (Session["ProjectID"] != null && string.IsNullOrEmpty(memNotifications.Text) == true)
-                {
-                    LoadProjectData();
+                txtbxProjectID.Text = dv[0]["ID"].ToString();
+                txtbxLastName.Text = dv[0]["LastName"].ToString();
+                txtbxFirstName.Text = dv[0]["FirstName"].ToString();
+                txtbxMI.Text = dv[0]["MI"].ToString();
+                txtbxPrimaryAddressline.Text = dv[0]["PrimaryAddressline"].ToString();
+                txtbxSecondaryAddressline.Text = dv[0]["SecondaryAddressline"].ToString();
+                txtbxCity.Text = dv[0]["City"].ToString();
+                txtbxState.Text = dv[0]["State"].ToString();
+                txtbxPostalCode.Text = dv[0]["PostalCode"].ToString();
+                txtbxDOB.Text = dv[0]["DOB"].ToString();
+                txtbxPhone.Text = dv[0]["Phone1"].ToString();
+                txtbxSecondPhone.Text = dv[0]["Phone2"].ToString();
+                txtbxEmail.Text = dv[0]["PatientEmail"].ToString();
+                txtbxJobTitle.Text = dv[0]["JobTitle"].ToString();
+                memSpecialInstructions.Text = dv[0]["SpecialInstructions"].ToString();
+                txtbxRequestType.Text = dv[0]["RequestType"].ToString();
+                txtbxScheduleBy.Text = dv[0]["ScheduledByDeadline"].ToString();
+                txtbxCompleteBy.Text = dv[0]["CompletedByDeadline"].ToString();
+                // Load Protocols
+                dsProjectDetailsViewProtocolInfo.DataBind();
 
-                    // Mark controls
-                    Session["FieldsToCorrect"] = string.Empty;
-                    dsNotification.DataBind();
-                    DataView dv = (DataView)dsNotification.Select(DataSourceSelectArguments.Empty);
-                    if (dv != null)
-                    {
-                        DataRow dr = dv.Table.Rows[0];
-                        if (dr["Message"] != null)
-                        {
-                            memNotifications.Text = dr["Message"].ToString();
-                        }
+                // Load Notes
+                dsProjectDetailsViewNotes.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Notification Project Details - LoadProjectData");
 
-                        if (dr["FieldsToCorrect"] != null && string.IsNullOrEmpty(dr["FieldsToCorrect"].ToString()) == false)
-                        {
-                            Session["FieldsToCorrect"] = Session["FieldsToCorrect"].ToString() + dr["FieldsToCorrect"].ToString();
-                            HighlightIssues(dr["FieldsToCorrect"].ToString());
-                        }
-                    }                    
-                }
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
             }
         }
 
         private void AddNote(long projectID, string note, long userID)
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("ohsn_Web_NoteInsertCommand_Execute", conn))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("ohsn_Web_NoteInsertCommand_Execute", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@ProjectID ", projectID);
-                    cmd.Parameters.AddWithValue("@Note", note);
-                    cmd.Parameters.AddWithValue("@EnteredByID", userID);
+                        cmd.Parameters.AddWithValue("@ProjectID ", projectID);
+                        cmd.Parameters.AddWithValue("@Note", note);
+                        cmd.Parameters.AddWithValue("@EnteredByID", userID);
 
-                    int rows = cmd.ExecuteNonQuery();
+                        int rows = cmd.ExecuteNonQuery();
+                    }
+                    conn.Close();
                 }
-                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Notification Project Details - AddNote");
+
+                ExceptionUtility.NotifySupport(ex);
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
             }
         }
 
         private void MarkNotificationComplete()
         {
-            if (Session["FieldsToCorrect"] == null)
+            try
             {
-                Session["FieldsToCorrect"] = string.Empty;
-            }
-
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("OHSN_pm_UserNotification_Update", conn))
+                if (Session["FieldsToCorrect"] == null)
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.AddWithValue("@ID ", Session["NotificationID"].ToString());
-                    cmd.Parameters.AddWithValue("@NotificationMessage", memNotifications.Text);
-                    cmd.Parameters.AddWithValue("@FieldsToCorrect", Session["FieldsToCorrect"].ToString());
-                    cmd.Parameters.AddWithValue("@Completed", true);
-
-                    int rows = cmd.ExecuteNonQuery();
+                    Session["FieldsToCorrect"] = string.Empty;
                 }
-                conn.Close();
+
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("OHSN_pm_UserNotification_Update", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@ID ", Session["NotificationID"].ToString());
+                        cmd.Parameters.AddWithValue("@ProjectID ", Convert.ToInt64(Session["ProjectID"]));
+                        cmd.Parameters.AddWithValue("@NotificationMessage", memNotifications.Text);
+                        cmd.Parameters.AddWithValue("@FieldsToCorrect", Session["FieldsToCorrect"].ToString());
+                        cmd.Parameters.AddWithValue("@Completed", true);
+                        cmd.Parameters.AddWithValue("@EnteredByID ", Convert.ToInt64(Session["ContactID"]));
+                        int rows = cmd.ExecuteNonQuery();
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Notification Project Details - MarkNotificationComplete");
+
+                ExceptionUtility.NotifySupport(ex);
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
             }
         }
 
         protected void SendNotificationResponseEmail()
         {
-            SmtpClient smtpClient = new SmtpClient();
-            MailMessage mailMessage = new MailMessage();
-            
-            mailMessage.To.Add(ConfigurationManager.AppSettings["NotificationReplyEmailDestination"]);
-            mailMessage.Subject = "User Notification Response";
+            try
+            {
+                SmtpClient smtpClient = new SmtpClient();
+                MailMessage mailMessage = new MailMessage();
 
-            StringBuilder sb = new StringBuilder();
-            sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
-            sb.Append(string.Format("Notification sent to {0}{1} at {2}{3}{4}", Session["FirstName"].ToString(), Session["LastName"].ToString(), Session["UserCompany"].ToString(), Environment.NewLine, Environment.NewLine));
-            sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
-            sb.Append(string.Format("Project ID: {0}{1}", txtbxProjectID.Text, Environment.NewLine));
-            sb.Append(string.Format("Message: {0}{1}", memNotifications.Text, Environment.NewLine));
-            sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
-            sb.Append(string.Format("Response{0}", Environment.NewLine));
-            sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
-            sb.Append(string.Format("{0}{1}", memResponse.Text, Environment.NewLine));
+                mailMessage.To.Add(ConfigurationManager.AppSettings["NotificationReplyEmailDestination"]);
+                mailMessage.Subject = "User Notification Response";
 
-            mailMessage.Body = sb.ToString();
+                StringBuilder sb = new StringBuilder();
+                sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
+                sb.Append(string.Format("Notification sent to {0}{1} at {2}{3}{4}", Session["FirstName"].ToString(), Session["LastName"].ToString(), Session["UserCompany"].ToString(), Environment.NewLine, Environment.NewLine));
+                sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
+                sb.Append(string.Format("Project ID: {0}{1}", txtbxProjectID.Text, Environment.NewLine));
+                sb.Append(string.Format("Message: {0}{1}", memNotifications.Text, Environment.NewLine));
+                sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
+                sb.Append(string.Format("Response{0}", Environment.NewLine));
+                sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
+                sb.Append(string.Format("{0}{1}", memResponse.Text, Environment.NewLine));
 
-            smtpClient.Send(mailMessage);
+                mailMessage.Body = sb.ToString();
+
+                smtpClient.Send(mailMessage);
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Notification Project Details - SendNotificationResponseEmail");
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            }
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e)
+        protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
         {
-            Response.Redirect("~/Default.aspx");
-        }
+            switch (e.Item.Name)
+            {
+                case "btnBack":
+                    {
+                        Response.Redirect("~/Default.aspx");
+                        break;
+                    }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            AddNote(Convert.ToInt64(txtbxProjectID.Text), memResponse.Text, Convert.ToInt64(Session["ContactID"]));
-            MarkNotificationComplete();
-            SendNotificationResponseEmail();
-            Session["FieldsToCorrect"] = null;
-            Session["NotificationID"] = null;
-            Response.Redirect("~/Default.aspx");
+                case "btnSubmit":
+                    {
+                        AddNote(Convert.ToInt64(txtbxProjectID.Text), memResponse.Text, Convert.ToInt64(Session["ContactID"]));
+                        MarkNotificationComplete();
+                        SendNotificationResponseEmail();
+                        Session["FieldsToCorrect"] = null;
+                        Session["NotificationID"] = null;
+                        Response.Redirect("~/Default.aspx");
+                        break;
+                    }
+
+            }
         }
     }
 }

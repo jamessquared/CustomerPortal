@@ -1,22 +1,42 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="ResetPassword.aspx.cs"     Inherits                 ="CustomerPortal.Account.ResetPassword" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="Content" runat="server">
-    <div>
-        <br />
-         <asp:Table  runat="server" ID="Table1"  HorizontalAlign="Center">
-             <asp:TableRow HorizontalAlign="Center">
-                 <asp:TableCell><dx:ASPxLabel ID="ASPxLabel3" runat="server" Font-Size="X-Large" Text="Lost Password"></dx:ASPxLabel></asp:TableCell>
-             </asp:TableRow>
-             <asp:TableRow></asp:TableRow>
-                 <asp:TableRow></asp:TableRow>
-                 <asp:TableRow></asp:TableRow>
-             <asp:TableRow>
-                 <asp:TableCell><dx:ASPxLabel ID="ASPxLabel2" runat="server" Font-Size="Medium" Text="If you have lost your password and are unable to log on.&nbsp; Enter your email address below and email containing instructions on how to reset your password will be sent."></dx:ASPxLabel></asp:TableCell>
-             </asp:TableRow>
-         </asp:Table> 
+        <%-- Main Menu --%>
+    <dx:ASPxRibbon ID="mainToolbar" runat="server" ClientInstanceName="MainToolbar" ShowGroupLabels="False" ShowFileTab="False"  ShowTabs="False" OnCommandExecuted="mainToolbar_CommandExecuted">
+        <Styles>
+                <Item Width="100px"></Item>
+                <GroupExpandButton Width="100px"></GroupExpandButton>
+            </Styles>
+        <Tabs>
+            <dx:RibbonTab Name="Main" Text="">
+                <Groups>
+                    <dx:RibbonGroup Text="">
+                        <Items>
+                            <dx:RibbonButtonItem Name="btnBack" Size="Large" Text="Back" ToolTip="Return to the main customer portal page.">
+                                <LargeImage Url="~/Images/Reports/Back.png">
+                                </LargeImage>
+                            </dx:RibbonButtonItem>
+                        </Items>
+                    </dx:RibbonGroup>
+                    <dx:RibbonGroup Text="User" Name="grpUser">
+                        <Items>
+                            <dx:RibbonButtonItem Name="btnSend" Size="Large" Text="Send" ToolTip="email user information regarding User login & password.">
+                                <LargeImage Url="~/Images/General/SendMail.png">
+                                </LargeImage>
+                            </dx:RibbonButtonItem>
+                        </Items>
+                    </dx:RibbonGroup>
+                </Groups>
+            </dx:RibbonTab>
+        </Tabs>
+    </dx:ASPxRibbon>
 
-        <br />
-        <br />
+        <%-- Form Title --%>
+     <asp:Table  runat="server" ID="Table4"  HorizontalAlign="Center" Width="100%">
+         <asp:TableRow HorizontalAlign="Center"><asp:TableCell><dx:ASPxLabel ID="ASPxLabel1" runat="server" Font-Size="X-Large" Text="Lost Password"></dx:ASPxLabel></asp:TableCell></asp:TableRow>
+     </asp:Table> 
+    <br />
+    <br />
 
      <asp:Table  runat="server" ID="Table2" Width="100%"  >
              <asp:TableRow>
@@ -26,28 +46,16 @@
                  <asp:TableRow></asp:TableRow>
                  <asp:TableRow></asp:TableRow>
              <asp:TableRow>
-                 <asp:TableCell><dx:ASPxTextBox ID="txtEmail" runat="server" Caption="Emal:" Width="50%"></dx:ASPxTextBox></asp:TableCell>
+                 <asp:TableCell><dx:ASPxTextBox ID="txtEmail" runat="server" Caption="Emal:" Width="300px" ></dx:ASPxTextBox></asp:TableCell>
              </asp:TableRow>
          </asp:Table>
 
-        
-        <br />
-        <br />
-
-         <asp:Table  runat="server" ID="Table3"  HorizontalAlign="Center">
-             <asp:TableRow>
-                 <asp:TableCell></asp:TableCell>
-                 <asp:TableCell><dx:ASPxButton ID="ASPxButton2" runat="server"  Text="Get Password" HorizontalAlign="Center" OnClick="btnPasswordemail_Click"></dx:ASPxButton></asp:TableCell>
-                 <asp:TableCell></asp:TableCell>
-             </asp:TableRow>
-         </asp:Table> 
-
     
-        <asp:SqlDataSource ID="dsGetPassword" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetLostUserPassword" SelectCommandType="StoredProcedure">
+      <asp:SqlDataSource ID="dsGetPassword" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetLostUserPassword" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:ControlParameter ControlID="txtEmail" Name="emailAddress" PropertyName="Text" Type="String" />
             </SelectParameters>
         </asp:SqlDataSource>
-    </div>
+
 </asp:Content>
 

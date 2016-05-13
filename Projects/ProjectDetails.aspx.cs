@@ -1,33 +1,24 @@
 ﻿namespace CustomerPortal.Projects
 {
+    using CustomerPortal.Classes;
+    using CustomerPortal.Utility;
+    using DevExpress.Web;
     using System;
-    using System.IO;
     using System.Collections.Generic;
-    using System.Linq;
+    using System.Configuration;
+    using System.Data;
+    using System.IO;
     using System.Web;
     using System.Web.UI;
-    using System.Web.UI.WebControls;
-    using System.Data;
-    using System.Configuration;
-    using DevExpress.Web;
-    using CustomerPortal.Utility;
 
     public partial class ProjectDetails : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        private void LoadProjectInfo(bool showResults)
         {
-            string ProjectIDNo = string.Empty;
-            string CompanyIDNo = string.Empty;
-
-            if (Session["ContactID"] == null)
+            try
             {
-                Response.Redirect("~/Default.aspx");
-            }
-
-            if (Request.QueryString.HasKeys())
-            {
-                Session["ProjectID"] = Request.QueryString["ProjectID"];
-                Session["SourcePage"] = Request.QueryString["SourcePage"];
+                string ProjectIDNo = string.Empty;
+                string CompanyIDNo = string.Empty;
 
                 if (Session["ProjectID"] != null)
                 {
@@ -48,11 +39,11 @@
                     txtbxSecondPhone.Text = dv[0]["Phone2"].ToString();
                     txtbxEmail.Text = dv[0]["PatientEmail"].ToString();
                     txtbxJobTitle.Text = dv[0]["JobTitle"].ToString();
-                    txtbxSpecialInstructions.Text = dv[0]["SpecialInstructions"].ToString();
+                    memSpecialInstructions.Text = dv[0]["SpecialInstructions"].ToString();
                     txtbxRequestType.Text = dv[0]["RequestType"].ToString();
                     txtbxScheduleBy.Text = dv[0]["ScheduledByDeadline"].ToString();
                     txtbxCompleteBy.Text = dv[0]["CompletedByDeadline"].ToString();
-                    CompanyIDNo  = dv[0]["CompanyIDNo"].ToString();
+                    CompanyIDNo = dv[0]["CompanyIDNo"].ToString();
                     ProjectIDNo = dv[0]["ProjectIDNo"].ToString();
                     // Load Protocols
                     dsProjectDetailsViewProtocolInfo.DataBind();
@@ -61,9 +52,10 @@
                     dsProjectDetailsViewNotes.DataBind();
 
                     // Load Results
-                    if (string.IsNullOrEmpty(CompanyIDNo) == false && string.IsNullOrEmpty(ProjectIDNo) == false)
+                    if (showResults && string.IsNullOrEmpty(CompanyIDNo) == false && string.IsNullOrEmpty(ProjectIDNo) == false)
                     {
                         DataTable table = CreateTable();
+                        AddGridViewColumns(table);
 
                         var filePath = string.Format("\\\\{0}\\{1}\\{2}\\Patients\\{3}\\Results", ConfigurationManager.AppSettings["FileServer"].ToString(), ConfigurationManager.AppSettings["FileRootPath"].ToString(), CompanyIDNo, ProjectIDNo);
 
@@ -86,11 +78,60 @@
                                 ndx++;
                             }
 
-                            AddGridViewColumns(table);
-
                             gvFiles.DataBind();
-
                         }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Project Details - LoadProjectInfo");
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            }
+          }
+        
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (Session["ContactID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
+
+            // Set Login Header
+            CustomerPortal.RootMaster siteMasterPage = (CustomerPortal.RootMaster)this.Master;
+            if (siteMasterPage != null)
+            {
+                siteMasterPage.SetLoginLabels();
+            }
+
+            // Validate that the user has access to this page
+            if (Session["Privileges"] != null)
+            {
+                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                Priviliges p = priv["Find Project"];
+
+                if (p.AllowAccess == 0)
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
+
+                if (Request.QueryString.HasKeys())
+                {
+                    Session["ProjectID"] = Request.QueryString["ProjectID"];
+                    Session["SourcePage"] = Request.QueryString["SourcePage"];
+
+                    try
+                    {
+                        p = null;
+                        p = priv["Project Results"];
+
+                        LoadProjectInfo(p.AllowAccess == 1);
+                        gvFiles.Visible = (p.AllowAccess == 1 && gvFiles.VisibleRowCount > 0);
+                    }
+                    catch (Exception)
+                    {
+                        gvFiles.Visible = false;
                     }
                 }
             }
@@ -100,41 +141,58 @@
         {
             DataTable table = new DataTable();
 
-            DataColumn colID = table.Columns.Add("ID", typeof(Int32));
-            DataColumn colName = table.Columns.Add("Name", typeof(String));
-            DataColumn colURL = table.Columns.Add("URL", typeof(String));
-            DataColumn colExt = table.Columns.Add("Ext", typeof(String));
-            DataColumn colCreated = table.Columns.Add("Created", typeof(DateTime));
-            DataColumn colSize = table.Columns.Add("Size", typeof(Int32));
-            table.PrimaryKey = new DataColumn[] { colID };
-            colID.ReadOnly = true;
+            try
+            {
+                DataColumn colID = table.Columns.Add("ID", typeof(Int32));
+                DataColumn colName = table.Columns.Add("Name", typeof(String));
+                DataColumn colURL = table.Columns.Add("URL", typeof(String));
+                DataColumn colExt = table.Columns.Add("Ext", typeof(String));
+                DataColumn colCreated = table.Columns.Add("Created", typeof(DateTime));
+                DataColumn colSize = table.Columns.Add("Size", typeof(Int32));
+                table.PrimaryKey = new DataColumn[] { colID };
+                colID.ReadOnly = true;
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Project Details - CreateTable");
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            } 
 
             return table;
         }
 
         protected void AddGridViewColumns(DataTable table)
         {
-            gvFiles.DataSource = table;
-            gvFiles.Columns.Clear();
+            try
+            {
+                gvFiles.DataSource = table;
+                gvFiles.Columns.Clear();
 
-            GridViewDataHyperLinkColumn colItemName = new GridViewDataHyperLinkColumn();
-            colItemName.FieldName = "URL";
-            colItemName.PropertiesHyperLinkEdit.TextField = "Name";
-            gvFiles.Columns.Add(colItemName);
+                GridViewDataHyperLinkColumn colItemName = new GridViewDataHyperLinkColumn();
+                colItemName.FieldName = "URL";
+                colItemName.PropertiesHyperLinkEdit.TextField = "Name";
+                gvFiles.Columns.Add(colItemName);
 
-            GridViewDataTextColumn colItemExt = new GridViewDataTextColumn();
-            colItemExt.FieldName = "Ext";
-            gvFiles.Columns.Add(colItemExt);
+                GridViewDataTextColumn colItemExt = new GridViewDataTextColumn();
+                colItemExt.FieldName = "Ext";
+                gvFiles.Columns.Add(colItemExt);
 
-            GridViewDataTextColumn colItemSize = new GridViewDataTextColumn();
-            colItemSize.FieldName = "Size";
-            gvFiles.Columns.Add(colItemExt);
+                GridViewDataTextColumn colItemSize = new GridViewDataTextColumn();
+                colItemSize.FieldName = "Size";
+                gvFiles.Columns.Add(colItemSize);
 
+                GridViewDataDateColumn colItemCreated = new GridViewDataDateColumn();
+                colItemCreated.FieldName = "Created";
+                colItemCreated.PropertiesEdit.DisplayFormatString = "d";
+                gvFiles.Columns.Add(colItemCreated);
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Project Details - AddGridViewColumns");
 
-            GridViewDataDateColumn colItemCreated = new GridViewDataDateColumn();
-            colItemCreated.FieldName = "Created";
-            colItemCreated.PropertiesEdit.DisplayFormatString = "d";
-            gvFiles.Columns.Add(colItemCreated);
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            } 
         }
 
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)

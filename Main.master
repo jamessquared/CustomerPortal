@@ -3,12 +3,9 @@
 
 <%-- DXCOMMENT: Page Main.master is a master page that contains central area layout --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
-        <div class="MainMenuPane">  
-            
-            <asp:Table runat="server" Width="100%">
-                <asp:TableRow>
-                    <asp:TableCell Width="50%">
-                            <dx:ASPxRibbon ID="ribMainMenu" runat="server" ShowFileTab="False" OnCommandExecuted="ribMainMenu_CommandExecuted" Width="100%">
+        <div class="MainMenuPane">    
+
+            <dx:ASPxRibbon ID="ribMainMenu" runat="server" ShowFileTab="False" OnCommandExecuted="ribMainMenu_CommandExecuted" Width="100%" ClientInstanceName="ribMainMenu">
                                 <Tabs>
                                     <dx:RibbonTab Name="Main" Text="Main">
                                         <Groups>
@@ -17,6 +14,7 @@
                                                     <dx:RibbonButtonItem Name="btnLogOut" Size="Large" Text="Log Out" ToolTip="Leave the Customer Portal">
                                                         <LargeImage Url="~/Images/MainMenu/Log Out.png">
                                                         </LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
                                                 </Items>
                                             </dx:RibbonGroup>
@@ -26,16 +24,18 @@
                                         <Groups>
                                             <dx:RibbonGroup Name="New" Text="">
                                                 <Items>
-                                                    <dx:RibbonButtonItem Name="New" NavigateUrl="~/Projects/NewProject.aspx" Size="Large" Text="New" ToolTip="Create a new project.">
+                                                    <dx:RibbonButtonItem Name="btnNewProject" Size="Large" Text="New" ToolTip="Create a new project.">
                                                         <LargeImage Url="~/Images/MainMenu/NewProject.png">
                                                         </LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
                                                 </Items>
                                             </dx:RibbonGroup>
-                                            <dx:RibbonGroup Name="Find">
+                                            <dx:RibbonGroup Name="FindProject" Text="">
                                                 <Items>
-                                                    <dx:RibbonButtonItem Name="Find" NavigateUrl="~/Projects/FindProject.aspx" Size="Large" Text="Find"  ToolTip="Allows the user to view both completed and in-process projects.">
+                                                    <dx:RibbonButtonItem Name="btnFind" Size="Large" Text="Find"  ToolTip="Allows the user to view both completed and in-process projects.">
                                                         <LargeImage Url="~\Images\MainMenu\FindProject.png"></LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
                                                 </Items>
                                             </dx:RibbonGroup>
@@ -45,34 +45,41 @@
                                         <Groups>
                                             <dx:RibbonGroup Name="Project"  Text="Project">
                                                 <Items>
-                                                    <dx:RibbonButtonItem Name="ActiveProjects" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Active Projects" Size="Large" Text="Active"  ToolTip="Displays a list of the projects which have not yet been completed.">
+                                                    <dx:RibbonButtonItem Name="btnActiveProjects" Size="Large" Text="Active"  ToolTip="Displays a list of the projects which have not yet been completed.">
                                                         <LargeImage Url="~\Images\Reports\ProjectReport.png"></LargeImage>
+                                                        <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
-                                                    <dx:RibbonButtonItem Name="CompletedProjects" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Completed Projects" Size="Large" Text="Completed"  ToolTip="Display a list of Projects which were completed during a given time period.  The default time period will be the last 30 days.">
+                                                    <dx:RibbonButtonItem Name="btnCompletedProjects" Size="Large" Text="Completed"  ToolTip="Display a list of Projects which were completed during a given time period.  The default time period will be the last 30 days.">
                                                         <LargeImage Url="~\Images\Reports\ProjectReport.png"></LargeImage>
+                                                        <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
                                                 </Items>
                                              </dx:RibbonGroup>
                                             <dx:RibbonGroup Name="Analysis" Text="Analysis">
                                                 <Items>
-                                                    <dx:RibbonButtonItem Name="ResultsAnalysis" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Results Analysis" Size="Large" Text="Results Analysis"  ToolTip="Aids the user in determining the accuracy and effectiveness of their Protocols.">
+                                                    <dx:RibbonButtonItem Name="btnResultsAnalysis" Size="Large" Text="Results Analysis"  ToolTip="Aids the user in determining the accuracy and effectiveness of their Protocols.">
                                                         <LargeImage Url="~\Images\Reports\AnalysisReport.png"></LargeImage>
+                                                        <ItemStyle Width="150px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
                                                 </Items>
                                              </dx:RibbonGroup>
                                             <dx:RibbonGroup Name="Summary" Text="Summary">
                                                 <Items>
-                                                    <dx:RibbonButtonItem Name="LifeCycle" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Project Life Cycle Summary" Size="Large" Text="Project Life Cycle"  ToolTip="Displays key information about completed projects for a given time period.">
+                                                    <dx:RibbonButtonItem Name="btnLifeCycle" Size="Large" Text="Project Life Cycle"  ToolTip="Displays key information about completed projects for a given time period.">
                                                         <LargeImage Url="~\Images\Reports\SummaryReport.png"></LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
-                                                    <dx:RibbonButtonItem Name="FurtherEvaluation" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Further Evaluation" Size="Large" Text="Further Evaluation"  ToolTip="Displays a list of projects which required Further Evalution for a given time period.">
+                                                    <dx:RibbonButtonItem Name="btnFurtherEvaluation" Size="Large" Text="Further Evaluation"  ToolTip="Displays a list of projects which required Further Evalution for a given time period.">
                                                         <LargeImage Url="~\Images\Reports\SummaryReport.png"></LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
-                                                    <dx:RibbonButtonItem Name="Protocols" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Protocol Summary" Size="Large" Text="Protocols Used"  ToolTip="Displays a list of the Protocols and the frequency used during a given time period.">
+                                                    <dx:RibbonButtonItem Name="btnProtocols" Size="Large" Text="Protocols Used"  ToolTip="Displays a list of the Protocols and the frequency used during a given time period.">
                                                         <LargeImage Url="~\Images\Reports\SummaryReport.png"></LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
-                                                    <dx:RibbonButtonItem Name="CancelledProjects" NavigateUrl="~/Reports/ReportViewer.aspx?NameID=Cancelled Project Summary" Size="Large" Text="Projects Cancelled"  ToolTip="Displays a list of projects cancelled during a given time period..">
+                                                    <dx:RibbonButtonItem Name="btnCancelledProjects" Size="Large" Text="Projects Cancelled"  ToolTip="Displays a list of projects cancelled during a given time period..">
                                                         <LargeImage Url="~\Images\Reports\SummaryReport.png"></LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
                                                 </Items>
                                              </dx:RibbonGroup>
@@ -82,8 +89,15 @@
                                         <Groups>
                                             <dx:RibbonGroup Name="Users" Text="">
                                                 <Items>
-                                                    <dx:RibbonButtonItem Name="UserAccountManagement" NavigateUrl="~/Account/UserManagement.aspx" Size="Large" Text="Users"  ToolTip="Users can be added, modified and deleted.">
+                                                    <dx:RibbonButtonItem Name="btnUserAccountManagement" Size="Large" Text="Users"  ToolTip="Users can be added, modified and deleted.">
                                                         <LargeImage Url="~\Images\MainMenu\ManageUsers.png"></LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="btnProtocolManagement" Size="Large" Text="Protocols"  ToolTip="Protocols can be added or modified." Visible="false">
+                                                        <LargeImage Url="~\Images\MainMenu\Protocol Management.png"></LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
                                                 </Items>
                                              </dx:RibbonGroup>
@@ -91,10 +105,15 @@
                                     </dx:RibbonTab>
                                 </Tabs>
                             </dx:ASPxRibbon>
+
+            <asp:Table runat="server" Width="100%">
+                <asp:TableRow>
+                    <asp:TableCell Width="50%">
+
                     </asp:TableCell>
                     <asp:TableCell Width="20%"></asp:TableCell>
                     <asp:TableCell HorizontalAlign="Right" Width="30%">
-                        <dx:ASPxComboBox ID="cbxCompany" ClientID="cbxCompany" runat="server" DataSourceID="dsUserCompanies"  HorizontalAlign="Left" ValueField="ID" ValueType="System.Int32" Width="100%" OnSelectedIndexChanged="cbxCompany_SelectedIndexChanged" TextField="Name" AutoPostBack="True" Caption="  Select Company">
+                     <dx:ASPxComboBox ID="cbxCompany" ClientID="cbxCompany" runat="server" DataSourceID="dsUserCompanies"  HorizontalAlign="Left" ValueField="ID" ValueType="System.Int32" Width="100%" TextField="Name"  Caption="  Select Company" AutoPostBack="True" AutoResizeWithContainer="True" ClientInstanceName="cbxCompany" OnSelectedIndexChanged="cbxCompany_SelectedIndexChanged">
                             <Columns>
                                 <dx:ListBoxColumn Caption="Name" FieldName="Name" Width="250px" />
                                 <dx:ListBoxColumn Caption="City" FieldName="City" Width="100px" />
@@ -105,7 +124,6 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-
         </div>
         <div class="contentPane">
             <asp:ContentPlaceHolder ID="MainContent" runat="server" >
@@ -121,11 +139,11 @@
         </asp:SqlDataSource>
 
        <asp:SqlDataSource ID="dsUserNotifications" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetUserNotifications" SelectCommandType="StoredProcedure" OnDataBinding="dsUserNotifications_DataBinding">
-                                <SelectParameters>
-                                    <asp:SessionParameter DefaultValue="" Name="EmployerID" SessionField="WorkingEmployerID" Type="Int64" />
-                                    <asp:SessionParameter DefaultValue="" Name="UserName" SessionField="UserName" Type="String" />
-                                </SelectParameters>
-                            </asp:SqlDataSource>
+           <SelectParameters>
+              <asp:SessionParameter DefaultValue="" Name="EmployerID" SessionField="WorkingEmployerID" Type="Int64" />
+              <asp:SessionParameter DefaultValue="" Name="UserName" SessionField="UserName" Type="String" />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
       <%-- Popup Containers --%>
         <div>
@@ -243,7 +261,7 @@
                 </ContentCollection>
             </dx:ASPxPopupControl>
         </div>
-         <div>
+        <div>
            <%-- Notifications --%>
            <dx:ASPxPopupControl ID="pupctrlNotifications" runat="server"  Modal="True" ShowCloseButton="false" ShowHeader="false"  PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pupctrlUserLogin"  PopupAnimationType="None" EnableViewState="False" Width="600px" CloseAction="None" FooterText="" HeaderText="" PopupElementID="pupctrlNotifications" ViewStateMode="Enabled">
                     <ContentCollection>
@@ -262,7 +280,7 @@
                                                 <asp:TableRow><asp:TableCell><br /></asp:TableCell></asp:TableRow>                                     
                                                 <asp:TableRow>
                                                         <asp:TableCell>
-                                                                 <dx:ASPxGridView ID="gvNotifications" runat="server" AutoGenerateColumns="False" DataSourceID="dsUserNotifications" Width="100%" KeyFieldName="ID">
+                                                                <dx:ASPxGridView ID="gvNotifications" runat="server" AutoGenerateColumns="False" DataSourceID="dsUserNotifications" Width="100%" KeyFieldName="ID">
                                                                     <ClientSideEvents BeginCallback="function(s, e) {}" />                                                                    
                                                                         <Columns>        
                                                                             <dx:GridViewDataTextColumn FieldName="ID" Visible="False" VisibleIndex="0" ReadOnly="True" ><EditFormSettings Visible="False" /></dx:GridViewDataTextColumn>
@@ -270,18 +288,26 @@
                                                                             <dx:GridViewDataTextColumn FieldName="UserID"  Visible="False" VisibleIndex="2" ReadOnly="True"></dx:GridViewDataTextColumn>
                                                                             <dx:GridViewDataTextColumn FieldName="ProjectID"  Visible="False" VisibleIndex="3"></dx:GridViewDataTextColumn>
 
-                                                                            <dx:GridViewDataHyperLinkColumn Caption="ID" FieldName="Url" VisibleIndex="4" Width="10%">
+                                                                            <dx:GridViewDataHyperLinkColumn Caption="ID" FieldName="Url" VisibleIndex="4" Width="5%">
                                                                                 <PropertiesHyperLinkEdit TextField="ProjectID">
                                                                                 </PropertiesHyperLinkEdit>
+                                                                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                                                             </dx:GridViewDataHyperLinkColumn>
-                                                                            <dx:GridViewDataTextColumn FieldName="Patient"  ReadOnly="True" VisibleIndex="5"></dx:GridViewDataTextColumn>
-                                                                            <dx:GridViewDataTextColumn FieldName="Message" VisibleIndex="6" Width="50%"></dx:GridViewDataTextColumn>     
+                                                                            <dx:GridViewDataTextColumn FieldName="Patient"  ReadOnly="True" VisibleIndex="5" Width="30%">
+                                                                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                                                            </dx:GridViewDataTextColumn>
+                                                                            <dx:GridViewDataTextColumn FieldName="Message" VisibleIndex="6" Width="40%">
+                                                                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                                                            </dx:GridViewDataTextColumn>     
                                                                             <dx:GridViewDataTextColumn FieldName="Reply"  VisibleIndex="7" ReadOnly="True" Visible="False" ></dx:GridViewDataTextColumn>                                                                    
                                                                             <dx:GridViewDataCheckColumn FieldName="SendReply" Visible="False" VisibleIndex="8">
                                                                             </dx:GridViewDataCheckColumn>
                                                                             <dx:GridViewDataDateColumn Caption="Created" FieldName="EnteredOn" VisibleIndex="9" Width="10%">
+                                                                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                                                             </dx:GridViewDataDateColumn>
-                                                                            <dx:GridViewDataTextColumn FieldName="EnteredByName" Caption="From"  VisibleIndex="10" ReadOnly="True" Width="30%"></dx:GridViewDataTextColumn>
+                                                                            <dx:GridViewDataTextColumn FieldName="EnteredByName" Caption="From"  VisibleIndex="10" ReadOnly="True" Width="30%">
+                                                                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                                                            </dx:GridViewDataTextColumn>
                                                                         </Columns>
                                                                     
                                                                         <SettingsBehavior AllowGroup="False" AllowSort="False" />
@@ -289,8 +315,8 @@
                                                                         <SettingsEditing Mode="EditForm"></SettingsEditing>
                                                                         <Settings ShowGroupButtons="False" ShowHeaderFilterBlankItems="False" />
                                                                         <SettingsDataSecurity AllowDelete="False" AllowInsert="False" />
-                                                                    </dx:ASPxGridView>                                                        
-                                                            </asp:TableCell>
+                                                                    </dx:ASPxGridView>
+                                                         </asp:TableCell>
                                                         </asp:TableRow>          
                                                 <asp:TableRow><asp:TableCell><br/></asp:TableCell>
                                             </asp:TableRow>                            
@@ -309,16 +335,14 @@
          </div>
         <div>
             <%-- User Login --%>
-
             <dx:ASPxPopupControl ID="pupctrlLogOut" runat="server" Modal="True" ShowCloseButton="false" ShowHeader="false"  PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pupctrlUserLogin"  PopupAnimationType="None" EnableViewState="False" Width="300px" CloseAction="None" FooterText="" HeaderText="" PopupElementID="pupctrlLogOut">
                 <ContentCollection>
                     <dx:PopupControlContentControl runat="server">
                         <asp:Table runat="server" Width="100%">
                             <asp:TableRow>
                                 <asp:TableCell>
-                                    <dx:ASPxImage ID="ASPxImage4" runat="server" ShowLoadingImage="true" ImageUrl="~/Images/Popups/logout.png"></dx:ASPxImage>
+                                    <dx:ASPxImage ID="ASPxImage4" runat="server" ShowLoadingImage="False" ImageUrl="~/Images/Popups/logout.png"></dx:ASPxImage>
                                 </asp:TableCell>
-                                <asp:TableCell></asp:TableCell>
                                 <asp:TableCell></asp:TableCell>
                                 <asp:TableCell>
                                     <asp:Table runat="server">
@@ -341,6 +365,7 @@
                         <asp:Table runat="server" Width="100%" HorizontalAlign="Center">
                                 <asp:TableRow HorizontalAlign="Center" >
                                     <asp:TableCell></asp:TableCell>
+                                    <asp:TableCell></asp:TableCell>
                                     <asp:TableCell><dx:ASPxButton ID="btnYes" runat="server" OnClick="btnYes_Click"  Text="Yes" HorizontalAlign="Center">  </dx:ASPxButton></asp:TableCell>
                                     <asp:TableCell><dx:ASPxButton ID="btnNo" runat="server"  OnClick="btnNo_Click" Text="No" HorizontalAlign="Center">  </dx:ASPxButton></asp:TableCell>
                                     <asp:TableCell></asp:TableCell>
@@ -350,4 +375,46 @@
                 </ContentCollection>
             </dx:ASPxPopupControl>
          </div>
+        <div>            
+            <%-- Inactive Account --%>
+            <dx:ASPxPopupControl ID="pupctlAccountInactive" runat="server" Modal="True" ShowCloseButton="false" ShowHeader="false"  PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pupctrlUserLogin"  PopupAnimationType="None" EnableViewState="False" Width="300px" CloseAction="None" FooterText="" HeaderText="" PopupElementID="pupctlAccountInactive">
+                <ContentCollection>
+                    <dx:PopupControlContentControl runat="server">
+                        <asp:Table runat="server" Width="100%">
+                            <asp:TableRow>
+                                <asp:TableCell>
+                                    <dx:ASPxImage ID="ASPxImage5" runat="server" ShowLoadingImage="False" ImageUrl="~/Images/Popups/Inactive User.png"></dx:ASPxImage>
+                                </asp:TableCell>
+                                <asp:TableCell></asp:TableCell>
+                                <asp:TableCell>
+                                    <asp:Table runat="server">
+                                        <asp:TableRow HorizontalAlign="Center">
+                                            <asp:TableCell><dx:ASPxLabel ID="ASPxLabel9" runat="server" Text="Inactive Account" Font-Size="X-Large"></dx:ASPxLabel></asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow>
+                                            <asp:TableCell><br /></asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow HorizontalAlign="Justify">
+                                            <asp:TableCell><dx:ASPxLabel ID="ASPxLabel10" runat="server" Text="Your account is not active.  Please contact your Customer Portal adminstrator for assistance."></dx:ASPxLabel></asp:TableCell>
+                                        </asp:TableRow>
+                                        <asp:TableRow>
+                                            <asp:TableCell><br /></asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                </asp:TableCell>
+                            </asp:TableRow>
+                            </asp:Table>
+                        <asp:Table runat="server" Width="100%" HorizontalAlign="Center">
+                                <asp:TableRow HorizontalAlign="Center" >
+                                    <asp:TableCell></asp:TableCell>
+                                    <asp:TableCell></asp:TableCell>
+                                    <asp:TableCell><dx:ASPxButton ID="ASPxButton1" runat="server" OnClick="btnAccountInactiveOk_Click"  Text="Ok" HorizontalAlign="Center">  </dx:ASPxButton></asp:TableCell>
+                                    <asp:TableCell></asp:TableCell>
+                                </asp:TableRow>
+                            </asp:Table>                        
+                    </dx:PopupControlContentControl>
+                </ContentCollection>
+            </dx:ASPxPopupControl>
+         </div>
+
        </asp:Content>

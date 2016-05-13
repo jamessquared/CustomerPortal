@@ -238,6 +238,15 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel4;
         
         /// <summary>
+        /// cbxUserLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cbxUserLevel;
+        
+        /// <summary>
         /// ASPxLabel1 control.
         /// </summary>
         /// <remarks>
@@ -256,13 +265,31 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxCheckBox chkActive;
         
         /// <summary>
-        /// cbxUserLevel control.
+        /// Table2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cbxUserLevel;
+        protected global::System.Web.UI.WebControls.Table Table2;
+        
+        /// <summary>
+        /// ASPxLabel24 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel24;
+        
+        /// <summary>
+        /// gvAuthorizedProtocols control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView gvAuthorizedProtocols;
         
         /// <summary>
         /// Table3 control.
@@ -274,40 +301,13 @@ namespace CustomerPortal.Account {
         protected global::System.Web.UI.WebControls.Table Table3;
         
         /// <summary>
-        /// ASPxLabel18 control.
+        /// ASPxLabel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel18;
-        
-        /// <summary>
-        /// gvContactProtocols control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView gvContactProtocols;
-        
-        /// <summary>
-        /// Table2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table2;
-        
-        /// <summary>
-        /// ASPxLabel8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel8;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel5;
         
         /// <summary>
         /// gvPrivileges control.

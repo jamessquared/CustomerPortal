@@ -211,33 +211,6 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxTextBox txtbxJobTitle;
         
         /// <summary>
-        /// Table3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table3;
-        
-        /// <summary>
-        /// ASPxLabel18 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel18;
-        
-        /// <summary>
-        /// gvContactProtocols control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView gvContactProtocols;
-        
-        /// <summary>
         /// dsContactInfo control.
         /// </summary>
         /// <remarks>
@@ -245,24 +218,6 @@ namespace CustomerPortal.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsContactInfo;
-        
-        /// <summary>
-        /// dsContactProtocolsInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsContactProtocolsInfo;
-        
-        /// <summary>
-        /// dsProtocols control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsProtocols;
         
         /// <summary>
         /// dsJobCategory control.

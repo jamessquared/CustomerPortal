@@ -22,40 +22,121 @@ namespace CustomerPortal {
         protected global::System.Web.UI.WebControls.Table tblMetricsTop;
         
         /// <summary>
-        /// ASPxLabel2 control.
+        /// lblPerformance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel2;
+        protected global::DevExpress.Web.ASPxLabel lblPerformance;
         
         /// <summary>
-        /// ASPxLabel5 control.
+        /// lblProjectResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel5;
+        protected global::DevExpress.Web.ASPxLabel lblProjectResults;
         
         /// <summary>
-        /// gaugeControl control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGauges.ASPxGaugeControl gaugeControl;
+        protected global::System.Web.UI.WebControls.Table Table1;
         
         /// <summary>
-        /// chrtUserByType control.
+        /// gagContactwithin1hr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.XtraCharts.Web.WebChartControl chrtUserByType;
+        protected global::DevExpress.Web.ASPxGauges.ASPxGaugeControl gagContactwithin1hr;
+        
+        /// <summary>
+        /// indicatorWithin1hr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGauges.Gauges.State.StateIndicatorComponent indicatorWithin1hr;
+        
+        /// <summary>
+        /// lblContactWithin1hr control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblContactWithin1hr;
+        
+        /// <summary>
+        /// gagSchedulewithin24hrs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGauges.ASPxGaugeControl gagSchedulewithin24hrs;
+        
+        /// <summary>
+        /// indicatorWithin24hrs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGauges.Gauges.State.StateIndicatorComponent indicatorWithin24hrs;
+        
+        /// <summary>
+        /// lbScheduledWithin24hrs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lbScheduledWithin24hrs;
+        
+        /// <summary>
+        /// gagResultsWithin48hrs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGauges.ASPxGaugeControl gagResultsWithin48hrs;
+        
+        /// <summary>
+        /// indicatorWithin48hrs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGauges.Gauges.State.StateIndicatorComponent indicatorWithin48hrs;
+        
+        /// <summary>
+        /// lblResultsWithin48hrs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblResultsWithin48hrs;
+        
+        /// <summary>
+        /// chrtProjectResults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.XtraCharts.Web.WebChartControl chrtProjectResults;
         
         /// <summary>
         /// tblMetricsBottom control.
@@ -67,22 +148,22 @@ namespace CustomerPortal {
         protected global::System.Web.UI.WebControls.Table tblMetricsBottom;
         
         /// <summary>
-        /// ASPxLabel3 control.
+        /// lblProjectActivity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel3;
+        protected global::DevExpress.Web.ASPxLabel lblProjectActivity;
         
         /// <summary>
-        /// ASPxLabel4 control.
+        /// ASPxLabel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel4;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel2;
         
         /// <summary>
         /// chrtDailyProjectActivity control.
@@ -94,13 +175,13 @@ namespace CustomerPortal {
         protected global::DevExpress.XtraCharts.Web.WebChartControl chrtDailyProjectActivity;
         
         /// <summary>
-        /// chrtProjectResults control.
+        /// chrtUserByType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.XtraCharts.Web.WebChartControl chrtProjectResults;
+        protected global::DevExpress.XtraCharts.Web.WebChartControl chrtUserByType;
         
         /// <summary>
         /// tblActivity control.

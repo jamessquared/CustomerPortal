@@ -40,6 +40,15 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel22;
         
         /// <summary>
+        /// Table3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table3;
+        
+        /// <summary>
         /// ASPxLabel20 control.
         /// </summary>
         /// <remarks>
@@ -76,13 +85,31 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxDateEdit dedTo;
         
         /// <summary>
-        /// ASPxGridView1 control.
+        /// Table2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView ASPxGridView1;
+        protected global::System.Web.UI.WebControls.Table Table2;
+        
+        /// <summary>
+        /// ASPxLabel24 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel24;
+        
+        /// <summary>
+        /// gvProject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView gvProject;
         
         /// <summary>
         /// dsFindProjects control.

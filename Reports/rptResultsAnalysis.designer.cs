@@ -77,6 +77,9 @@
             this.xrLabel3,
             this.xrLabel2});
             this.Detail.HeightF = 26.04167F;
+            this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("Year", DevExpress.XtraReports.UI.XRColumnSortOrder.Descending),
+            new DevExpress.XtraReports.UI.GroupField("Month", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
             // 
             // EmployerID
             // 
@@ -403,8 +406,6 @@
             this.ToDate,
             this.EmployerID});
             this.Version = "14.2";
-            this.Watermark.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Watermark.Text = "DRAFT";
             this.Controls.SetChildIndex(this.ReportFooter, 0);
             this.Controls.SetChildIndex(this.PageHeader, 0);
             this.Controls.SetChildIndex(this.Detail, 0);

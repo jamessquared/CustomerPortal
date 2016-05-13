@@ -1,16 +1,24 @@
 ﻿namespace CustomerPortal.Account
 {
+    using CustomerPortal.Utility;
     using System;
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
     using System.Drawing;
     using System.Linq;
+    using System.Web;
 
     public partial class ChangePassword : System.Web.UI.Page
     {
+        #region Properties
+
+        private bool IsValid { get; set; }
+       
+        #endregion
+
         #region Private
-        
+
         private int PasswordLengthScore(string password)
         {
             int result = 0;
@@ -25,6 +33,7 @@
             {
                 result += 10;
             }
+
             if (password.Length > 6)
             {
                 result += 25;
@@ -85,7 +94,7 @@
             int numberOfSpecialCharacters = password.Count(c => !char.IsLetterOrDigit(c));
 
             // Upper & lower case
-            if (numberOfSpecialCharacters == 1 )
+            if (numberOfSpecialCharacters == 1)
             {
                 result += 10;
             }
@@ -139,24 +148,71 @@
         private bool ChangeUserPassword(string userName, string userPassword, string newPassword, long employerID)
         {
             bool result = false;
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
-            {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("OHSN_Web_UpdateUserPassword", conn))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@UserName", userName);
-                    cmd.Parameters.AddWithValue("@UserPassword", userPassword);
-                    cmd.Parameters.AddWithValue("@NewPassword", newPassword);
-                    cmd.Parameters.AddWithValue("@EmployerID", employerID);
 
-                    int noOfRecords = cmd.ExecuteNonQuery();
-                    if (noOfRecords != null && noOfRecords == 1)
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("OHSN_Web_UpdateUserPassword", conn))
                     {
-                        result = true;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@UserName", userName);
+                        cmd.Parameters.AddWithValue("@UserPassword", userPassword);
+                        cmd.Parameters.AddWithValue("@NewPassword", newPassword);
+                        cmd.Parameters.AddWithValue("@EmployerID", employerID);
+
+                        int noOfRecords = cmd.ExecuteNonQuery();
+                        if (noOfRecords == 1)
+                        {
+                            result = true;
+                        }
                     }
+                    conn.Close();
                 }
-                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Change Password - ChangeUserPassword");
+
+                ExceptionUtility.NotifySupport(ex);
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            } 
+
+            return result;
+        }
+
+        private bool UserFound()
+        {
+            bool result = false;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("OHSN_WEB_GetUserLoginInfo", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@UserName", Session["UserName"].ToString());
+                        cmd.Parameters.AddWithValue("@UserPassword", txtOldPassword.Text);
+                        SqlDataReader rdr = cmd.ExecuteReader();
+
+                        result = rdr.HasRows;
+                        rdr.Close();
+                    }
+
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "Change Password - UserFound");
+
+                ExceptionUtility.NotifySupport(ex);
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
             }
 
             return result;
@@ -166,26 +222,24 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Redirect to Login if NOT logged in
             if (Session["ContactID"] == null)
             {
                 Response.Redirect("~/Default.aspx");
             }
-        }
 
-        protected void btnedNewPassword_ButtonClick(object source, DevExpress.Web.ButtonEditClickEventArgs e)
-        {
-            btnedNewPassword.Password = !btnedNewPassword.Password;
-        }
-
-        protected void btnConfirmPassword_ButtonClick(object source, DevExpress.Web.ButtonEditClickEventArgs e)
-        {
-            btnConfirmPassword.Password = !btnConfirmPassword.Password;
+            // Set Login Header
+            CustomerPortal.RootMaster siteMasterPage = (CustomerPortal.RootMaster)this.Master;
+            if (siteMasterPage != null)
+            {
+                siteMasterPage.SetLoginLabels();
+            }
         }
 
         protected void SetStrengthOfPassword()
         {
             // Calculate password Strength
-            int passwordStrength = CalculatedPasswordStrength(btnedNewPassword.Text);
+            int passwordStrength = CalculatedPasswordStrength(txtNewPassword.Text);
             pbStrengthOfPassword.Position = passwordStrength;
 
             if (passwordStrength >= 80)
@@ -219,21 +273,20 @@
             }
         }
 
-        protected void btnedNewPassword_ValueChanged(object sender, EventArgs e)
+        protected void CheckValidate()
         {
-            SetStrengthOfPassword();
-            btnedNewPassword.Password = true;
-        }
+            IsValid = true;
 
-        protected void btnConfirmPassword_Validation(object sender, DevExpress.Web.ValidationEventArgs e)
-        {
-            btnConfirmPassword.Password = true;
+            // Check that the Confirm password was entered
+            txtOldPassword.Validate();
 
-            if (btnConfirmPassword.Text != btnedNewPassword.Text)
+
+            // Check that the Confirm password was entered
+            if (IsValid)
             {
-                e.IsValid = false;
-                e.ErrorText = "Passwords don't match!";
-            }
+                txtNewPassword.Validate();
+                txtConfirmPassword.Validate();
+            }   
         }
 
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
@@ -248,20 +301,14 @@
 
                 case "btnSubmit":
                     {
-                        if (string.IsNullOrEmpty(btnConfirmPassword.Text) == false && btnConfirmPassword.Text == btnedNewPassword.Text)
+                        SetStrengthOfPassword();
+                        CheckValidate();
+                        if (IsValid)
                         {
-                            if (ChangeUserPassword(Session["UserName"].ToString(), txtOldPassword.Text, btnedNewPassword.Text, Convert.ToInt64(Session["EmployerID"])) == true)
+                            if (ChangeUserPassword(Session["UserName"].ToString(), txtOldPassword.Text, txtNewPassword.Text, Convert.ToInt64(Session["EmployerID"])) == true)
                             {
                                 Response.Redirect("~/Account/PasswordSuccessfullyChanged.aspx");
                             }
-                            else
-                            {
-                                lblPasswordChangeFailed.Visible = true;
-                            }
-                        }
-                        else
-                        {
-                            lblPasswordChangeFailed.Visible = true;
                         }
                         break;
                     }
@@ -271,6 +318,69 @@
                         Response.Redirect("~/Default.aspx");
                         break;
                     }
+            }
+        }
+
+        protected void txtNewPassword_TextChanged(object sender, EventArgs e)
+        {
+            SetStrengthOfPassword();
+        }
+
+        protected void txtOldPassword_Validation(object sender, DevExpress.Web.ValidationEventArgs e)
+        {
+            e.IsValid = (UserFound() == true);
+            e.ErrorText = "Password is incorrect!";
+            IsValid = e.IsValid;
+        }
+
+        protected void txtNewPassword_Validation(object sender, DevExpress.Web.ValidationEventArgs e)
+        {
+            e.IsValid = true;
+
+            if (string.IsNullOrEmpty(txtNewPassword.Text) == true)
+            {
+                e.IsValid = false;
+                IsValid = e.IsValid;
+                e.ErrorText = "Password cannot be empty!";
+                return;
+            }
+
+            if (string.Compare(txtNewPassword.Text, txtOldPassword.Text, false) == 0)
+            {
+                e.IsValid = false;
+                IsValid = e.IsValid;
+                e.ErrorText = "The new pasword cannot the same as the old password!";
+                return;
+            }
+
+            // Check password strength
+            if (CalculatedPasswordStrength(txtNewPassword.Text) < 40)
+            {
+                e.IsValid = false;
+                IsValid = e.IsValid;
+                e.ErrorText = "The new pasword is to weak!";
+                return;
+            }
+        }
+
+        protected void txtConfirmPassword_Validation(object sender, DevExpress.Web.ValidationEventArgs e)
+        {
+            e.IsValid = true;
+
+            if (string.IsNullOrEmpty(txtConfirmPassword.Text) == true)
+            {
+                e.IsValid = false;
+                IsValid = e.IsValid;
+                e.ErrorText = "Password cannot be empty!";
+                return;
+            }
+
+            if (string.Compare(txtNewPassword.Text, txtConfirmPassword.Text, false) != 0)
+            {
+                e.IsValid = false;
+                IsValid = e.IsValid;
+                e.ErrorText = "Does not match the new pasword!";
+                return;
             }
         }
     }

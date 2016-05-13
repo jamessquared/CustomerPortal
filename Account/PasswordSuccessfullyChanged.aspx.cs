@@ -11,7 +11,18 @@ namespace CustomerPortal.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Redirect to Login if NOT logged in
+            if (Session["ContactID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
 
+            // Set Login Header
+            CustomerPortal.RootMaster siteMasterPage = (CustomerPortal.RootMaster)this.Master;
+            if (siteMasterPage != null)
+            {
+                siteMasterPage.SetLoginLabels();
+            }
         }
 
         protected void btnOkPasswordSuccessfullyChanged_Click(object sender, EventArgs e)

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CustomerPortal.Account {
+namespace CustomerPortal {
     
     
-    public partial class DeleteUser {
+    public partial class TimeOutPage {
         
         /// <summary>
         /// Table1 control.
@@ -31,13 +31,22 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel3;
         
         /// <summary>
-        /// Table3 control.
+        /// ASPxLabel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table3;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel4;
+        
+        /// <summary>
+        /// Table2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table2;
         
         /// <summary>
         /// btnOk control.

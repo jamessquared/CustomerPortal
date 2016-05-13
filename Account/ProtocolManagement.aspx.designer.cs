@@ -10,7 +10,16 @@
 namespace CustomerPortal.Account {
     
     
-    public partial class LogOut {
+    public partial class ProtocolManagement {
+        
+        /// <summary>
+        /// mainToolbar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRibbon mainToolbar;
         
         /// <summary>
         /// Table1 control.
@@ -31,39 +40,39 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel3;
         
         /// <summary>
-        /// Table2 control.
+        /// tblProtocols control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table2;
+        protected global::System.Web.UI.WebControls.Table tblProtocols;
         
         /// <summary>
-        /// ASPxLabel2 control.
+        /// ASPxLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel2;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
         
         /// <summary>
-        /// ASPxButton1 control.
+        /// gvAccountManagementUsers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ASPxButton1;
+        protected global::DevExpress.Web.ASPxGridView gvAccountManagementUsers;
         
         /// <summary>
-        /// ASPxButton2 control.
+        /// dsProtocolManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ASPxButton2;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsProtocolManagement;
     }
 }

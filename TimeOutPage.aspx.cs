@@ -5,18 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CustomerPortal.Account
+namespace CustomerPortal
 {
-    public partial class DeleteUser : System.Web.UI.Page
+    public partial class TimeOutPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Clear();
         }
 
         protected void btnOk_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Account/UserManagement.aspx");
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

@@ -292,6 +292,24 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxEmail;
         
         /// <summary>
+        /// lblJobCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel lblJobCategory;
+        
+        /// <summary>
+        /// cbxJobCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cbxJobCategory;
+        
+        /// <summary>
         /// ASPxLabel15 control.
         /// </summary>
         /// <remarks>
@@ -364,22 +382,40 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxCompleteBy;
         
         /// <summary>
-        /// ASPxLabel16 control.
+        /// SpecialInstructionsTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel16;
+        protected global::System.Web.UI.WebControls.Table SpecialInstructionsTable;
         
         /// <summary>
-        /// txtbxSpecialInstructions control.
+        /// ASPxLabel3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxTextBox txtbxSpecialInstructions;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel3;
+        
+        /// <summary>
+        /// memSpecialInstructions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxMemo memSpecialInstructions;
+        
+        /// <summary>
+        /// Table2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table2;
         
         /// <summary>
         /// ASPxLabel24 control.
@@ -400,13 +436,22 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxGridView gvProtocols;
         
         /// <summary>
-        /// ASPxLabel21 control.
+        /// Table3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel21;
+        protected global::System.Web.UI.WebControls.Table Table3;
+        
+        /// <summary>
+        /// ASPxLabel16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel16;
         
         /// <summary>
         /// gvNotes control.
@@ -418,13 +463,22 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxGridView gvNotes;
         
         /// <summary>
-        /// ASPxLabel20 control.
+        /// Table4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel20;
+        protected global::System.Web.UI.WebControls.Table Table4;
+        
+        /// <summary>
+        /// ASPxLabel21 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel21;
         
         /// <summary>
         /// gvFiles control.
@@ -470,5 +524,14 @@ namespace CustomerPortal.Projects {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsFiles;
+        
+        /// <summary>
+        /// dsJobCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsJobCategory;
     }
 }

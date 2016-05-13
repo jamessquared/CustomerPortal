@@ -67,31 +67,31 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxGridView gvAccountManagementUsers;
         
         /// <summary>
-        /// tblPrivileges control.
+        /// Table2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblPrivileges;
+        protected global::System.Web.UI.WebControls.Table Table2;
         
         /// <summary>
-        /// ASPxLabel2 control.
+        /// ASPxLabel24 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel2;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel24;
         
         /// <summary>
-        /// gvUserPrivileges control.
+        /// gvPrivileges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView gvUserPrivileges;
+        protected global::DevExpress.Web.ASPxGridView gvPrivileges;
         
         /// <summary>
         /// dsUserManagementUsers control.
@@ -103,13 +103,13 @@ namespace CustomerPortal.Account {
         protected global::System.Web.UI.WebControls.SqlDataSource dsUserManagementUsers;
         
         /// <summary>
-        /// dsAccountManagementUserPrivileges control.
+        /// dsPrivileges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsAccountManagementUserPrivileges;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsPrivileges;
         
         /// <summary>
         /// pupctlDeleteUser control.
@@ -184,13 +184,13 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxImage ASPxImage1;
         
         /// <summary>
-        /// ASPxLabel5 control.
+        /// ASPxLabel10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel5;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel10;
         
         /// <summary>
         /// ASPxLabel7 control.

@@ -13,21 +13,12 @@ namespace CustomerPortal.Reports {
     public partial class ReportViewer {
         
         /// <summary>
-        /// mainToolbar control.
+        /// rptDocViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRibbon mainToolbar;
-        
-        /// <summary>
-        /// DocumentViewer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.XtraReports.Web.ASPxDocumentViewer DocumentViewer;
+        protected global::DevExpress.XtraReports.Web.ASPxDocumentViewer rptDocViewer;
     }
 }

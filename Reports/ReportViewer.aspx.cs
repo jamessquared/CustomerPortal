@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using DevExpress.XtraPrinting;
-using DevExpress.XtraReports.UI;
-
-namespace CustomerPortal.Reports
+﻿namespace CustomerPortal.Reports
 {
+    using CustomerPortal.Classes;
+    using CustomerPortal.Utility;
+    using DevExpress.XtraReports.UI;
+    using System;
+    using System.Collections.Generic;
+    using System.Web;
+    using DevExpress.Web;
+    using DevExpress.XtraReports.Web;
+    using System.IO;
+
     public partial class ReportViewer : System.Web.UI.Page
     {
         private XtraReport GetReport()
         {
             var rpt = new XtraReport();
+    
             switch (Session["ReportName"].ToString())
             {
                 case "Active Projects":
@@ -74,11 +76,32 @@ namespace CustomerPortal.Reports
             return rpt;
         }
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["EmployerID"] == null)
+            // Redirect to Login if NOT logged in
+            if (Session["ContactID"] == null)
             {
-                Response.Redirect("~/Account/Login.aspx");
+                Response.Redirect("~/Default.aspx");
+            }
+
+            // Set Login Header
+            CustomerPortal.RootMaster siteMasterPage = (CustomerPortal.RootMaster)this.Master;
+            if (siteMasterPage != null)
+            {
+                siteMasterPage.SetLoginLabels();
+            }
+
+            // Validate that the user has access to this page
+            if (Session["Privileges"] != null)
+            {
+                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                Priviliges p = priv["Reports"];
+
+                if (p.AllowAccess == 0)
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
             }
 
             Session["ReportName"] = Request.QueryString["NameID"].ToString();
@@ -91,11 +114,12 @@ namespace CustomerPortal.Reports
                 mainRpt.Parameters[2].Visible = false;
 
                 mainRpt.CreateDocument();
-                DocumentViewer.Report = mainRpt;
-                DocumentViewer.ReportTypeName = mainRpt.ToString();
-                DocumentViewer.DataBind();
+                rptDocViewer.Report = mainRpt;
+                rptDocViewer.ReportTypeName = mainRpt.ToString();
+                rptDocViewer.DataBind();
             }
         }
+
 
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
         {
@@ -103,7 +127,7 @@ namespace CustomerPortal.Reports
             {
                 case "btnBack":
                     {
-                        Response.Redirect("~/Default.aspx");
+                        Response.Redirect("~/");
                         break;
                     }
             }

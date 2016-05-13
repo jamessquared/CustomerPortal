@@ -22,31 +22,31 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxRibbon mainToolbar;
         
         /// <summary>
-        /// Table1 control.
+        /// Table2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
+        protected global::System.Web.UI.WebControls.Table Table2;
         
         /// <summary>
-        /// ASPxLabel12 control.
+        /// ASPxLabel13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel12;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel13;
         
         /// <summary>
-        /// ASPxLabel2 control.
+        /// ASPxLabel14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel2;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel14;
         
         /// <summary>
         /// lblPasswordChangeFailed control.
@@ -58,13 +58,22 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxLabel lblPasswordChangeFailed;
         
         /// <summary>
-        /// ASPxLabel1 control.
+        /// Table1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
+        protected global::System.Web.UI.WebControls.Table Table1;
+        
+        /// <summary>
+        /// MainForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table MainForm;
         
         /// <summary>
         /// ASPxLabel3 control.
@@ -85,6 +94,69 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxTextBox txtOldPassword;
         
         /// <summary>
+        /// ASPxLabel5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel5;
+        
+        /// <summary>
+        /// txtNewPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtNewPassword;
+        
+        /// <summary>
+        /// ASPxLabel4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel4;
+        
+        /// <summary>
+        /// txtConfirmPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtConfirmPassword;
+        
+        /// <summary>
+        /// ASPxLabel9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel9;
+        
+        /// <summary>
+        /// pbStrengthOfPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxProgressBar pbStrengthOfPassword;
+        
+        /// <summary>
+        /// Table3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table Table3;
+        
+        /// <summary>
         /// ASPxLabel6 control.
         /// </summary>
         /// <remarks>
@@ -101,33 +173,6 @@ namespace CustomerPortal.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxLabel ASPxLabel7;
-        
-        /// <summary>
-        /// ASPxLabel5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel5;
-        
-        /// <summary>
-        /// btnedNewPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButtonEdit btnedNewPassword;
-        
-        /// <summary>
-        /// ASPxImage1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxImage ASPxImage1;
         
         /// <summary>
         /// ASPxLabel8 control.
@@ -148,24 +193,6 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel10;
         
         /// <summary>
-        /// ASPxLabel4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel4;
-        
-        /// <summary>
-        /// btnConfirmPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButtonEdit btnConfirmPassword;
-        
-        /// <summary>
         /// ASPxLabel11 control.
         /// </summary>
         /// <remarks>
@@ -175,21 +202,12 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel11;
         
         /// <summary>
-        /// ASPxLabel9 control.
+        /// ASPxLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel9;
-        
-        /// <summary>
-        /// pbStrengthOfPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxProgressBar pbStrengthOfPassword;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
     }
 }

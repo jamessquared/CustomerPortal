@@ -1,18 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-
-namespace CustomerPortal.Projects
+﻿namespace CustomerPortal.Projects
 {
+    using CustomerPortal.Classes;
+    using CustomerPortal.Utility;
+    using System;
+    using System.Collections.Generic;
+    using System.Web;
+
     public partial class FindProject : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            dedFrom.Date = DateTime.Now.AddDays(-30);
-            dedTo.Date = DateTime.Now.Date;
+            // Redirect to Login if NOT logged in
+            if (Session["ContactID"] == null)
+            {
+                Response.Redirect("~/Default.aspx");
+            }
+
+            // Set Login Header
+            CustomerPortal.RootMaster siteMasterPage = (CustomerPortal.RootMaster)this.Master;
+            if (siteMasterPage != null)
+            {
+                siteMasterPage.SetLoginLabels();
+            }
+
+            // Validate that the user has access to this page
+            if (Session["Privileges"] != null)
+            {
+                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                Priviliges p = priv["Find Project"];
+
+                if (p.AllowAccess == 0)
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
+            }
+
+            if (IsPostBack == false)
+            {
+                dedFrom.Date = DateTime.Now.AddDays(-30);
+                dedTo.Date = DateTime.Now.Date;
+            }
         }
 
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
@@ -32,12 +59,21 @@ namespace CustomerPortal.Projects
                         {
                             Session["FromDate"] = dedFrom.Date;
                             Session["ToDate"] = dedTo.Date;
-                            dsFindProjects.DataBind();
+                            
+                            try
+                            {
+                                dsFindProjects.DataBind();
+                            }
+                            catch (Exception ex)
+                            {
+                                ExceptionUtility.LogException(ex, "Find Project - mainToolbar_CommandExecuted");
+
+                                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+                            } 
                         }
 
                         break;
                     }
-
             }
         }
     }

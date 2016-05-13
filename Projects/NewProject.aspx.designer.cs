@@ -49,13 +49,13 @@ namespace CustomerPortal.Projects {
         protected global::System.Web.UI.WebControls.Table ProjectTable;
         
         /// <summary>
-        /// ASPxLabel2 control.
+        /// ASPxLabel16 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel2;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel16;
         
         /// <summary>
         /// txtbxLastName control.
@@ -67,13 +67,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxLastName;
         
         /// <summary>
-        /// ASPxLabel1 control.
+        /// ASPxLabel23 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel23;
         
         /// <summary>
         /// txtbxFirstName control.
@@ -85,13 +85,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxFirstName;
         
         /// <summary>
-        /// ASPxLabel5 control.
+        /// ASPxLabel24 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel5;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel24;
         
         /// <summary>
         /// txtbxMI control.
@@ -103,13 +103,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxMI;
         
         /// <summary>
-        /// ASPxLabel6 control.
+        /// ASPxLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel6;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
         
         /// <summary>
         /// txtbxPrimaryAddressline control.
@@ -130,13 +130,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxSecondaryAddressline;
         
         /// <summary>
-        /// ASPxLabel7 control.
+        /// ASPxLabel2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel7;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel2;
         
         /// <summary>
         /// txtbxCity control.
@@ -148,13 +148,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxCity;
         
         /// <summary>
-        /// ASPxLabel8 control.
+        /// ASPxLabel5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel8;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel5;
         
         /// <summary>
         /// cmbxStates control.
@@ -166,13 +166,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxComboBox cmbxStates;
         
         /// <summary>
-        /// ASPxLabel9 control.
+        /// ASPxLabel6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel9;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel6;
         
         /// <summary>
         /// txtbxPostalCode control.
@@ -184,13 +184,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxPostalCode;
         
         /// <summary>
-        /// ASPxLabel10 control.
+        /// ASPxLabel7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel10;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel7;
         
         /// <summary>
         /// deDOB control.
@@ -202,13 +202,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxDateEdit deDOB;
         
         /// <summary>
-        /// ASPxLabel11 control.
+        /// ASPxLabel8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel11;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel8;
         
         /// <summary>
         /// txtbxSSN control.
@@ -220,13 +220,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxSSN;
         
         /// <summary>
-        /// ASPxLabel12 control.
+        /// ASPxLabel9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel12;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel9;
         
         /// <summary>
         /// txtbxMainPhone control.
@@ -238,13 +238,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxMainPhone;
         
         /// <summary>
-        /// ASPxLabel13 control.
+        /// ASPxLabel10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel13;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel10;
         
         /// <summary>
         /// txtbxAltPhone control.
@@ -256,13 +256,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxAltPhone;
         
         /// <summary>
-        /// ASPxLabel14 control.
+        /// ASPxLabel11 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel14;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel11;
         
         /// <summary>
         /// txtbxEmail control.
@@ -274,13 +274,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxEmail;
         
         /// <summary>
-        /// ASPxLabel15 control.
+        /// lblJobCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel15;
+        protected global::DevExpress.Web.ASPxLabel lblJobCategory;
         
         /// <summary>
         /// cbxJobCategory control.
@@ -292,13 +292,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxComboBox cbxJobCategory;
         
         /// <summary>
-        /// ASPxLabel4 control.
+        /// ASPxLabel12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel4;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel12;
         
         /// <summary>
         /// txtbxJobTitle control.
@@ -310,13 +310,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxJobTitle;
         
         /// <summary>
-        /// ASPxLabel17 control.
+        /// ASPxLabel4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel17;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel4;
         
         /// <summary>
         /// cbxRequestType control.
@@ -328,13 +328,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxComboBox cbxRequestType;
         
         /// <summary>
-        /// ASPxLabel18 control.
+        /// ASPxLabel13 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel18;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel13;
         
         /// <summary>
         /// dedScheduleBy control.
@@ -346,13 +346,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxDateEdit dedScheduleBy;
         
         /// <summary>
-        /// ASPxLabel19 control.
+        /// ASPxLabel14 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel19;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel14;
         
         /// <summary>
         /// dedCompleteBy control.
@@ -400,13 +400,22 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxComboBox cbxDOT;
         
         /// <summary>
-        /// ASPxLabel22 control.
+        /// SpecialInstructionsTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel22;
+        protected global::System.Web.UI.WebControls.Table SpecialInstructionsTable;
+        
+        /// <summary>
+        /// ASPxLabel15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel15;
         
         /// <summary>
         /// memSpecialInstructions control.

@@ -1,46 +1,88 @@
 ﻿namespace CustomerPortal.Account
 {
+    using CustomerPortal.Classes;
+    using CustomerPortal.Utility;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.UI;
-    using System.Web.UI.WebControls;
-    using System.Data;
-    using DevExpress.Web;
-    using System.Data;
-    using System.Data.Sql;
-    using System.Data.SqlClient;
     using System.Configuration;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Web;
 
     public partial class UserManagement : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Redirect to Login if NOT logged in
             if (Session["ContactID"] == null)
             {
                 Response.Redirect("~/Default.aspx");
             }
 
-            dsUserManagementUsers.DataBind();
-            gvUserPrivileges.DataBind();
+            // Set Login Header
+            CustomerPortal.RootMaster siteMasterPage = (CustomerPortal.RootMaster)this.Master;
+            if (siteMasterPage != null)
+            {
+                siteMasterPage.SetLoginLabels();
+            }
+
+            // Validate that the user has access to this page
+            if (Session["Privileges"] != null)
+            {
+                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                Priviliges p = priv["User Account Management"];
+
+                if (p.AllowAccess == 0)
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
+            }
+
+            Refresh();
+        }
+
+        protected void Refresh()
+        {
+            // Load Data
+            try
+            {
+                dsUserManagementUsers.DataBind();
+                dsPrivileges.DataBind();
+                gvAccountManagementUsers.DataBind();
+                gvPrivileges.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "User Management - Page_Load");
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            } 
         }
 
         protected void gvAccountManagementUsers_SelectionChanged(object sender, EventArgs e)
         {
-            dsUserManagementUsers.DataBind();
-
-            List<object> fieldValues = gvAccountManagementUsers.GetSelectedFieldValues(new string[] { "ContactID", "LastName" });
-            foreach (object[] item in fieldValues)
+            try
             {
-                Session["WorkingContactID"] = item[0].ToString();
+                dsUserManagementUsers.DataBind();
+
+                List<object> fieldValues = gvAccountManagementUsers.GetSelectedFieldValues(new string[] { "ContactID", "LastName" });
+                foreach (object[] item in fieldValues)
+                {
+                    Session["WorkingContactID"] = item[0].ToString();
+                }
+
+                Refresh();
+
+                mainToolbar.Tabs[0].Groups[1].Items[1].Visible = true;
+                mainToolbar.Tabs[0].Groups[1].Items[2].Visible = true;
+                mainToolbar.Tabs[0].Groups[2].Visible = true;
             }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "User Managment - gvAccountManagementUsers_SelectionChanged");
 
-            dsAccountManagementUserPrivileges.DataBind();
-            gvUserPrivileges.DataBind();
-
-            mainToolbar.Tabs[0].Groups[1].Visible = true;
-            mainToolbar.Tabs[0].Groups[2].Visible = true;
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            } 
         }
 
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
@@ -89,20 +131,31 @@
 
         protected void btnDeleteUserYes_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("OHSN_Web_ResetUserPrivileges", conn))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@ContactID", Session["WorkingContactID"]);
-                    var result = (int)cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("OHSN_Web_WebUserDelete_Update", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ContactID", Session["WorkingContactID"]);
+                        var result = (int)cmd.ExecuteNonQuery();
+                    }
+                    conn.Close();
                 }
-                conn.Close();
-            }
 
-            pupctlDeleteUser.ShowOnPageLoad = false;
-            dsUserManagementUsers.DataBind();
+                pupctlDeleteUser.ShowOnPageLoad = false;
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "User Management - btnDeleteUserYes_Click");
+
+                ExceptionUtility.NotifySupport(ex);
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            } 
         }
 
         protected void btnDeleteUserNo_Click(object sender, EventArgs e)
@@ -116,23 +169,34 @@
 
         protected void btnResetPasswordOk_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtbxResetUserPassword.Text) == false)
+            try
             {
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
+                if (string.IsNullOrEmpty(txtbxResetUserPassword.Text) == false)
                 {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("OHSN_Web_ResetUserPassword", conn))
+                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ContactID", Session["WorkingContactID"]);
-                        cmd.Parameters.AddWithValue("@temppassword", txtbxResetUserPassword.Text);
-                        var result = (int)cmd.ExecuteNonQuery();
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand("OHSN_Web_ResetUserPassword", conn))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@ContactID", Session["WorkingContactID"]);
+                            cmd.Parameters.AddWithValue("@temppassword", txtbxResetUserPassword.Text);
+                            var result = (int)cmd.ExecuteNonQuery();
+                        }
+                        conn.Close();
                     }
-                    conn.Close();
-                }
 
-                pupctrlResetPassword.ShowOnPageLoad = false;
+                    pupctrlResetPassword.ShowOnPageLoad = false;
+                }
             }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "User Management - btnResetPasswordOk_Click");
+
+                ExceptionUtility.NotifySupport(ex);
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            } 
         }
                              
         protected void btnResetPasswordCancel_Click(object sender, EventArgs e)
@@ -146,20 +210,31 @@
 
         protected void btnDeactivateUserYes_Click(object sender, EventArgs e)
         {
-            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("[OHSN_Web_DeactivateUser]", conn))
+                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
                 {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@ContactID", Session["WorkingContactID"]);
-                    var result = (int)cmd.ExecuteNonQuery();
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("[OHSN_Web_DeactivateUser]", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@ContactID", Session["WorkingContactID"]);
+                        var result = (int)cmd.ExecuteNonQuery();
+                    }
+                    conn.Close();
                 }
-                conn.Close();
-            }
 
-            pupctrlDeactivateUser.ShowOnPageLoad = false;
-            dsUserManagementUsers.DataBind();
+                pupctrlDeactivateUser.ShowOnPageLoad = false;
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                ExceptionUtility.LogException(ex, "User Management - btnDeactivateUserYes_Click");
+
+                ExceptionUtility.NotifySupport(ex);
+
+                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+            } 
         }
 
         protected void btnDeactivateUserNo_Click(object sender, EventArgs e)

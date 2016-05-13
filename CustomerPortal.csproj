@@ -46,23 +46,11 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Dashboard.v14.2.Core, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DevExpress.Dashboard.v14.2.Web, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="DevExpress.Data.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.DataAccess.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DevExpress.Map.v14.2.Core, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
@@ -95,6 +83,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Utils.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v14.2.UI, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
@@ -138,6 +130,10 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Xpo.v14.2.Web, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.XtraCharts.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -146,7 +142,10 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.XtraGauges.v14.2.Core, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -155,15 +154,11 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.v14.2.Win, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DevExpress.XtraMap.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="DevExpress.XtraPivotGrid.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
@@ -172,6 +167,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v14.2.Web, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v14.2, Version=14.2.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
@@ -184,6 +183,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -197,33 +197,33 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\DeleteUser.aspx" />
+    <Content Include="Account\AddProtocols.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\EditProtocols.aspx" />
     <Content Include="Account\EditUser.aspx" />
     <Content Include="Account\AddUser.aspx" />
-    <Content Include="Account\LogOut.aspx" />
     <Content Include="Account\NewCompanyContact.aspx" />
     <Content Include="Account\PasswordSuccessfullyChanged.aspx" />
     <Content Include="Account\ResetPassword.aspx" />
+    <Content Include="Account\ProtocolManagement.aspx" />
     <Content Include="Account\UserManagement.aspx" />
-    <Content Include="Content\Images\AquaHeader.jpg" />
-    <Content Include="Content\Images\BlackGlassHeader.jpg" />
-    <Content Include="Content\Images\GlassHeader.jpg" />
-    <Content Include="Content\Images\PlasticBlueHeader.jpg" />
-    <Content Include="Content\Images\RedWineHeader.jpg" />
-    <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\General\Add Privileges.png" />
     <Content Include="Images\General\Add.png" />
     <Content Include="Images\General\Cancel.png" />
+    <Content Include="Images\General\Deactivate Protocol.png" />
     <Content Include="Images\General\Deactivate User.png" />
     <Content Include="Images\General\Delete.png" />
     <Content Include="Images\General\Edit.png" />
     <Content Include="Images\General\Find.png" />
+    <Content Include="Images\General\New Contact.png" />
     <Content Include="Images\General\New User.png" />
     <Content Include="Images\General\Reset User.png" />
     <Content Include="Images\General\Reset.png" />
+    <Content Include="Images\General\SendMail.png" />
+    <Content Include="Images\General\ShowChecked.png" />
     <Content Include="Images\General\Submit.png" />
     <Content Include="Images\MainMenu\FindProject.png" />
     <Content Include="Images\General\Hint-Large.png" />
@@ -233,12 +233,16 @@
   <ItemGroup>
     <Content Include="Images\MainMenu\ManageUsers.png" />
     <Content Include="Images\MainMenu\NewProject.png" />
+    <Content Include="Images\MainMenu\Protocol Management.png" />
+    <Content Include="Images\MainMenu\Refresh Screen.png" />
     <Content Include="Images\Popups\Delete.png" />
     <Content Include="Images\Popups\Flag Red.png" />
     <Content Include="Images\Popups\Login.png" />
     <Content Include="Images\Popups\Logout.png" />
     <Content Include="Images\Popups\Notifications.png" />
     <Content Include="Images\Popups\Password-Eyeball-16.png" />
+    <Content Include="Images\Popups\SessionExpiring.png" />
+    <Content Include="Images\Reports\Back Small.png" />
     <Content Include="Images\Reports\Back.png" />
     <Content Include="Images\Reports\First.png" />
     <Content Include="Images\Reports\Last.png" />
@@ -247,6 +251,9 @@
     <Content Include="Images\Reports\Print Quick.png" />
     <Content Include="Images\Reports\Print.png" />
     <Content Include="Images\Reports\Save.png" />
+    <Content Include="Images\Request Type\postAccident.png" />
+    <Content Include="Images\Request Type\Random.png" />
+    <Content Include="Images\Request Type\ReasonableSuspicion.png" />
     <Content Include="Light.master" />
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +268,8 @@
     <Content Include="Root.master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TimeoutControl.ascx" />
+    <Content Include="TimeOutPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -273,12 +282,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\DeleteUser.aspx.cs">
-      <DependentUpon>DeleteUser.aspx</DependentUpon>
+    <Compile Include="Account\AddProtocols.aspx.cs">
+      <DependentUpon>AddProtocols.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\DeleteUser.aspx.designer.cs">
-      <DependentUpon>DeleteUser.aspx</DependentUpon>
+    <Compile Include="Account\AddProtocols.aspx.designer.cs">
+      <DependentUpon>AddProtocols.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
@@ -286,6 +295,13 @@
     </Compile>
     <Compile Include="Account\ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\EditProtocols.aspx.cs">
+      <DependentUpon>EditProtocols.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\EditProtocols.aspx.designer.cs">
+      <DependentUpon>EditProtocols.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\EditUser.aspx.cs">
       <DependentUpon>EditUser.aspx</DependentUpon>
@@ -300,13 +316,6 @@
     </Compile>
     <Compile Include="Account\AddUser.aspx.designer.cs">
       <DependentUpon>AddUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\LogOut.aspx.cs">
-      <DependentUpon>LogOut.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\LogOut.aspx.designer.cs">
-      <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\NewCompanyContact.aspx.cs">
       <DependentUpon>NewCompanyContact.aspx</DependentUpon>
@@ -329,6 +338,13 @@
     <Compile Include="Account\ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Account\ProtocolManagement.aspx.cs">
+      <DependentUpon>ProtocolManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ProtocolManagement.aspx.designer.cs">
+      <DependentUpon>ProtocolManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Account\UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -336,6 +352,7 @@
     <Compile Include="Account\UserManagement.aspx.designer.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Priviliges.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -470,11 +487,25 @@
     <Compile Include="Root.master.designer.cs">
       <DependentUpon>Root.master</DependentUpon>
     </Compile>
+    <Compile Include="TimeoutControl.ascx.cs">
+      <DependentUpon>TimeoutControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TimeoutControl.ascx.designer.cs">
+      <DependentUpon>TimeoutControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="TimeOutPage.aspx.cs">
+      <DependentUpon>TimeOutPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TimeOutPage.aspx.designer.cs">
+      <DependentUpon>TimeOutPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Utility\ExceptionUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\Request Type\" />
+    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />

@@ -13,31 +13,31 @@ namespace CustomerPortal.Account {
     public partial class ResetPassword {
         
         /// <summary>
-        /// Table1 control.
+        /// mainToolbar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
+        protected global::DevExpress.Web.ASPxRibbon mainToolbar;
         
         /// <summary>
-        /// ASPxLabel3 control.
+        /// Table4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel3;
+        protected global::System.Web.UI.WebControls.Table Table4;
         
         /// <summary>
-        /// ASPxLabel2 control.
+        /// ASPxLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel2;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
         
         /// <summary>
         /// Table2 control.
@@ -65,24 +65,6 @@ namespace CustomerPortal.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxTextBox txtEmail;
-        
-        /// <summary>
-        /// Table3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table3;
-        
-        /// <summary>
-        /// ASPxButton2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton ASPxButton2;
         
         /// <summary>
         /// dsGetPassword control.
