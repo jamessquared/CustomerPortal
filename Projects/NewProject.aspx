@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="NewProject.aspx.cs" Inherits="CustomerPortal.Projects.NewProject" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
     <p>
+
      <br />
             <%-- Main Menu --%>
     <dx:ASPxRibbon ID="mainToolbar" runat="server" ClientInstanceName="MainToolbar" ShowGroupLabels="False" ShowFileTab="False"  ShowTabs="False" OnCommandExecuted="mainToolbar_CommandExecuted">
@@ -223,11 +224,18 @@
              <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel20" runat="server" Text="Protocol:"></dx:ASPxLabel></asp:TableCell>
             <asp:TableCell><dx:ASPxComboBox ID="cbxProtocol" runat="server" ValueType="System.String" DataSourceID="dsProtocols" TextField="Name" ValueField="ID"></dx:ASPxComboBox></asp:TableCell>
             <%-- Center Margin --%>
-            <asp:TableCell ></asp:TableCell>
-            <asp:TableCell ></asp:TableCell>
+            <asp:TableCell HorizontalAlign="Right" ><dx:ASPxLabel ID="ASPxLabel17" runat="server" Text="D.O.T. Agency:"></dx:ASPxLabel></asp:TableCell>
+            <asp:TableCell >
+                <dx:ASPxComboBox ID="cbxDOTAgency" runat="server" DataSourceID="dsDOTAgency" TextField="Name" ValueField="ID" Width="236px" AutoPostBack="true" ClientInstanceName="cbxDOTAgency" OnSelectedIndexChanged="cbxDOTAgency_SelectedIndexChanged"  ValueType="System.Int32" >
+                        <Columns>
+                            <dx:ListBoxColumn Caption="Abreviation" FieldName="NAME" Width="35px" />
+                            <dx:ListBoxColumn Caption="Name" FieldName="Description" Width="275px" />
+                        </Columns>
+                    </dx:ASPxComboBox>
+            </asp:TableCell>
             <%-- Right Column --%>
-            <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel21" runat="server" Text="D.O.T.:"></dx:ASPxLabel></asp:TableCell>
-            <asp:TableCell><dx:ASPxComboBox ID="cbxDOT" runat="server"  ValueType="System.String" DataSourceID="dsDOT" TextField="Name" ValueField="ID" ></dx:ASPxComboBox></asp:TableCell>
+            <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel21" runat="server" Text="D.O.T. Service Category:"></dx:ASPxLabel></asp:TableCell>
+            <asp:TableCell><dx:ASPxComboBox ID="cbxDOTServiceCategory" runat="server"  ValueType="System.String" DataSourceID="dsDOTServiceCategory" TextField="Name" ValueField="ID"  ></dx:ASPxComboBox></asp:TableCell>
             <%-- Right Margin --%>
             <asp:TableCell Width="10%"></asp:TableCell>
         </asp:TableRow>
@@ -264,6 +272,11 @@
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="dsRequestType" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetProjectRequestTypeList" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
-        <asp:SqlDataSource ID="dsDOT" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetDOTAgencyList" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="dsDOTAgency" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetDOTAgencyList" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="dsDOTServiceCategory" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetDOTServiceCategoryList" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="cbxDOTAgency" DefaultValue="" Name="DOTAgencyTID" PropertyName="Value" DbType="Int32"  />
+            </SelectParameters>
+        </asp:SqlDataSource>
 
 </asp:Content>

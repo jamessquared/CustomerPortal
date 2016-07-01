@@ -16,6 +16,12 @@ namespace CustomerPortal {
             CustomerPortal.MainMaster mainMasterPage = (CustomerPortal.MainMaster)this.Master;
 
             mainMasterPage.ShowLoginPopUp = (Session["WorkingEmployerID"] == null);
+            
+            if (Request.QueryString.HasKeys())
+            {
+                mainMasterPage.ShowLogoutPopUp = (string.Compare(Request.QueryString["LogOut"].ToString(), "Yes", true) == 0);
+            }
+
             mainMasterPage.ShowNotificationPopUp = Session["UserMessageCount"] != null && (int)Session["UserMessageCount"] > 0;
 
             if (Session["KPIDaysToDisplay"] == null)

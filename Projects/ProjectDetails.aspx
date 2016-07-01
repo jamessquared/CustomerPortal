@@ -179,7 +179,7 @@
             <asp:TableCell  Width="10%"></asp:TableCell>
             <%-- Left Column --%>
              <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="lblJobCategory" runat="server" Text="Job Category:"></dx:ASPxLabel></asp:TableCell>
-            <asp:TableCell><dx:ASPxComboBox ID="cbxJobCategory" runat="server" DataSourceID="dsJobCategory" TextField="Name" ValueField="ID" ></dx:ASPxComboBox></asp:TableCell>
+            <asp:TableCell><dx:ASPxComboBox ID="cbxJobCategory" runat="server"  Enabled="false" DataSourceID="dsJobCategory" TextField="Name" ValueField="ID" ></dx:ASPxComboBox></asp:TableCell>
             <%-- Center Margin --%>
             <asp:TableCell ></asp:TableCell>
             <asp:TableCell ></asp:TableCell>
@@ -190,6 +190,25 @@
             <asp:TableCell Width="10%"></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow><asp:TableCell> &nbsp;&nbsp;&nbsp;</asp:TableCell></asp:TableRow>
+
+        <%-- D.O.T. --%>
+        <asp:TableRow>
+            <%-- Left Margin --%>
+            <asp:TableCell  Width="10%"></asp:TableCell>
+            <%-- Left Column --%>
+             <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel20" runat="server" Text="D.O.T. Agency:"></dx:ASPxLabel></asp:TableCell>
+            <asp:TableCell><dx:ASPxTextBox ID="txtbxDOTAgency" runat="server" Enabled="false"></dx:ASPxTextBox></asp:TableCell>
+            <%-- Center Margin --%>
+            <asp:TableCell ></asp:TableCell>
+            <asp:TableCell ></asp:TableCell>
+            <%-- Right Column --%>
+            <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel23" runat="server" Text="D.O.T. Service Category:"></dx:ASPxLabel></asp:TableCell>
+            <asp:TableCell><dx:ASPxTextBox ID="txtbxDOTServiceCategory" runat="server" Enabled="false"></dx:ASPxTextBox></asp:TableCell>
+            <%-- Right Margin --%>
+            <asp:TableCell Width="10%"></asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow><asp:TableCell> &nbsp;&nbsp;&nbsp;</asp:TableCell></asp:TableRow>
+
         <%-- Request Type / Schedule By --%>
         <asp:TableRow>
             <%-- Left Margin --%>
@@ -306,6 +325,7 @@
     </asp:Table>
     <br />
     <br />  
+
 
         <%-- Results --%>
         <asp:Table runat="server" id="Table4" Width="100%" >

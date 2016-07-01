@@ -45,7 +45,7 @@
                 dsJobCategory.DataBind();
                 dsRequestType.DataBind();
                 dsProtocols.DataBind();
-                dsDOT.DataBind();
+                dsDOTAgency.DataBind();
             }
             catch (Exception ex)
             {
@@ -100,6 +100,9 @@
                         cmd.Parameters.AddWithValue("@SpecialInstructions", memSpecialInstructions.Text);
                         cmd.Parameters.AddWithValue("@Protocols", cbxProtocol.Value);
 
+                        cmd.Parameters.AddWithValue("@DOTAgencyTID",  cbxDOTAgency.Value);
+                        cmd.Parameters.AddWithValue("@DOTServiceCategoryTID", cbxDOTServiceCategory.Value);
+
                         // Output
                         SqlParameter param = new SqlParameter("@ProjectID", SqlDbType.BigInt);
                         param.Direction = ParameterDirection.Output;
@@ -149,6 +152,16 @@
         protected void cbxJobCategory_TextChanged(object sender, EventArgs e)
         {
             dsProtocols.DataBind();
+        }
+
+        protected void cbxDOTAgency_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            dsDOTServiceCategory.DataBind();
+        }
+
+        protected void cbxDOTAgency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dsDOTServiceCategory.DataBind();
         }
     }
 }

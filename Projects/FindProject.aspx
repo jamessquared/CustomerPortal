@@ -23,6 +23,10 @@
                                 <LargeImage Url="~/Images/General/Find.png">
                                 </LargeImage>
                             </dx:RibbonButtonItem>
+                           <dx:RibbonButtonItem Name="btnDOTResults" Size="Large" Text="Enter DOT Results">
+                                <LargeImage Url="~/Images/General/New User.png">
+                                </LargeImage>
+                            </dx:RibbonButtonItem>
                         </Items>
                     </dx:RibbonGroup>
                 </Groups>

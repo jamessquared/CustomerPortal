@@ -76,6 +76,14 @@ namespace CustomerPortal
             }
         }
 
+        public bool ShowLogOut
+        {
+            set
+            {
+                hlLogOut.Visible = value;
+            }
+        }
+
         public void SetLoginLabels()
         {
             this.UserName = string.Format("{0} {1}", Session["FirstName"].ToString(), Session["LastName"].ToString());

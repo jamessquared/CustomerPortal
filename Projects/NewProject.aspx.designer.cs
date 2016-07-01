@@ -382,6 +382,24 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxComboBox cbxProtocol;
         
         /// <summary>
+        /// ASPxLabel17 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel17;
+        
+        /// <summary>
+        /// cbxDOTAgency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cbxDOTAgency;
+        
+        /// <summary>
         /// ASPxLabel21 control.
         /// </summary>
         /// <remarks>
@@ -391,13 +409,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel21;
         
         /// <summary>
-        /// cbxDOT control.
+        /// cbxDOTServiceCategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cbxDOT;
+        protected global::DevExpress.Web.ASPxComboBox cbxDOTServiceCategory;
         
         /// <summary>
         /// SpecialInstructionsTable control.
@@ -463,12 +481,21 @@ namespace CustomerPortal.Projects {
         protected global::System.Web.UI.WebControls.SqlDataSource dsRequestType;
         
         /// <summary>
-        /// dsDOT control.
+        /// dsDOTAgency control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsDOT;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsDOTAgency;
+        
+        /// <summary>
+        /// dsDOTServiceCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsDOTServiceCategory;
     }
 }

@@ -177,41 +177,33 @@
         {
             if (string.IsNullOrEmpty(txtbxEmail.Text) == false)
             {
-                try
-                {
-                    SmtpClient smtpClient = new SmtpClient();
-                    MailMessage mailMessage = new MailMessage();
+                StringBuilder sb = new StringBuilder();
+                sb.Append(string.Format("Greetings {0} {1}", txtbxFirstName.Text, txtbxLastName.Text));
+                sb.Append(Environment.NewLine);
+                sb.Append(Environment.NewLine);
+                sb.Append("You have been added as a new user to the OHS National Customer Portal.");
+                sb.Append(string.Format("  Your user name is {0} and your temporary password is {1}.", txtBxUserName.Text, txtBxUserPassword.Text));
+                sb.Append("  To access your account, please go to ");
+                sb.Append(@"www.ohsnational.com/customerportal/");
+                sb.Append("  When you log in the first time, you will be notified that your password has expired and we need to be changed.  Please follow the directions on the screen and create a new password.  If you have questions or experience any problems, please contact us at (888) 559-6310.");
+                sb.Append(Environment.NewLine);
+                sb.Append(Environment.NewLine);
+                sb.Append("Thank you");
+                sb.Append(Environment.NewLine);
+                sb.Append("OHS National Support");
 
-                    mailMessage.To.Add(new MailAddress(txtbxEmail.Text));
-
-                    mailMessage.Subject = "New User";
-                    StringBuilder sb = new StringBuilder();
-
-                    sb.Append(string.Format("Greetings {0} {1}", txtbxFirstName.Text, txtbxLastName.Text));
-                    sb.Append(Environment.NewLine);
-                    sb.Append(Environment.NewLine);
-                    sb.Append("You have been added as a new user to the OHS National Customer Portal.");
-                    sb.Append(string.Format("  Your user name is {0} and your temporary password is {1}.", txtBxUserName.Text, txtBxUserPassword.Text));
-                    sb.Append("  To access your account, please go to ");
-                    sb.Append(@"www.ohsnational.com/customerportal/" );
-                    sb.Append("  When you log in the first time, you will be notified that your password has expired and we need to be changed.  Please follow the directions on the screen and create a new password.  If you have questions or experience any problems, please contact us at (888) 559-6310.");
-                    sb.Append(Environment.NewLine);
-                    sb.Append(Environment.NewLine);
-                    sb.Append("Thank you");
-                    sb.Append(Environment.NewLine);
-                    sb.Append("OHS National Support");
-                    
-                    mailMessage.Body = sb.ToString();
-
-                    smtpClient.Send(mailMessage);
-                }
-                catch (Exception ex)
-                {
-                    ExceptionUtility.LogException(ex, "Add User - Send email");
-
-                    HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-                }
+                emailUtility email = new emailUtility(txtbxEmail.Text, "New User", sb);
+                email.Send();
             }
+        }
+
+        protected void SendEmailToOHSNational()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(string.Format("{0} {1} from {2} has added {3} to the Web Users..    Please review and verify that it has the OHS National services.", Session["FirstName"], Session["LastName"], Session["WorkingEmployerName"], txtBxUserName.Text));
+            string subject = string.Format("{0} {1} from {2} has added {3} to the Web Users.", Session["FirstName"], Session["LastName"], Session["WorkingEmployerName"], txtBxUserName.Text);
+            emailUtility email = new emailUtility(ConfigurationManager.AppSettings["NotificationReplyEmailDestination"], subject, sb);
+            email.Send();
         }
 
         protected void Load()
@@ -288,6 +280,7 @@
                         {
                             Save();
                             SendEmail();
+                            SendEmailToOHSNational();
                             Response.Redirect("~/Account/UserManagement.aspx");
                         }
                         else

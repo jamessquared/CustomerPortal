@@ -1,5 +1,7 @@
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Root.master.cs" Inherits="CustomerPortal.RootMaster" %>
 
+<%@ Register Src="~/TimeoutControl.ascx" TagName="TimeoutControl" TagPrefix="uc1" %>
+
 <%-- DXCOMMENT: Page Root.master is a master page that contains the root layout (it includes Header, Cental Area, and Footer) --%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -8,10 +10,12 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
     <title></title>
     <link rel="stylesheet" type="text/css" href="Content/Site.css" />
+
 </head>
-<body runat="server" id="Body">
-    <form id="form1" runat="server">
-        <dx:ASPxPanel ID="HeaderPane" runat="server" FixedPosition="WindowTop" ClientInstanceName="headerPane" CssClass="headerPane" Collapsible="True" BackColor="#201A16">
+<body runat="server" id="Body" >
+    <form id="form1" runat="server" >
+       <%-- Header --%>
+        <dx:ASPxPanel ID="HeaderPane" runat="server" FixedPosition="WindowTop" ClientInstanceName="headerPane" CssClass="headerPane" Collapsible="True" BackColor="#201A16" Height="153px" Width="1441px">
             <SettingsAdaptivity CollapseAtWindowInnerWidth="500" />
             <Styles>
                 <Panel CssClass="panel"></Panel>
@@ -21,60 +25,90 @@
                 <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
                         <div class="headerTop">
                             <div class="templateTitle">
-                                <dx:ASPxImage ID="ASPxImage1" runat="server" ImageUrl="~/Images/Logo/OSSIOnline.png">
-                                    <ClientSideEvents Click="function(s, e) {
-window.location = &quot;../Default.aspx&quot;;	
-}" />
-                                </dx:ASPxImage>&nbsp;
-                            </div>
-                            <div class="loginControl" style="color: #FFFFFF">
-                                <dx:ASPxLabel ID="lblLogOnName" runat="server" AssociatedControlID="lblLogOnName" Visible="False"  ></dx:ASPxLabel>
+                                <asp:Table runat="server" Width="100%">
+                                    <asp:TableRow>
+                                        <asp:TableCell Width="50%">
+                                            <dx:ASPxImage ID="ASPxImage1" runat="server" ImageUrl="~/Images/Logo/OSSIOnline.png">
+                                                <ClientSideEvents Click="function(s, e) {window.location = &quot;../Default.aspx&quot;}" />
+                                            </dx:ASPxImage>
+                                        </asp:TableCell>
+                                        <asp:TableCell Width="50%" HorizontalAlign="Right" VerticalAlign="Middle">
+                                            <dx:ASPxLabel ID="lblLogOnName" runat="server" AssociatedControlID="lblLogOnName" ForeColor="White"></dx:ASPxLabel>
+                                            <br />
+                                            <dx:ASPxLabel ID="lblLogOnCompany" runat="server" ForeColor="White" Visible="False"></dx:ASPxLabel>
+                                            <br />
+                                            <dx:ASPxLabel ID="lblLogOnAccountType" runat="server" ForeColor="White" Visible="False"></dx:ASPxLabel>
+                                            <br />
+                                            <dx:ASPxLabel ID="lblLastLoginDate" runat="server" ForeColor="White" Visible="False"></dx:ASPxLabel>
+                                            <br />
+                                            <br />
+                                            <dx:ASPxHyperLink ID="hlChangePassword" runat="server" ForeColor="AliceBlue" NavigateUrl="~/Account/ChangePassword.aspx" Text="Change Password" Visible="False"></dx:ASPxHyperLink>
+                                            <br />
+                                            <br />
+                                            <dx:ASPxHyperLink ID="hlLogOut" runat="server" ForeColor="AliceBlue"  NavigateUrl="~/Default.aspx?LogOut=Yes" Text="Log Out" Visible="false" ></dx:ASPxHyperLink>
+                                        </asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
                                 <br />
-                                <dx:ASPxLabel ID="lblLogOnCompany" runat="server" Visible="False" ></dx:ASPxLabel>
                                 <br />
-                                <dx:ASPxLabel ID="lblLogOnAccountType" runat="server" Visible="False" ></dx:ASPxLabel>
-                                <br />
-                                <dx:ASPxLabel ID="lblLastLoginDate" runat="server" Visible="False" ></dx:ASPxLabel>
-                                <br />
-                                <br />
-                                <dx:ASPxHyperLink ID="hlChangePassword" runat="server" NavigateUrl="~/Account/ChangePassword.aspx" Text="Change Password" Visible="False" ForeColor="AliceBlue"> </dx:ASPxHyperLink>
-                            </div>
-                        </div>
                 </dx:PanelContent>
             </PanelCollection>
+
             <ExpandedPanelTemplate>
-                <div class="headerMenu">
-                    <%-- DXCOMMENT: Configure the header menu --%>
-                    <dx:ASPxMenu ID="ASPxMenu1" runat="server" ItemAutoWidth="False" Width="100%" Orientation="Vertical">
-    <Items>
-        <dx:MenuItem Text="Project"></dx:MenuItem>
-        <dx:MenuItem Text="Reports"></dx:MenuItem>
-        <dx:MenuItem Text="Account Management"></dx:MenuItem>
-    </Items>
-    <Border BorderWidth="0px" />
-    <Paddings Padding="0px" />
-</dx:ASPxMenu>
+                           <%-- DXCOMMENT: Configure the header menu --%>
+                            <dx:ASPxMenu ID="ASPxMenu1" runat="server" ItemAutoWidth="False" Width="100%">
+                                <Items>
+<%--                                    <dx:MenuItem Text="Item 01"></dx:MenuItem>
+                                    <dx:MenuItem Text="Item 02"></dx:MenuItem>
+                                    <dx:MenuItem Text="Item 03"></dx:MenuItem>
+                                    <dx:MenuItem Text="Item 04"></dx:MenuItem>--%>
+                                </Items>
+                                <Border BorderWidth="0px" />
+                                <BorderTop BorderWidth="1px" />
+                                <Paddings Padding="0px" />
+                            </dx:ASPxMenu>
                 </div>
             </ExpandedPanelTemplate>
+                        
             <ExpandBarTemplate>
+ 
                 <div class="templateTitle">
-                     <dx:ASPxImage ID="ASPxImage1" runat="server" Height="61px" ImageUrl="~/Images/Logo/OSSIOnline.png" ShowLoadingImage="True" >
-                                    <ClientSideEvents Click="function(s, e) {
-                                        window.location = &quot;../Default.aspx&quot;;	
-                                        }" />
-                     </dx:ASPxImage>
+                                <asp:Table runat="server" Width="100%">
+                                    <asp:TableRow>
+                                        <asp:TableCell Width="50%">
+                                            <dx:ASPxImage ID="ASPxImage2" runat="server" Height="61px" ImageUrl="~/Images/Logo/OSSIOnline.png">
+                                                <ClientSideEvents Click="function(s, e) {window.location = &quot;../Default.aspx&quot;}" />
+                                            </dx:ASPxImage>
+                                        </asp:TableCell>
+                                        <asp:TableCell Width="50%" HorizontalAlign="Right" VerticalAlign="Middle">
+                                            <dx:ASPxLabel ID="lblLogOnName" runat="server" AssociatedControlID="lblLogOnName" ForeColor="White"></dx:ASPxLabel>
+                                            <br />
+                                            <dx:ASPxLabel ID="lblLogOnCompany" runat="server" ForeColor="White" Visible="False"></dx:ASPxLabel>
+                                            <br />
+                                            <dx:ASPxLabel ID="lblLogOnAccountType" runat="server" ForeColor="White" Visible="False"></dx:ASPxLabel>
+                                            <br />
+                                            <dx:ASPxLabel ID="lblLastLoginDate" runat="server" ForeColor="White" Visible="False"></dx:ASPxLabel>
+                                            <br />
+                                            <br />
+                                            <dx:ASPxHyperLink ID="hlChangePassword" runat="server" ForeColor="AliceBlue" NavigateUrl="~/Account/ChangePassword.aspx" Text="Change Password" Visible="False"></dx:ASPxHyperLink>
+                                        </asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
                 </div>
             </ExpandBarTemplate>
         </dx:ASPxPanel>
 
-        <dx:ASPxPanel ID="MainPane" runat="server" CssClass="mainContentPane">
-            <PanelCollection>
-                <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
-                    <asp:ContentPlaceHolder ID="Content" runat="server" />
-                </dx:PanelContent>
-            </PanelCollection>
+        <%-- Main Body --%>
+            <dx:ASPxPanel ID="MainPane" runat="server" CssClass="mainContentPane">
+                <PanelCollection>
+                    <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+                        <asp:ContentPlaceHolder ID="Content" runat="server" />
+                        <uc1:TimeoutControl ID="TimeoutControl1" runat="server" />
+                    </dx:PanelContent>
+                </PanelCollection>
         </dx:ASPxPanel>
 
+        <%-- Footer --%>
         <dx:ASPxPanel ID="FooterPane" runat="server" FixedPosition="WindowBottom" ClientInstanceName="footerPane" CssClass="footerPane" BackColor="#252525">
             <SettingsAdaptivity HideAtWindowInnerWidth="500" />
             <PanelCollection>
@@ -83,10 +117,6 @@ window.location = &quot;../Default.aspx&quot;;
                 </dx:PanelContent>
             </PanelCollection>
         </dx:ASPxPanel>
-
-         <div class="copyright">
-              <dx:ASPxLabel runat="server" ForeColor="White" ID="ASPxLabel2"></dx:ASPxLabel>
-        </div>
 
     </form>
 </body>

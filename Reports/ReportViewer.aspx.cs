@@ -66,6 +66,11 @@
                         break;
                     }
 
+                case "MIS":
+                    {
+                        rpt = new rptDOTDrugandAlcoholMIS();
+                        break;
+                    }
                 default:
                     {
                         Response.Redirect("~/");
@@ -108,8 +113,20 @@
             if (!IsPostBack)
             {
                 XtraReport mainRpt = GetReport();
-                mainRpt.Parameters[0].Value = DateTime.Now.AddDays(-30);
-                mainRpt.Parameters[1].Value = DateTime.Now;
+                if (Session["ReportName"].ToString() != "MIS")
+                {
+                    mainRpt.Parameters[0].Value = DateTime.Now.AddDays(-30);
+                    mainRpt.Parameters[1].Value = DateTime.Now;
+                }
+                else
+                {
+                    mainRpt.Parameters[0].Visible = false;
+                    mainRpt.Parameters[1].Visible = false;
+                    mainRpt.Parameters[2].Visible = false;
+                    mainRpt.Parameters[3].Visible = false;
+                    mainRpt.Parameters[3].Value = Session["DOTReportID"];
+                }
+
                 mainRpt.Parameters[2].Value = Convert.ToInt64(Session["WorkingEmployerID"]);
                 mainRpt.Parameters[2].Visible = false;
 

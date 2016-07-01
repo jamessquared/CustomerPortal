@@ -400,6 +400,42 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxTextBox txtbxJobTitle;
         
         /// <summary>
+        /// ASPxLabel23 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel23;
+        
+        /// <summary>
+        /// txtbxDOTAgency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtbxDOTAgency;
+        
+        /// <summary>
+        /// ASPxLabel27 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel27;
+        
+        /// <summary>
+        /// txtbxDOTServiceCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtbxDOTServiceCategory;
+        
+        /// <summary>
         /// ASPxLabel17 control.
         /// </summary>
         /// <remarks>

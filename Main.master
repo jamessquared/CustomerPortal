@@ -16,6 +16,12 @@
                                                         </LargeImage>
                                                         <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
+
+                                                    <dx:RibbonButtonItem Name="btnClientCalendar" Size="Large" Text="Calendar" ToolTip="Calendar view of appointments">
+                                                        <LargeImage Url="~/Images/MainMenu/Calendar.png">
+                                                        </LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
+                                                    </dx:RibbonButtonItem>
                                                 </Items>
                                             </dx:RibbonGroup>
                                         </Groups>
@@ -83,6 +89,17 @@
                                                     </dx:RibbonButtonItem>
                                                 </Items>
                                              </dx:RibbonGroup>
+
+                                            <dx:RibbonGroup Name="Other"  Text="Other">
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="btnDOTDrugAndAlcoholMIS" Size="Large" Text="D.O.T. Drug & Alcohol"  ToolTip="Allows users to create a U.S. D.O.T. Drug and Alcohol MIS Data Collection Form.">
+                                                        <LargeImage Url="~\Images\Reports\ProjectReport.png"></LargeImage>
+                                                        <ItemStyle Width="100px" HorizontalAlign="Center" VerticalAlign="Middle" />
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                             </dx:RibbonGroup>
+
+
                                         </Groups>
                                     </dx:RibbonTab>
                                     <dx:RibbonTab Name="AccountManagement" Text="Account Management">
@@ -95,7 +112,7 @@
                                                     </dx:RibbonButtonItem>
                                                 </Items>
                                                 <Items>
-                                                    <dx:RibbonButtonItem Name="btnProtocolManagement" Size="Large" Text="Protocols"  ToolTip="Protocols can be added or modified." Visible="false">
+                                                    <dx:RibbonButtonItem Name="btnProtocolManagement" Size="Large" Text="Protocols"  ToolTip="Protocols can be added or modified." Visible="True">
                                                         <LargeImage Url="~\Images\MainMenu\Protocol Management.png"></LargeImage>
                                                         <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
@@ -334,7 +351,7 @@
              </dx:ASPxPopupControl>
          </div>
         <div>
-            <%-- User Login --%>
+            <%-- User Log out --%>
             <dx:ASPxPopupControl ID="pupctrlLogOut" runat="server" Modal="True" ShowCloseButton="false" ShowHeader="false"  PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter" ClientInstanceName="pupctrlUserLogin"  PopupAnimationType="None" EnableViewState="False" Width="300px" CloseAction="None" FooterText="" HeaderText="" PopupElementID="pupctrlLogOut">
                 <ContentCollection>
                     <dx:PopupControlContentControl runat="server">

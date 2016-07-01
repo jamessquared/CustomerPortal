@@ -17,7 +17,7 @@
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>4.0</OldToolsVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -183,6 +183,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -207,12 +208,16 @@
     <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Account\ProtocolManagement.aspx" />
     <Content Include="Account\UserManagement.aspx" />
+    <Content Include="Content\ClientCalendar.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\General\Add Privileges.png" />
     <Content Include="Images\General\Add.png" />
+    <Content Include="Images\General\CalendarNext.png" />
+    <Content Include="Images\General\CalendarPrevious.png" />
     <Content Include="Images\General\Cancel.png" />
+    <Content Include="Images\General\Copy.png" />
     <Content Include="Images\General\Deactivate Protocol.png" />
     <Content Include="Images\General\Deactivate User.png" />
     <Content Include="Images\General\Delete.png" />
@@ -225,6 +230,8 @@
     <Content Include="Images\General\SendMail.png" />
     <Content Include="Images\General\ShowChecked.png" />
     <Content Include="Images\General\Submit.png" />
+    <Content Include="Images\General\Today.png" />
+    <Content Include="Images\MainMenu\Calendar.png" />
     <Content Include="Images\MainMenu\FindProject.png" />
     <Content Include="Images\General\Hint-Large.png" />
     <Content Include="Images\General\Info.png" />
@@ -251,19 +258,26 @@
     <Content Include="Images\Reports\Print Quick.png" />
     <Content Include="Images\Reports\Print.png" />
     <Content Include="Images\Reports\Save.png" />
+    <Content Include="Images\Request Type\FollowUp.png" />
     <Content Include="Images\Request Type\postAccident.png" />
+    <Content Include="Images\Request Type\PreEmployment.png" />
     <Content Include="Images\Request Type\Random.png" />
     <Content Include="Images\Request Type\ReasonableSuspicion.png" />
+    <Content Include="Images\Request Type\ReturnToDuty.png" />
     <Content Include="Light.master" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Projects\ProjectDOTResults.aspx" />
+    <Content Include="Reports\AddDOTDrugandAlcoholMIS.aspx" />
+    <Content Include="Reports\EditDOTDrugandAlcoholMIS.aspx" />
     <Content Include="Projects\FindProject.aspx" />
     <Content Include="Projects\NewProject.aspx" />
     <Content Include="Projects\NotificationProjectDetails.aspx" />
     <Content Include="Projects\ProjectDetails.aspx" />
+    <Content Include="Reports\DOTDrugandAlcoholMISManagement.aspx" />
     <Content Include="Reports\ReportViewer.aspx" />
     <Content Include="Root.master" />
   </ItemGroup>
@@ -353,6 +367,13 @@
       <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Classes\Priviliges.cs" />
+    <Compile Include="Content\ClientCalendar.aspx.cs">
+      <DependentUpon>ClientCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Content\ClientCalendar.aspx.designer.cs">
+      <DependentUpon>ClientCalendar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -383,6 +404,27 @@
     </Compile>
     <Compile Include="Main.master.designer.cs">
       <DependentUpon>Main.master</DependentUpon>
+    </Compile>
+    <Compile Include="Projects\ProjectDOTResults.aspx.cs">
+      <DependentUpon>ProjectDOTResults.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Projects\ProjectDOTResults.aspx.designer.cs">
+      <DependentUpon>ProjectDOTResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\AddDOTDrugandAlcoholMIS.aspx.cs">
+      <DependentUpon>AddDOTDrugandAlcoholMIS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\AddDOTDrugandAlcoholMIS.aspx.designer.cs">
+      <DependentUpon>AddDOTDrugandAlcoholMIS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\EditDOTDrugandAlcoholMIS.aspx.cs">
+      <DependentUpon>EditDOTDrugandAlcoholMIS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\EditDOTDrugandAlcoholMIS.aspx.designer.cs">
+      <DependentUpon>EditDOTDrugandAlcoholMIS.aspx</DependentUpon>
     </Compile>
     <Compile Include="Projects\FindProject.aspx.cs">
       <DependentUpon>FindProject.aspx</DependentUpon>
@@ -425,6 +467,13 @@
     <Compile Include="Reports\BaseReports\rptBaseLandscape.designer.cs">
       <DependentUpon>rptBaseLandscape.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\DOTDrugandAlcoholMISManagement.aspx.cs">
+      <DependentUpon>DOTDrugandAlcoholMISManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\DOTDrugandAlcoholMISManagement.aspx.designer.cs">
+      <DependentUpon>DOTDrugandAlcoholMISManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportViewer.aspx.cs">
       <DependentUpon>ReportViewer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -449,6 +498,12 @@
     </Compile>
     <Compile Include="Reports\rptCompletedProjects.designer.cs">
       <DependentUpon>rptCompletedProjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\rptDOTDrugandAlcoholMIS.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptDOTDrugandAlcoholMIS.Designer.cs">
+      <DependentUpon>rptDOTDrugandAlcoholMIS.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports\rptFurtherEvaluation.cs">
       <SubType>Component</SubType>
@@ -501,12 +556,10 @@
     <Compile Include="TimeOutPage.aspx.designer.cs">
       <DependentUpon>TimeOutPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utility\emailUtility.cs" />
     <Compile Include="Utility\ExceptionUtility.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Content\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Reports\BaseReports\rptBasePortrait.resx">
@@ -523,6 +576,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptCompletedProjects.resx">
       <DependentUpon>rptCompletedProjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptDOTDrugandAlcoholMIS.resx">
+      <DependentUpon>rptDOTDrugandAlcoholMIS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptFurtherEvaluation.resx">
       <DependentUpon>rptFurtherEvaluation.cs</DependentUpon>
@@ -544,6 +600,9 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
@@ -555,12 +614,15 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58384</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/CustomerPortal</IISUrl>
+          <IISUrl>http://localhost:59088/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:58384/" workingDir="" />
+          </servers>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

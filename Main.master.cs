@@ -314,6 +314,7 @@ namespace CustomerPortal
                     siteMasterPage.AccountType = Session["UserAccountType"].ToString();
                     siteMasterPage.LastLoginDate = Convert.ToDateTime(Session["LastLogin"]);
                     siteMasterPage.ChangePassword = true;
+                    siteMasterPage.ShowLogOut = true;
                 }
             }
         }
@@ -340,6 +341,7 @@ namespace CustomerPortal
                     siteMasterPage.AccountType = Session["UserAccountType"].ToString();
                     siteMasterPage.LastLoginDate = Convert.ToDateTime(Session["LastLogin"]);
                     siteMasterPage.ChangePassword = true;
+                    siteMasterPage.ShowLogOut = true;
                 }
 
                 Session["DaysToDisplay"] = Convert.ToInt32(ConfigurationManager.AppSettings["DaysToDisplay"]);
@@ -370,6 +372,12 @@ namespace CustomerPortal
                 case "btnLogOut":
                     {
                         pupctrlLogOut.ShowOnPageLoad = true;
+                        break;
+                    }
+
+                case "btnClientCalendar":
+                    {
+                        Response.Redirect("~/Content/ClientCalendar.aspx");
                         break;
                     }
 
@@ -424,6 +432,12 @@ namespace CustomerPortal
                 case "btnCancelledProjects":
                     {
                         Response.Redirect("~/Reports/ReportViewer.aspx?NameID=Cancelled Project Summary");
+                        break;
+                    }
+
+                case "btnDOTDrugAndAlcoholMIS":
+                    {
+                        Response.Redirect("~/Reports/DOTDrugandAlcoholMISManagement.aspx");
                         break;
                     }
 

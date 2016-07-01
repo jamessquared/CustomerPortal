@@ -74,6 +74,13 @@
 
                         break;
                     }
+
+                case "btnDOTResults":
+                    {
+                        Response.Redirect("~/Projects/ProjectDOTResults.aspx");
+
+                        break;
+                    }
             }
         }
     }

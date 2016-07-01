@@ -32,7 +32,7 @@
                 Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
                 Priviliges p = priv["User Account Management"];
 
-                if (p.AllowAccess == 0)
+                if (p.AllowAccess == 0 || p.AllowAddorEdit == 0)
                 {
                     Response.Redirect("~/Default.aspx");
                 }

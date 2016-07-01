@@ -68,15 +68,11 @@
         // Notify System Operators about an exception 
         public static void NotifySupport(Exception ex)
         {
-            SmtpClient smtpClient = new SmtpClient();
-            MailMessage mailMessage = new MailMessage();
-
-            mailMessage.To.Add(ConfigurationManager.AppSettings["NotificationErrorEmailDestination"].ToString());
-            mailMessage.Subject = "Website Error";
-
-            mailMessage.Body = ex.ToString();
-
-            smtpClient.Send(mailMessage);
+            StringBuilder sb = new StringBuilder();
+            sb.Append(ex.ToString());
+            string subject = string.Format("Website Error:{0}", ex.Message.ToString());
+            emailUtility email = new emailUtility(ConfigurationManager.AppSettings["NotificationErrorEmailDestination"], subject, sb);
+            email.Send();
         }
     }
 }

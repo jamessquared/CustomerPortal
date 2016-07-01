@@ -58,13 +58,13 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
         
         /// <summary>
-        /// gvAccountManagementUsers control.
+        /// gvAccountManagementProtocols control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView gvAccountManagementUsers;
+        protected global::DevExpress.Web.ASPxGridView gvAccountManagementProtocols;
         
         /// <summary>
         /// dsProtocolManagement control.

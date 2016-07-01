@@ -192,6 +192,9 @@
                 txtbxRequestType.Text = dv[0]["RequestType"].ToString();
                 txtbxScheduleBy.Text = dv[0]["ScheduledByDeadline"].ToString();
                 txtbxCompleteBy.Text = dv[0]["CompletedByDeadline"].ToString();
+                txtbxDOTAgency.Text = Convert.ToString(dv[0]["DOTAgency"]);
+                txtbxDOTServiceCategory.Text = Convert.ToString(dv[0]["DOTServiceCategory"]);
+
                 // Load Protocols
                 dsProjectDetailsViewProtocolInfo.DataBind();
 
@@ -275,14 +278,6 @@
 
         protected void SendNotificationResponseEmail()
         {
-            try
-            {
-                SmtpClient smtpClient = new SmtpClient();
-                MailMessage mailMessage = new MailMessage();
-
-                mailMessage.To.Add(ConfigurationManager.AppSettings["NotificationReplyEmailDestination"]);
-                mailMessage.Subject = "User Notification Response";
-
                 StringBuilder sb = new StringBuilder();
                 sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
                 sb.Append(string.Format("Notification sent to {0}{1} at {2}{3}{4}", Session["FirstName"].ToString(), Session["LastName"].ToString(), Session["UserCompany"].ToString(), Environment.NewLine, Environment.NewLine));
@@ -294,16 +289,8 @@
                 sb.Append(string.Format("==============================================================================================={0}", Environment.NewLine));
                 sb.Append(string.Format("{0}{1}", memResponse.Text, Environment.NewLine));
 
-                mailMessage.Body = sb.ToString();
-
-                smtpClient.Send(mailMessage);
-            }
-            catch (Exception ex)
-            {
-                ExceptionUtility.LogException(ex, "Notification Project Details - SendNotificationResponseEmail");
-
-                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-            }
+                emailUtility email = new emailUtility(ConfigurationManager.AppSettings["NotificationReplyEmailDestination"], "User Notification Response", sb);
+                email.Send();
         }
 
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)

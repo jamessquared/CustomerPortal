@@ -43,6 +43,9 @@
                     txtbxRequestType.Text = dv[0]["RequestType"].ToString();
                     txtbxScheduleBy.Text = dv[0]["ScheduledByDeadline"].ToString();
                     txtbxCompleteBy.Text = dv[0]["CompletedByDeadline"].ToString();
+                    txtbxDOTAgency.Text = Convert.ToString(dv[0]["DOTAgency"]);
+                    txtbxDOTServiceCategory.Text = Convert.ToString(dv[0]["DOTServiceCategory"]);
+
                     CompanyIDNo = dv[0]["CompanyIDNo"].ToString();
                     ProjectIDNo = dv[0]["ProjectIDNo"].ToString();
                     // Load Protocols
@@ -50,6 +53,7 @@
 
                     // Load Notes
                     dsProjectDetailsViewNotes.DataBind();
+                    gvNotes.DataBind();
 
                     // Load Results
                     if (showResults && string.IsNullOrEmpty(CompanyIDNo) == false && string.IsNullOrEmpty(ProjectIDNo) == false)

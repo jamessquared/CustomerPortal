@@ -1,0 +1,90 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Root.master.cs" Inherits="CustomerPortal.RootMaster" %>
+
+<%@ Register Src="TimeoutControl.ascx" TagName="TimeoutControl" TagPrefix="uc1" %>
+
+<%-- DXCOMMENT: Page Root.master is a master page that contains the root layout (it includes Header, Cental Area, and Footer) --%>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="Content/Site.css" />
+</head>
+<body runat="server" id="Body">
+    <form id="form1" runat="server">
+
+
+       <%-- Header --%>
+
+        <dx:ASPxPanel ID="HeaderPane" runat="server" FixedPosition="WindowTop" ClientInstanceName="headerPane" CssClass="headerPane" Collapsible="True" BackColor="#201A16" Width="1446px">
+            <SettingsAdaptivity CollapseAtWindowInnerWidth="500" />
+            <Styles>
+                <Panel CssClass="panel"></Panel>
+                <ExpandBar CssClass="bar"></ExpandBar>
+            </Styles>
+            <PanelCollection>
+                <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+                        <div class="headerTop">
+                            <div class="templateTitle">
+                                    <dx:ASPxImage ID="ASPxImage1" runat="server" ImageUrl="~/Images/Logo/OSSIOnline.png">
+                                    <ClientSideEvents Click="function(s, e) {window.location = &quot;../Default.aspx&quot;}" />
+                                </dx:ASPxImage>
+                                    <dx:ASPxPanel ID="MainPane" runat="server" CssClass="mainContentPane">
+                                    <PanelCollection>
+                                        <dx:PanelContent runat="server">
+                                            <asp:ContentPlaceHolder ID="Content" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                            <uc1:TimeoutControl ID="TimeoutControl1" runat="server" />
+                                        </dx:PanelContent>
+                                    </PanelCollection>
+                                    </dx:ASPxPanel>
+                            </div>
+                                <div class="loginControl" style="color: #FFFFFF">
+                                    <dx:ASPxLabel ID="lblLogOnName" runat="server" AssociatedControlID="lblLogOnName">
+                                    </dx:ASPxLabel>
+                                    <br />
+                                    <dx:ASPxLabel ID="lblLogOnCompany" runat="server" ForeColor="White" Visible="False">
+                                    </dx:ASPxLabel>
+                                    <br />
+                                    <dx:ASPxLabel ID="lblLogOnAccountType" runat="server" ForeColor="White" Visible="False">
+                                    </dx:ASPxLabel>
+                                    <br />
+                                    <dx:ASPxLabel ID="lblLastLoginDate" runat="server" ForeColor="White" Visible="False">
+                                    </dx:ASPxLabel>
+                                    <br />
+                                    <br />
+                                    <dx:ASPxHyperLink ID="hlChangePassword" runat="server" ForeColor="AliceBlue" NavigateUrl="~/Account/ChangePassword.aspx" Text="Change Password" Visible="False">
+                                    </dx:ASPxHyperLink>
+                                </div>
+                </dx:PanelContent>
+            </PanelCollection>
+            <ExpandedPanelTemplate>
+                <div class="headerMenu">
+                </div>
+            </ExpandedPanelTemplate>
+            <ExpandBarTemplate>
+                <div class="templateTitle">
+                     <dx:ASPxImage ID="ASPxImage1" runat="server" Height="61px" ImageUrl="~/Images/Logo/OSSIOnline.png" ShowLoadingImage="True" >
+                                    <ClientSideEvents Click="function(s, e) {
+                                        window.location = &quot;../Default.aspx&quot;;	
+                                        }" />
+                     </dx:ASPxImage>
+                </div>
+            </ExpandBarTemplate>
+        </dx:ASPxPanel>
+
+        <%-- Main Body --%>
+
+        <%-- Footer --%>
+        <dx:ASPxPanel ID="FooterPane" runat="server" FixedPosition="WindowBottom" ClientInstanceName="footerPane" CssClass="footerPane" BackColor="#252525">
+            <SettingsAdaptivity HideAtWindowInnerWidth="500" />
+            <PanelCollection>
+                <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+                    <dx:ASPxLabel runat="server" ForeColor="White" ID="lblCopyright" AssociatedControlID="lblCopyright" ></dx:ASPxLabel>                        
+                </dx:PanelContent>
+            </PanelCollection>
+        </dx:ASPxPanel>
+    </form>
+</body>
+</html>

@@ -6,9 +6,10 @@
     using System.Configuration;
     using System.Data;
     using System.Data.SqlClient;
-    using System.Net.Mail;
     using System.Text;
     using System.Web;
+    using System.Net.Mail;
+    using System.Text;
 
     public partial class ResetPassword : System.Web.UI.Page
     {
@@ -69,30 +70,15 @@
 
         private void SendEmail(List<LostUserInfo> lostUserInfo)
         {
-            try
-            {
-                SmtpClient smtpClient = new SmtpClient();
-                MailMessage mailMessage = new MailMessage();
-
-                mailMessage.To.Add(new MailAddress(txtEmail.Text));
-                mailMessage.Subject = "Password reset";
-
                 StringBuilder sb = new StringBuilder();
                 sb.Append("You are receiving this email because a request has been made to receive your user and password.  Below is the user name and password associated with the specified email address." + Environment.NewLine + Environment.NewLine);
                 foreach (var userInfo in lostUserInfo)
                 {
                     sb.Append(string.Format(" Company:{0}{1}User:{2}{3}Password:{4}{5}", userInfo.Company, Environment.NewLine, userInfo.Username, Environment.NewLine, userInfo.Password, Environment.NewLine));
                 }
-                mailMessage.Body = sb.ToString();
 
-                smtpClient.Send(mailMessage);
-            }
-            catch (Exception ex)
-            {
-                ExceptionUtility.LogException(ex, "Reset Password - SendEmail");
-
-                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-            } 
+            emailUtility email = new emailUtility(txtEmail.Text, "Password reset", sb);
+            email.Send();
         }
 
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
