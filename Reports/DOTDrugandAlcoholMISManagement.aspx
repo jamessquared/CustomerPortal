@@ -27,10 +27,6 @@
                                 <LargeImage Url="~/Images/General/Edit.png">
                                 </LargeImage>
                             </dx:RibbonButtonItem>
-                            <dx:RibbonButtonItem Name="btnCopy" Size="Large" Text="Copy" Visible="false">
-                                <LargeImage Url="~/Images/General/Copy.png">
-                                </LargeImage>
-                            </dx:RibbonButtonItem>
                         </Items>
                     </dx:RibbonGroup>
                 </Groups>
@@ -56,8 +52,8 @@
          <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
      </asp:Table>  
     <br />
-
-                                <dx:ASPxGridView ID="gvDOTDrugandAlcoholMISReport" runat="server" AutoGenerateColumns="False" DataSourceID="dsDOTReportList" KeyFieldName="ID"  Width="95%"   ClientInstanceName="gvClientDOTDrugandAlcoholMISReport" OnSelectionChanged="gvDOTDrugandAlcoholMISReport_SelectionChanged" EnableCallBacks="False">
+                                
+                             <dx:ASPxGridView ID="gvDOTDrugandAlcoholMISReport" runat="server" AutoGenerateColumns="False" DataSourceID="dsDOTReportList"              KeyFieldName="ID"             Width="95%" EnableCallBacks="False" OnSelectionChanged="gvDOTDrugandAlcoholMISReport_SelectionChanged" ClientInstanceName="gvClientDOTDrugandAlcoholMISReport" >
                                 <Columns>
                                     <dx:GridViewCommandColumn VisibleIndex="0" SelectAllCheckboxMode="Page" ShowSelectCheckbox="True">
                                     </dx:GridViewCommandColumn>
@@ -81,9 +77,9 @@
                                         <EditFormSettings Visible="False" />
                                     </dx:GridViewDataTextColumn>
                                 </Columns>
-                                    <SettingsBehavior AllowFocusedRow="True" ProcessFocusedRowChangedOnServer="True" ProcessSelectionChangedOnServer="True" />
-                                <Settings ShowFilterRow="True" ShowGroupButtons="False" />
-                                <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
+                                    <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True" ProcessFocusedRowChangedOnServer="True" ProcessSelectionChangedOnServer="True" SelectionStoringMode="PerformanceOptimized" />
+                                    <Settings ShowFilterRow="True" />
+                                    <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
                             </dx:ASPxGridView>
 
     <asp:SqlDataSource ID="dsDOTReportList" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_DOTDrugAndAlcoholMISList_Select" SelectCommandType="StoredProcedure" >

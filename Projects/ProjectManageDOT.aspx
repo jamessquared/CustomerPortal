@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="FindProject.aspx.cs" Inherits="CustomerPortal.Projects.FindProject" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="ProjectManageDOT.aspx.cs" Inherits="CustomerPortal.Projects.ProjectManageDOT" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
             <%-- Form Date Range --%>
     <dx:ASPxRibbon ID="mainToolbar" runat="server" ClientInstanceName="MainToolbar" ShowGroupLabels="False" ShowFileTab="False"  ShowTabs="False" OnCommandExecuted="mainToolbar_CommandExecuted">
@@ -32,7 +32,7 @@
 
         <%-- Left Margin --%>
      <asp:Table  runat="server" ID="Table1"  HorizontalAlign="Center">
-         <asp:TableRow><asp:TableCell><dx:ASPxLabel ID="ASPxLabel22" runat="server" Font-Size="X-Large" Text="Find Project"></dx:ASPxLabel></asp:TableCell></asp:TableRow>
+         <asp:TableRow><asp:TableCell><dx:ASPxLabel ID="ASPxLabel22" runat="server" Font-Size="X-Large" Text="D.O.T. Projects"></dx:ASPxLabel></asp:TableCell></asp:TableRow>
      </asp:Table> 
     <br />
     
@@ -139,7 +139,7 @@
     <br />
     
      <%-- Right Column --%>
-    <asp:SqlDataSource ID="dsFindProjects" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="ohsn_Web_Project_Find" SelectCommandType="StoredProcedure">
+    <asp:SqlDataSource ID="dsFindProjects" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="ohsn_Web_DOTProject_Find" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:SessionParameter Name="FromDate" SessionField="FromDate" DbType="Date" />
                 <asp:SessionParameter Name="ToDate" SessionField="ToDate" DbType="Date" />

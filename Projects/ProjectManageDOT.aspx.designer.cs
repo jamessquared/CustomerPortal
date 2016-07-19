@@ -10,7 +10,7 @@
 namespace CustomerPortal.Projects {
     
     
-    public partial class ProjectDOTResults {
+    public partial class ProjectManageDOT {
         
         /// <summary>
         /// mainToolbar control.
@@ -31,102 +31,93 @@ namespace CustomerPortal.Projects {
         protected global::System.Web.UI.WebControls.Table Table1;
         
         /// <summary>
-        /// ASPxLabel3 control.
+        /// ASPxLabel22 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel3;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel22;
         
         /// <summary>
-        /// ASPxRoundPanel2 control.
+        /// Table3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRoundPanel ASPxRoundPanel2;
+        protected global::System.Web.UI.WebControls.Table Table3;
         
         /// <summary>
-        /// ASPxCheckBox1 control.
+        /// ASPxLabel20 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ASPxCheckBox1;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel20;
         
         /// <summary>
-        /// ASPxCheckBox2 control.
+        /// dedFrom control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ASPxCheckBox2;
+        protected global::DevExpress.Web.ASPxDateEdit dedFrom;
         
         /// <summary>
-        /// ASPxCheckBox4 control.
+        /// ASPxLabel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ASPxCheckBox4;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel1;
         
         /// <summary>
-        /// CheckBoxList1 control.
+        /// dedTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList1;
+        protected global::DevExpress.Web.ASPxDateEdit dedTo;
         
         /// <summary>
-        /// CheckBoxList2 control.
+        /// Table2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList2;
+        protected global::System.Web.UI.WebControls.Table Table2;
         
         /// <summary>
-        /// ASPxRoundPanel1 control.
+        /// ASPxLabel24 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRoundPanel ASPxRoundPanel1;
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel24;
         
         /// <summary>
-        /// ASPxCheckBox3 control.
+        /// gvProject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ASPxCheckBox3;
+        protected global::DevExpress.Web.ASPxGridView gvProject;
         
         /// <summary>
-        /// RadioButtonList1 control.
+        /// dsFindProjects control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
-        
-        /// <summary>
-        /// CheckBoxList4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxList4;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsFindProjects;
     }
 }

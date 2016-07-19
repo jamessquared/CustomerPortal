@@ -33,11 +33,23 @@
             // Validate that the user has access to this page
             if (Session["Privileges"] != null)
             {
-                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
-                Priviliges p = priv["Find Project"];
-
-                if (p.AllowAccess == 0)
+                try
                 {
+                    Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                    Priviliges p = priv["Find Project"];
+
+                    if (p.AllowAccess == 0)
+                    {
+                        Response.Redirect("~/Default.aspx");
+                    }
+                }
+                catch (KeyNotFoundException)
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
+                catch (Exception ex)
+                {
+                    ExceptionUtility.LogException(ex, "Notification Project Details - Page_Load");
                     Response.Redirect("~/Default.aspx");
                 }
             }

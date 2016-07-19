@@ -45,6 +45,25 @@
                     txtbxCompleteBy.Text = dv[0]["CompletedByDeadline"].ToString();
                     txtbxDOTAgency.Text = Convert.ToString(dv[0]["DOTAgency"]);
                     txtbxDOTServiceCategory.Text = Convert.ToString(dv[0]["DOTServiceCategory"]);
+                    // Drugs
+                    ckResultNegative.Checked = Convert.ToBoolean(dv[0]["ResultNegative"]);
+                    ckPositiveForMarijuana.Checked = Convert.ToBoolean(dv[0]["PositiveForMarijuana"]);
+                    ckPositiveForCocaine.Checked = Convert.ToBoolean(dv[0]["PositiveForCocaine"]);
+                    ckPositiveForPCP.Checked = Convert.ToBoolean(dv[0]["PositiveForPCP"]);
+                    ckPositiveForOpiates.Checked = Convert.ToBoolean(dv[0]["PositiveForOpiates"]);
+                    ckPositiveForAmphetamines.Checked = Convert.ToBoolean(dv[0]["PositiveForAmphetamines"]);
+                    ckBlindSpecimensSubmitted.Checked = Convert.ToBoolean(dv[0]["BlindSpecimensSubmitted"]);
+                    ckSecondCollectionPerformed.Checked = Convert.ToBoolean(dv[0]["SecondCollectionPerformed"]);
+                    //
+                    ckRefusedDueToAdulterated.Checked = Convert.ToBoolean(dv[0]["Adulterated"]);
+                    ckRefusedDueToSubstition.Checked = Convert.ToBoolean(dv[0]["Substituted"]);
+                    ckRefusedDueToShyBladder.Checked = Convert.ToBoolean(dv[0]["ShyBladder"]);
+                    ckDrugTestRefusedDueToOtherReason.Checked = Convert.ToBoolean(dv[0]["DrugOtherRefusal"]);
+                    ckDrugTestCancelled.Checked = Convert.ToBoolean(dv[0]["DrugTestWasCancelled"]);
+                    // Alcohol
+                    ckRefusedDueToShyLung.Checked = Convert.ToBoolean(dv[0]["ShyLung"]);
+                    ckAlcoholTestRefusedDueToOtherReason.Checked = Convert.ToBoolean(dv[0]["AlcoholOtherRefusal"]);
+                    ckAlcoholTestCancelled.Checked = Convert.ToBoolean(dv[0]["AlcoholTestWasCancelled"]);
 
                     CompanyIDNo = dv[0]["CompanyIDNo"].ToString();
                     ProjectIDNo = dv[0]["ProjectIDNo"].ToString();
@@ -112,32 +131,49 @@
             // Validate that the user has access to this page
             if (Session["Privileges"] != null)
             {
-                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
-                Priviliges p = priv["Find Project"];
+                try
+                {
+                    Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                    Priviliges p = priv["Find Project"];
 
-                if (p.AllowAccess == 0)
+                    if (p.AllowAccess == 0)
+                    {
+                        Response.Redirect("~/Default.aspx");
+                    }
+                    if (Request.QueryString.HasKeys())
+                    {
+                        Session["ProjectID"] = Request.QueryString["ProjectID"];
+                        Session["SourcePage"] = Request.QueryString["SourcePage"];
+
+                        try
+                        {
+                            p = null;
+                            p = priv["Project Results"];
+
+                            LoadProjectInfo(p.AllowAccess == 1);
+                            lblResults.Visible = (p.AllowAccess == 1 && gvFiles.VisibleRowCount > 0);
+                            gvFiles.Visible = (p.AllowAccess == 1 && gvFiles.VisibleRowCount > 0);
+                        }
+                        catch (KeyNotFoundException)
+                        {
+                            gvFiles.Visible = false;
+                        }
+                        catch (Exception ex)
+                        {
+                            ExceptionUtility.LogException(ex, "Project Details - Page_Load");
+                            gvFiles.Visible = false;
+                        }
+                    } 
+                }
+                catch (KeyNotFoundException)
                 {
                     Response.Redirect("~/Default.aspx");
                 }
-
-                if (Request.QueryString.HasKeys())
+                catch (Exception ex)
                 {
-                    Session["ProjectID"] = Request.QueryString["ProjectID"];
-                    Session["SourcePage"] = Request.QueryString["SourcePage"];
-
-                    try
-                    {
-                        p = null;
-                        p = priv["Project Results"];
-
-                        LoadProjectInfo(p.AllowAccess == 1);
-                        gvFiles.Visible = (p.AllowAccess == 1 && gvFiles.VisibleRowCount > 0);
-                    }
-                    catch (Exception)
-                    {
-                        gvFiles.Visible = false;
-                    }
-                }
+                    ExceptionUtility.LogException(ex, "Project Details - Page_Load");
+                    Response.Redirect("~/Default.aspx");
+                }              
             }
         }
 

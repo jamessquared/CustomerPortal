@@ -10,7 +10,7 @@
 namespace CustomerPortal.Projects {
     
     
-    public partial class ProjectDetails {
+    public partial class ProjectDOT {
         
         /// <summary>
         /// mainToolbar control.
@@ -445,60 +445,6 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxMemo memSpecialInstructions;
         
         /// <summary>
-        /// Table2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table2;
-        
-        /// <summary>
-        /// ASPxLabel24 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel24;
-        
-        /// <summary>
-        /// gvProtocols control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView gvProtocols;
-        
-        /// <summary>
-        /// Table3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table3;
-        
-        /// <summary>
-        /// ASPxLabel16 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel16;
-        
-        /// <summary>
-        /// gvNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView gvNotes;
-        
-        /// <summary>
         /// Table4 control.
         /// </summary>
         /// <remarks>
@@ -535,58 +481,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxLabel ASPxLabel21;
         
         /// <summary>
-        /// ckResultNegative control.
+        /// rblDrugTestResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckResultNegative;
-        
-        /// <summary>
-        /// ckPositiveForMarijuana control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckPositiveForMarijuana;
-        
-        /// <summary>
-        /// ckPositiveForCocaine control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckPositiveForCocaine;
-        
-        /// <summary>
-        /// ckPositiveForPCP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckPositiveForPCP;
-        
-        /// <summary>
-        /// ckPositiveForOpiates control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckPositiveForOpiates;
-        
-        /// <summary>
-        /// ckPositiveForAmphetamines control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckPositiveForAmphetamines;
+        protected global::DevExpress.Web.ASPxRadioButtonList rblDrugTestResults;
         
         /// <summary>
         /// ckBlindSpecimensSubmitted control.
@@ -607,139 +508,49 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxCheckBox ckSecondCollectionPerformed;
         
         /// <summary>
-        /// ASPxLabel25 control.
+        /// rblDrugTestRefused control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel25;
+        protected global::DevExpress.Web.ASPxRadioButtonList rblDrugTestRefused;
         
         /// <summary>
-        /// ckRefusedDueToAdulterated control.
+        /// clbDrugTestPositiveResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckRefusedDueToAdulterated;
+        protected global::System.Web.UI.WebControls.CheckBoxList clbDrugTestPositiveResults;
         
         /// <summary>
-        /// ckRefusedDueToSubstition control.
+        /// rblAlcoholTestResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckRefusedDueToSubstition;
+        protected global::DevExpress.Web.ASPxRadioButtonList rblAlcoholTestResults;
         
         /// <summary>
-        /// ckRefusedDueToShyBladder control.
+        /// rblAlcoholTestRefused control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckRefusedDueToShyBladder;
+        protected global::DevExpress.Web.ASPxRadioButtonList rblAlcoholTestRefused;
         
         /// <summary>
-        /// ckDrugTestRefusedDueToOtherReason control.
+        /// rblAlcoholTestPositiveResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckDrugTestRefusedDueToOtherReason;
-        
-        /// <summary>
-        /// ckDrugTestCancelled control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckDrugTestCancelled;
-        
-        /// <summary>
-        /// ASPxLabel26 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel26;
-        
-        /// <summary>
-        /// ckResultLessthan02 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckResultLessthan02;
-        
-        /// <summary>
-        /// ckResult02orGreater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckResult02orGreater;
-        
-        /// <summary>
-        /// ckConfirmationResultBetween02and039 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckConfirmationResultBetween02and039;
-        
-        /// <summary>
-        /// ckConfirmationResultGreaterorequalto04 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckConfirmationResultGreaterorequalto04;
-        
-        /// <summary>
-        /// ASPxLabel27 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel27;
-        
-        /// <summary>
-        /// ckRefusedDueToShyLung control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckRefusedDueToShyLung;
-        
-        /// <summary>
-        /// ckAlcoholTestRefusedDueToOtherReason control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckAlcoholTestRefusedDueToOtherReason;
-        
-        /// <summary>
-        /// ckAlcoholTestCancelled control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckAlcoholTestCancelled;
+        protected global::DevExpress.Web.ASPxRadioButtonList rblAlcoholTestPositiveResults;
         
         /// <summary>
         /// dsProjectDetails control.
@@ -749,24 +560,6 @@ namespace CustomerPortal.Projects {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsProjectDetails;
-        
-        /// <summary>
-        /// dsProjectDetailsViewProtocolInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsProjectDetailsViewProtocolInfo;
-        
-        /// <summary>
-        /// dsProjectDetailsViewNotes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsProjectDetailsViewNotes;
         
         /// <summary>
         /// dsFiles control.

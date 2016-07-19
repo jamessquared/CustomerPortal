@@ -1,8 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="CustomerPortal.Account.ChangePassword" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="CustomerPortal.Account.ChangePassword" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
+  
+    <script type="text/javascript">
+    </script>
 
-    <%-- Toolbar --%>
+    <%-- Change Password Input --%>
     <dx:ASPxRibbon ID="mainToolbar" runat="server" ClientInstanceName="MainToolbar" ShowGroupLabels="False" ShowFileTab="False"  ShowTabs="False" OnCommandExecuted="mainToolbar_CommandExecuted">
         <Styles>
                 <Item Width="100px"></Item>
@@ -36,7 +39,7 @@
         </Tabs>
     </dx:ASPxRibbon>
 
-    <%-- Form Header Label --%>
+    <%-- Select Contact --%>
      <asp:Table  runat="server" ID="Table2"  HorizontalAlign="Center">
          <asp:TableRow HorizontalAlign="Center">
                <asp:TableCell></asp:TableCell>
@@ -61,8 +64,7 @@
         </asp:TableRow>
     </asp:Table>
 
-
-        <asp:Table runat="server" id="Table1" Width="100%" >
+    <asp:Table runat="server" id="Table1" Width="100%" >
             <asp:TableRow>
                 <%-- Input --%>
                 <asp:TableCell>
@@ -76,7 +78,7 @@
                             <asp:TableCell  Width="10%"></asp:TableCell>
                             <%-- Left Column --%>
                              <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel3" runat="server" Text="Old Password:"></dx:ASPxLabel></asp:TableCell>
-                            <asp:TableCell><dx:ASPxTextBox ID="txtOldPassword" runat="server" OnValidation="txtOldPassword_Validation" ></dx:ASPxTextBox></asp:TableCell>
+                            <asp:TableCell><dx:ASPxTextBox ID="txtOldPassword" runat="server" Width="170px"></dx:ASPxTextBox></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow><asp:TableCell> &nbsp;&nbsp;&nbsp;</asp:TableCell></asp:TableRow>
                         <%-- Line 2 --%>
@@ -85,7 +87,7 @@
                             <asp:TableCell  Width="10%"></asp:TableCell>
                             <%-- Left Column --%>
                              <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="New Password:" ></dx:ASPxLabel></asp:TableCell>
-                             <asp:TableCell><dx:ASPxTextBox ID="txtNewPassword" runat="server" AutoPostBack="true" OnTextChanged="txtNewPassword_TextChanged"  OnValidation="txtNewPassword_Validation" ></dx:ASPxTextBox> </asp:TableCell>
+                             <asp:TableCell><dx:ASPxTextBox ID="txtNewPassword" runat="server" Width="170px"></dx:ASPxTextBox></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow><asp:TableCell> &nbsp;&nbsp;&nbsp;</asp:TableCell></asp:TableRow>
                         <%-- Line 3 --%>
@@ -94,7 +96,7 @@
                             <asp:TableCell  Width="10%"></asp:TableCell>
                             <%-- Left Column --%>
                              <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel4" runat="server" Text="Confirm Password:" ></dx:ASPxLabel></asp:TableCell>
-                            <asp:TableCell><dx:ASPxTextBox ID="txtConfirmPassword" runat="server" OnValidation="txtConfirmPassword_Validation" ></dx:ASPxTextBox></asp:TableCell>
+                            <asp:TableCell><dx:ASPxTextBox ID="txtConfirmPassword" runat="server" Width="170px" AutoPostBack="true" OnValidation="txtConfirmPassword_Validation"></dx:ASPxTextBox></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow><asp:TableCell> &nbsp;&nbsp;&nbsp;</asp:TableCell></asp:TableRow>
                         <%-- Line 4 --%>
@@ -103,11 +105,14 @@
                             <asp:TableCell  Width="10%"></asp:TableCell>
                             <%-- Left Column --%>
                              <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel9" runat="server" Text="Strength of Password:"  ></dx:ASPxLabel></asp:TableCell>
-                            <asp:TableCell><dx:ASPxProgressBar ID="pbStrengthOfPassword" runat="server" DisplayMode="Position" Width="75%"><CaptionSettings HorizontalAlign="Center" Position="Bottom" ShowColon="False" VerticalAlign="Middle" /></dx:ASPxProgressBar></asp:TableCell>
+                            <asp:TableCell><dx:ASPxProgressBar ID="pbStrengthOfPassword" runat="server" DisplayMode="Position" Width="100%"><CaptionSettings HorizontalAlign="Center" Position="Bottom" ShowColon="False" VerticalAlign="Middle" /></dx:ASPxProgressBar></asp:TableCell>
                         </asp:TableRow>
                         <asp:TableRow><asp:TableCell> &nbsp;&nbsp;&nbsp;</asp:TableCell></asp:TableRow>
                     </asp:Table>
                 </asp:TableCell>
+
+                
+
                 <%-- Tips --%>
                 <asp:TableCell>
                     <%-- User details --%>
@@ -170,8 +175,6 @@
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>
-
-
-    
+  
 
 </asp:Content>

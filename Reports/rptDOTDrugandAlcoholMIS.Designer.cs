@@ -1421,7 +1421,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel76.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.NoOfComfirmationTests")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.NoOfConfirmationTests")});
             this.xrLabel76.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel76.LocationFloat = new DevExpress.Utils.PointFloat(391.0014F, 0F);
             this.xrLabel76.Name = "xrLabel76";
@@ -1915,7 +1915,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel90.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.NoOfComfirmationTests")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.NoOfConfirmationTests")});
             this.xrLabel90.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel90.LocationFloat = new DevExpress.Utils.PointFloat(390.8348F, 0F);
             this.xrLabel90.Name = "xrLabel90";

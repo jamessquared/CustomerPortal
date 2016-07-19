@@ -70,12 +70,27 @@
                     <asp:TableCell Width="10%"></asp:TableCell>
                 </asp:TableRow>
                 <asp:TableRow><asp:TableCell> &nbsp;&nbsp;&nbsp;</asp:TableCell></asp:TableRow>
+                <asp:TableRow>
+                    <%-- Left Margin --%>
+                    <asp:TableCell Width="10%"></asp:TableCell>
+                    <%-- Left Column --%>
+                    <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel2" runat="server" Text=""  ></dx:ASPxLabel></asp:TableCell>
+                    <asp:TableCell><dx:ASPxCheckBox ID="ckReportToMIS" runat="server" Text="Report to M.I.S."></dx:ASPxCheckBox></asp:TableCell>
+                     <%-- Center Margin --%>
+                    <asp:TableCell Width="10%"></asp:TableCell>
+                    <%-- Right Column --%>
+                    <asp:TableCell Width="10%"></asp:TableCell>
+                    <%-- Right Margin --%>
+                    <asp:TableCell Width="10%"></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow><asp:TableCell> &nbsp;&nbsp;&nbsp;</asp:TableCell></asp:TableRow>
                 <%-- Active --%>
                 <asp:TableRow>
                     <%-- Left Margin --%>
                     <asp:TableCell Width="10%"></asp:TableCell>
                     <%-- Left Column --%>
-                    <asp:TableCell HorizontalAlign="Right"> <dx:ASPxCheckBox runat="server" ID="ckActive" CheckState="Unchecked" Text="Active"  TextAlign="Left"></dx:ASPxCheckBox></asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel5" runat="server" Text=""  ></dx:ASPxLabel></asp:TableCell>
+                    <asp:TableCell> <dx:ASPxCheckBox runat="server" ID="ckActive" CheckState="Unchecked" Text="Active"></dx:ASPxCheckBox></asp:TableCell>
                      <%-- Center Margin --%>
                     <asp:TableCell Width="10%"></asp:TableCell>
                     <%-- Right Column --%>

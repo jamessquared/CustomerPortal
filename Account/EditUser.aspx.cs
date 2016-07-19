@@ -33,12 +33,24 @@
             // Validate that the user has access to this page
             if (Session["Privileges"] != null)
             {
-                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
-                Priviliges p = priv["User Account Management"];
-
-                if (p.AllowAccess == 0 || p.AllowAddorEdit == 0)
+                try
                 {
-                    Response.Redirect("~/Default.aspx");
+                    Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                    Priviliges p = priv["User Account Management"];
+
+                    if (p.AllowAccess == 0 || p.AllowAddorEdit == 0)
+                    {
+                        Response.Redirect("~/Account/UserManagement.aspx");
+                    }
+                }
+                catch (KeyNotFoundException)
+                {
+                    Response.Redirect("~/Account/UserManagement.aspx");
+                }
+                catch (Exception ex)
+                {
+                    ExceptionUtility.LogException(ex, "Edit User - Page_Load");
+                    Response.Redirect("~/Account/UserManagement.aspx");
                 }
             }
 

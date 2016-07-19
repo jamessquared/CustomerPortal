@@ -214,8 +214,15 @@
     <Content Include="Global.asax" />
     <Content Include="Images\General\Add Privileges.png" />
     <Content Include="Images\General\Add.png" />
+    <Content Include="Images\General\AddProjectDOT.png" />
+    <Content Include="Images\General\CalendarFail.png" />
+    <Content Include="Images\General\CalendarFurtherEvaluation.png" />
+    <Content Include="Images\General\CalendarHoliday.png" />
+    <Content Include="Images\General\CalendarIncomplete.png" />
     <Content Include="Images\General\CalendarNext.png" />
+    <Content Include="Images\General\CalendarPass.png" />
     <Content Include="Images\General\CalendarPrevious.png" />
+    <Content Include="Images\General\CalendarSubjectRefusal.png" />
     <Content Include="Images\General\Cancel.png" />
     <Content Include="Images\General\Copy.png" />
     <Content Include="Images\General\Deactivate Protocol.png" />
@@ -231,6 +238,7 @@
     <Content Include="Images\General\ShowChecked.png" />
     <Content Include="Images\General\Submit.png" />
     <Content Include="Images\General\Today.png" />
+    <Content Include="Images\MainMenu\AddProjectDOT.png" />
     <Content Include="Images\MainMenu\Calendar.png" />
     <Content Include="Images\MainMenu\FindProject.png" />
     <Content Include="Images\General\Hint-Large.png" />
@@ -270,7 +278,8 @@
     <Content Include="Main.master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Projects\ProjectDOTResults.aspx" />
+    <Content Include="Projects\ProjectManageDOT.aspx" />
+    <Content Include="Projects\ProjectDOT.aspx" />
     <Content Include="Reports\AddDOTDrugandAlcoholMIS.aspx" />
     <Content Include="Reports\EditDOTDrugandAlcoholMIS.aspx" />
     <Content Include="Projects\FindProject.aspx" />
@@ -405,12 +414,19 @@
     <Compile Include="Main.master.designer.cs">
       <DependentUpon>Main.master</DependentUpon>
     </Compile>
-    <Compile Include="Projects\ProjectDOTResults.aspx.cs">
-      <DependentUpon>ProjectDOTResults.aspx</DependentUpon>
+    <Compile Include="Projects\ProjectManageDOT.aspx.cs">
+      <DependentUpon>ProjectManageDOT.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Projects\ProjectDOTResults.aspx.designer.cs">
-      <DependentUpon>ProjectDOTResults.aspx</DependentUpon>
+    <Compile Include="Projects\ProjectManageDOT.aspx.designer.cs">
+      <DependentUpon>ProjectManageDOT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Projects\ProjectDOT.aspx.cs">
+      <DependentUpon>ProjectDOT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Projects\ProjectDOT.aspx.designer.cs">
+      <DependentUpon>ProjectDOT.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reports\AddDOTDrugandAlcoholMIS.aspx.cs">
       <DependentUpon>AddDOTDrugandAlcoholMIS.aspx</DependentUpon>

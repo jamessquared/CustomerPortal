@@ -51,79 +51,6 @@
 
         #region Data Scripts
 
-        protected bool GetBackOfficeCoordinatorData()
-        {
-            long result = 0;
-            long calendarYear = 0;
-            long reportFor = 0;
-
-            if (cbxCalendarYear.SelectedItem != null)
-            {
-                calendarYear = (int)cbxCalendarYear.SelectedItem.Value;
-            }
-
-            if (cbxReportFor.SelectedItem != null)
-            {
-                reportFor = (int)cbxReportFor.SelectedItem.Value;
-            }
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("ohsn_Web_ProjectDOTRefusalResultsGetYearlyTotals_Select", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
-                        cmd.Parameters.AddWithValue("@ReportYear", calendarYear);
-                        cmd.Parameters.AddWithValue("@ReportForTID", reportFor);
-
-                        SqlDataReader rdr = cmd.ExecuteReader();
-                        while (rdr.Read())
-                        {
-                            txtbxCompanyName.Text = Convert.ToString(rdr["CompanyName"]);
-                            Convert.ToString(rdr["TotalNoOfDrugTestResults"]);
-		                    Convert.ToString(rdr["'TotalNoOfNegResults"]);
-		                    Convert.ToString(rdr["'TotalNoOfPositiveForMarijuana"]);
-		                    Convert.ToString(rdr["'TotalNoOfPositiveForCocaine"]);
-		                    Convert.ToString(rdr["'TotalNoOfPositiveForPCP"]);
-		                    Convert.ToString(rdr["'TotalNoOfPositiveForOpiates"]);
-		                    Convert.ToString(rdr["'TotalNoOfPositiveForAmphetamines"]);
-		                    Convert.ToString(rdr["'TotalNoOfRefusalResultsAdultered"]);
-		                    Convert.ToString(rdr["'TotalNoOfRefusalResultsSubstituted"]);
-		                    Convert.ToString(rdr["'TotalNoOfRefusalResultsShyBladder"]);
-		                    Convert.ToString(rdr["'TotalNoOfRefusalResultsDOther"]);
-		                    Convert.ToString(rdr["'TotalNoOfDrugCancelledTests"]);
-		                    Convert.ToString(rdr["'TotalNoOfBlindSpecimens"]);
-		                    Convert.ToString(rdr["'TotalNoOfSecondCollection"]);
-		                    Convert.ToString(rdr["'TotalNoOfAlcoholTestResults"]);
-		                    Convert.ToString(rdr["'TotalNoOfAlcoholTestResultLessthan02"]);
-		                    Convert.ToString(rdr["'TotalNoOfAlcoholTestResult02orGreater"]);
-		                    Convert.ToString(rdr["'TotalNoOfAlcoholTestConfirmationResultBetween02and039"]);
-		                    Convert.ToString(rdr["'TotalNoOfAlcoholTestConfirmationResultGreaterorequalto04"]);
-		                    Convert.ToString(rdr["'TotalNoOfAlcoholCancelledTests"]);
-		                    Convert.ToString(rdr["'TotalNoOfRefusalResultsShyLung"]);
-                            Convert.ToString(rdr["'TotalNoOfRefusalResultsAOther"]);
-
-                        }
-                    }
-
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                ExceptionUtility.LogException(ex, "AddDOTDrugandAlcoholMIS - FindEmployerData");
-
-                ExceptionUtility.NotifySupport(ex);
-
-                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-            }
-
-            return result > 0;
-        }
-
         protected bool FindEmployerData()
         {
             long result = 0;
@@ -327,6 +254,19 @@
 
         protected void InsertDrugTestingDataRecords(string typeOfTest)
         {
+            long calendarYear = 0;
+            long reportFor = 0;
+
+            if (cbxCalendarYear.SelectedItem != null)
+            {
+                calendarYear = (int)cbxCalendarYear.SelectedItem.Value;
+            }
+
+            if (cbxReportFor.SelectedItem != null)
+            {
+                reportFor = (int)cbxReportFor.SelectedItem.Value;
+            }
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
@@ -335,9 +275,11 @@
                     using (SqlCommand cmd = new SqlCommand("OHSN_Web_DOTDrugAndAlcoholMISDrugTestingData_Insert", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ParentID", Session["DOTReportID"]);
-                        cmd.Parameters.AddWithValue("@TypeOfTest", typeOfTest);
 
+                        cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
+                        cmd.Parameters.AddWithValue("@ReportYear", calendarYear);
+                        cmd.Parameters.AddWithValue("@ReportForTID", reportFor);
+                        cmd.Parameters.AddWithValue("@TypeOfTest", typeOfTest);
 
                         cmd.ExecuteNonQuery();
 
@@ -368,6 +310,19 @@
 
         protected void InsertAlcoholTestingDataRecords(string typeOfTest)
         {
+            long calendarYear = 0;
+            long reportFor = 0;
+
+            if (cbxCalendarYear.SelectedItem != null)
+            {
+                calendarYear = (int)cbxCalendarYear.SelectedItem.Value;
+            }
+
+            if (cbxReportFor.SelectedItem != null)
+            {
+                reportFor = (int)cbxReportFor.SelectedItem.Value;
+            }
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
@@ -376,17 +331,11 @@
                     using (SqlCommand cmd = new SqlCommand("OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Insert", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ParentID", Session["DOTReportID"]);
+
+                        cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
+                        cmd.Parameters.AddWithValue("@ReportYear", calendarYear);
+                        cmd.Parameters.AddWithValue("@ReportForTID", reportFor);
                         cmd.Parameters.AddWithValue("@TypeOfTest", typeOfTest);
-                        cmd.Parameters.AddWithValue("@TotalNoOfTestResults", string.Empty);
-                        cmd.Parameters.AddWithValue("@ResultsBelow02", string.Empty);
-                        cmd.Parameters.AddWithValue("@Results02orGreater", string.Empty);
-                        cmd.Parameters.AddWithValue("@NoOfComfirmationTests", string.Empty);
-                        cmd.Parameters.AddWithValue("@ConfirmationTests02thru039", string.Empty);
-                        cmd.Parameters.AddWithValue("@ConfirmationTests04orGreater", string.Empty);
-                        cmd.Parameters.AddWithValue("@RefusalResultsShyLungNoMedExplaination", string.Empty);
-                        cmd.Parameters.AddWithValue("@RefusalResultsOther", string.Empty);
-                        cmd.Parameters.AddWithValue("@CancelledResults", string.Empty);
 
                         cmd.ExecuteNonQuery();
 

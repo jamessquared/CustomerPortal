@@ -387,12 +387,18 @@ namespace CustomerPortal
                         break;
                     }
 
-                case "btnFind":
+                case "btnFindProject":
                     {
                         Response.Redirect("~/Projects/FindProject.aspx");
                         break;
                     }
 
+                case "btnProjectManageDOT":
+                    {
+                        Response.Redirect("~/Projects/ProjectManageDOT.aspx");
+                        break;
+                    }
+                    
                 case "btnActiveProjects":
                     {
                         Response.Redirect("~/Reports/ReportViewer.aspx?NameID=Active Projects");

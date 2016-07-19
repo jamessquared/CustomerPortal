@@ -99,7 +99,7 @@
         </dx:ASPxPanel>
 
         <%-- Main Body --%>
-            <dx:ASPxPanel ID="MainPane" runat="server" CssClass="mainContentPane">
+        <dx:ASPxPanel ID="MainPane" runat="server" CssClass="mainContentPane">
                 <PanelCollection>
                     <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
                         <asp:ContentPlaceHolder ID="Content" runat="server" />
@@ -117,7 +117,6 @@
                 </dx:PanelContent>
             </PanelCollection>
         </dx:ASPxPanel>
-
     </form>
 </body>
 </html>

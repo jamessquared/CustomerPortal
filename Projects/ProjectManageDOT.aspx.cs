@@ -6,7 +6,7 @@
     using System.Collections.Generic;
     using System.Web;
 
-    public partial class FindProject : System.Web.UI.Page
+    public partial class ProjectManageDOT : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,23 +26,11 @@
             // Validate that the user has access to this page
             if (Session["Privileges"] != null)
             {
-                try
-                {
-                    Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
-                    Priviliges p = priv["Find Project"];
+                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                Priviliges p = priv["Find Project"];
 
-                    if (p.AllowAccess == 0)
-                    {
-                        Response.Redirect("~/Default.aspx");
-                    }
-                }
-                catch (KeyNotFoundException)
+                if (p.AllowAccess == 0)
                 {
-                    Response.Redirect("~/Default.aspx");
-                }
-                catch (Exception ex)
-                {
-                    ExceptionUtility.LogException(ex, "Find Project - Page_Load");
                     Response.Redirect("~/Default.aspx");
                 }
             }
@@ -53,7 +41,6 @@
                 dedTo.Date = DateTime.Now.Date;
                 Session["FromDate"] = DateTime.Now.AddDays(-30);
                 Session["ToDate"] = DateTime.Now.Date;
-
                 dsFindProjects.DataBind();
             }
         }
@@ -87,13 +74,6 @@
                                 HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
                             } 
                         }
-
-                        break;
-                    }
-
-                case "btnDOTResults":
-                    {
-                        Response.Redirect("~/Projects/ProjectDOTResults.aspx");
 
                         break;
                     }

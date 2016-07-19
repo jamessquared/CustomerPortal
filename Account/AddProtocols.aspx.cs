@@ -1,4 +1,4 @@
-﻿namespace CustomerPortal.Account
+﻿ namespace CustomerPortal.Account
 {
     using CustomerPortal.Classes;
     using CustomerPortal.Utility;
@@ -33,14 +33,26 @@
             // Validate that the user has access to this page
             if (Session["Privileges"] != null)
             {
-                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
-                Priviliges p = priv["Protocol Management"];
-
-                if (p.AllowAccess == 0 || p.AllowAddorEdit == 0)
+                try
                 {
-                    Response.Redirect("~/Default.aspx");
-                }
+                    Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                    Priviliges p = priv["Protocol Management"];
 
+                    if (p.AllowAccess == 0 || p.AllowAddorEdit == 0)
+                    {
+                        Response.Redirect("~/ProtocolManagement.aspx");
+                    }
+                }
+                catch (KeyNotFoundException)
+                {
+                    Response.Redirect("~/ProtocolManagement.aspx");
+                }
+                catch (Exception ex)
+                {
+                    ExceptionUtility.LogException(ex, " Add Protocols - Page_Load");
+                    Response.Redirect("~/ProtocolManagement.aspx");
+                }
+            
 
                 dsProtocols.DataBind();
                 dsServices.DataBind();
@@ -181,6 +193,7 @@
                         cmd.Parameters.AddWithValue("@ServiceInfo", serviceInfo);
                         cmd.Parameters.AddWithValue("@JobTitleClassificationInfo", jobTitleClassificationInfo);
                         cmd.Parameters.AddWithValue("@EnteredByID", Convert.ToInt64(Session["ContactID"]));
+                        cmd.Parameters.AddWithValue("@ReportToMIS", ckReportToMIS.Checked);
 
                         SqlParameter paramProtocolID = new SqlParameter() { ParameterName = "@ProtocolID", DbType = DbType.Int64, Direction = ParameterDirection.Output };
                         cmd.Parameters.Add(paramProtocolID);

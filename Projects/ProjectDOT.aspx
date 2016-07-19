@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="ProjectDetails.aspx.cs" Inherits="CustomerPortal.Projects.ProjectDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="ProjectDOT.aspx.cs" Inherits="CustomerPortal.Projects.ProjectDOT" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
 
@@ -7,7 +7,7 @@
 
   </script>
 
-            <%-- Main Menu --%>
+            <%-- Left Margin --%>
     <dx:ASPxRibbon ID="mainToolbar" runat="server" ClientInstanceName="MainToolbar" ShowGroupLabels="False" ShowFileTab="False"  ShowTabs="False" OnCommandExecuted="mainToolbar_CommandExecuted">
         <Styles>
                 <Item Width="100px"></Item>
@@ -24,12 +24,24 @@
                             </dx:RibbonButtonItem>
                         </Items>
                     </dx:RibbonGroup>
+                    <dx:RibbonGroup Text="Save">
+                        <Items>
+                            <dx:RibbonButtonItem Name="btnSubmit" Size="Large" Text="Submit" ToolTip="Save any changes and return to the previous page.">
+                                <LargeImage Url="~/Images/General/Submit.png">
+                                </LargeImage>
+                            </dx:RibbonButtonItem>
+                            <dx:RibbonButtonItem Name="btnCancel" Size="Large" Text="Cancel" ToolTip="Return to the previous page without saving any changes.">
+                                <LargeImage Url="~/Images/General/Cancel.png">
+                                </LargeImage>
+                            </dx:RibbonButtonItem>
+                        </Items>
+                    </dx:RibbonGroup>
                 </Groups>
             </dx:RibbonTab>
         </Tabs>
     </dx:ASPxRibbon>
 
-        <%-- Form Title --%>
+        <%-- Left Column --%>
      <asp:Table  runat="server" ID="Table1"  HorizontalAlign="Center">
          <asp:TableRow><asp:TableCell><dx:ASPxLabel ID="ASPxLabel22" runat="server" Font-Size="X-Large" Text="Project Details"></dx:ASPxLabel></asp:TableCell></asp:TableRow>
      </asp:Table> 
@@ -264,71 +276,9 @@
         </asp:TableRow>
     </asp:Table>
     <br />
-
-
-        <%-- Protocols --%>
-        <asp:Table runat="server" id="Table2" Width="100%" >
-         <asp:TableRow ><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel24" runat="server" Font-Size="Large" Text="Protocols"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
-         <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
-        <%-- Protocols --%>
-        <asp:TableRow >
-            <asp:TableCell  Width="10%"></asp:TableCell>
-            <asp:TableCell>
-                <dx:ASPxGridView ID="gvProtocols" runat="server" AutoGenerateColumns="False" DataSourceID="dsProjectDetailsViewProtocolInfo" Width="100%">
-                    <Columns>
-                        <dx:GridViewDataTextColumn FieldName="ProtocolID" VisibleIndex="1" Visible="false">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Protocol" VisibleIndex="2" Width="50%">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="ServiceID" VisibleIndex="4" Visible="false">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataDateColumn FieldName="Date of Service" VisibleIndex="0"  Width="10%" PropertiesDateEdit-DisplayFormatString="d" Caption="Date of Service" >
-                        </dx:GridViewDataDateColumn>
-                        <dx:GridViewDataTextColumn FieldName="Service" VisibleIndex="3" Width="40%">
-                        </dx:GridViewDataTextColumn>
-                    </Columns>
-                    <SettingsPager Visible="False">
-                    </SettingsPager>
-                    <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
-                </dx:ASPxGridView>  
-            </asp:TableCell>
-            <asp:TableCell  Width="10%"></asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-    <br />
-    <br />
-    
-        <%-- Notes --%>
-        <asp:Table runat="server" id="Table3" Width="100%" >
-         <asp:TableRow ><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel16" runat="server" Font-Size="Large" Text="Notes"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
-         <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
-        <%-- Notes --%>
-        <asp:TableRow >
-            <asp:TableCell  Width="10%"></asp:TableCell>
-            <asp:TableCell>
-                <dx:ASPxGridView ID="gvNotes" runat="server" DataSourceID="dsProjectDetailsViewNotes" AutoGenerateColumns="False" Width="100%">
-                    <Columns>
-                        <dx:GridViewDataDateColumn FieldName="EnteredOn" VisibleIndex="0"  PropertiesDateEdit-DisplayFormatString="d" Width="10%" Caption="Created">
-                        </dx:GridViewDataDateColumn>
-                        <dx:GridViewDataTextColumn FieldName="EnteredByName" ReadOnly="True" VisibleIndex="1" Width="10%" Caption="Created By">
-                        </dx:GridViewDataTextColumn>
-                        <dx:GridViewDataTextColumn FieldName="Note" ReadOnly="True" VisibleIndex="2" Width="70%">
-                        </dx:GridViewDataTextColumn>
-                    </Columns>
-                    <SettingsPager Visible="False">
-                    </SettingsPager>
-                    <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
-                </dx:ASPxGridView>
-            </asp:TableCell>
-            <asp:TableCell  Width="10%"></asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-    <br />
-    <br />  
-
-
+   
         <%-- Results --%>
-        <asp:Table runat="server" id="Table4" Width="100%" >
+     <asp:Table runat="server" id="Table4" Width="100%" >
          <asp:TableRow ><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="lblResults" runat="server" Font-Size="Large" Text="Results"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
          <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
         <%-- Results --%>
@@ -345,166 +295,118 @@
     <br />
     <br />
 
-     <%-- DOT Drug Results --%>
+     <%-- DOT --%>
      <asp:Table runat="server" Width="100%">
-         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel21" runat="server" Font-Size="Large" Text="DOT Drug Results"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
+         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel21" runat="server" Font-Size="Large" Text="DOT Results"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
          <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
-        <asp:TableRow>
+                  <asp:TableRow>
                 <asp:TableCell  Width="10%"></asp:TableCell>
                 <asp:TableCell>
-                    <dx:ASPxCheckBox ID="ckResultNegative" runat="server" CheckState="Unchecked" Text="Result tested Negative" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                    <dx:ASPxLabel runat="server" Text="Drug Test Results"></dx:ASPxLabel>
                 </asp:TableCell>
             <asp:TableCell>
-                <dx:ASPxCheckBox ID="ckPositiveForMarijuana" runat="server" CheckState="Unchecked" Text="Positive for Marijuana" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                   <dx:ASPxLabel runat="server" Text="Druig Refusal Result"></dx:ASPxLabel>
             </asp:TableCell>
             <asp:TableCell>
-                 <dx:ASPxCheckBox ID="ckPositiveForCocaine" runat="server" CheckState="Checked" Text="Positive for Cocaine" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                   <dx:ASPxLabel runat="server" Text="Drug Confirmation Result"></dx:ASPxLabel>
             </asp:TableCell>
              <asp:TableCell  Width="10%"></asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow>
-                 <asp:TableCell  Width="10%"></asp:TableCell>
+          <asp:TableRow>
+                <asp:TableCell  Width="10%"></asp:TableCell>
                 <asp:TableCell>
-                    <dx:ASPxCheckBox ID="ckPositiveForPCP" runat="server" CheckState="Unchecked" Text="Positive for PCP" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                        <dx:ASPxRadioButtonList ID="rblDrugTestResults" runat="server" ClientInstanceName="rblDrugTestResults"  ValueType="System.Int32" AutoPostBack="true" OnSelectedIndexChanged="rblDrugTestResults_SelectedIndexChanged">
+                             <Items>
+                                 <dx:ListEditItem Text="Test Result was Negative" Value="0" />
+                                 <dx:ListEditItem Text="Test was Cancelled" Value="1" />
+                                 <dx:ListEditItem Text="Test Result was Refused" Value="2" />
+                                 <dx:ListEditItem Text="Test Result was Positive" Value="3" />
+                             </Items>
+                         </dx:ASPxRadioButtonList>  
+                         <dx:ASPxCheckBox ID="ckBlindSpecimensSubmitted" runat="server" CheckState="Unchecked" Text="Blind Specimen collected" Font-Size="Small"></dx:ASPxCheckBox>
+                          <dx:ASPxCheckBox ID="ckSecondCollectionPerformed" runat="server" CheckState="Unchecked" Text="2nd Collection was performed" Font-Size="Small"></dx:ASPxCheckBox>                                                               
                 </asp:TableCell>
-            <asp:TableCell>
-                <dx:ASPxCheckBox ID="ckPositiveForOpiates" runat="server" CheckState="Unchecked" Text="Positive for Opiates" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                <asp:TableCell>
+                         <dx:ASPxRadioButtonList ID="rblDrugTestRefused" runat="server" SelectedIndex="-1" ValueType="System.Int32" Visible="false">
+                             <Items>
+                                 <dx:ListEditItem Text="Adulterated Specimen" Value="0" />
+                                 <dx:ListEditItem Text="Substituted Specimen" Value="1"  />
+                                 <dx:ListEditItem Text="'Shy' Bladder"  Value="2" />
+                                 <dx:ListEditItem Text="Other Refusal"  Value="3" />
+                             </Items>
+                         </dx:ASPxRadioButtonList>                                    
             </asp:TableCell>
-            <asp:TableCell>
-                 <dx:ASPxCheckBox ID="ckPositiveForAmphetamines" runat="server" CheckState="Checked" Text="Positive for Amphetamines" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                <asp:TableCell>
+                    <asp:CheckBoxList ID="clbDrugTestPositiveResults" runat="server" Visible="false">
+                                 <asp:ListItem>Positive for Marijuana</asp:ListItem>
+                                 <asp:ListItem>Positive for Cocaine</asp:ListItem>
+                                 <asp:ListItem>Positive for PCP</asp:ListItem>
+                                 <asp:ListItem>Positive for Opiates</asp:ListItem>
+                                 <asp:ListItem>Positive for Amphetamines</asp:ListItem>
+                     </asp:CheckBoxList>                
             </asp:TableCell>
              <asp:TableCell  Width="10%"></asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell  Width="10%"></asp:TableCell>
-            <asp:TableCell></asp:TableCell>
-            <asp:TableCell></asp:TableCell>
-            <asp:TableCell></asp:TableCell>
-            <asp:TableCell  Width="10%"></asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell  Width="10%"></asp:TableCell>
-            <asp:TableCell>
-                    <dx:ASPxCheckBox ID="ckBlindSpecimensSubmitted" runat="server" CheckState="Unchecked" Text="Blind Specimen collection?" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
-            </asp:TableCell>
-            <asp:TableCell>
-                <dx:ASPxCheckBox ID="ckSecondCollectionPerformed" runat="server" CheckState="Unchecked" Text="2nd Collection was performed?" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
-            </asp:TableCell>
-            <asp:TableCell>
-            </asp:TableCell>
-            <asp:TableCell  Width="10%"></asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-    <br />
-    <br />
-    <%-- DOT Drug Results  Refused --%>
-    <asp:Table runat="server" Width="100%">
-         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel25" runat="server" Font-Size="Large" Text="DOT Drug Results Refusal"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
-         <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
-        <asp:TableRow>
-                 <asp:TableCell  Width="10%"></asp:TableCell>
+         <asp:TableRow><asp:TableCell><br /></asp:TableCell></asp:TableRow>
+         <asp:TableRow>
+                <asp:TableCell  Width="10%"></asp:TableCell>
                 <asp:TableCell>
-                    <dx:ASPxCheckBox ID="ckRefusedDueToAdulterated" runat="server" CheckState="Unchecked" Text="Refused due to Adultated" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                    <dx:ASPxLabel runat="server" Text="Alcohol Test Result"></dx:ASPxLabel>
                 </asp:TableCell>
             <asp:TableCell>
-                <dx:ASPxCheckBox ID="ckRefusedDueToSubstition" runat="server" CheckState="Unchecked" Text="Refused due to Substitution" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                   <dx:ASPxLabel runat="server" Text="Alcohol Refusal Result"></dx:ASPxLabel>
             </asp:TableCell>
             <asp:TableCell>
-                 <dx:ASPxCheckBox ID="ckRefusedDueToShyBladder" runat="server" CheckState="Checked" Text="Refused due to 'Shy' Bladder" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                   <dx:ASPxLabel runat="server" Text="Alcohol Confirmation Result"></dx:ASPxLabel>
             </asp:TableCell>
              <asp:TableCell  Width="10%"></asp:TableCell>
         </asp:TableRow>
-        <asp:TableRow>
-                 <asp:TableCell  Width="10%"></asp:TableCell>
+         <asp:TableRow>
+                <asp:TableCell  Width="10%"></asp:TableCell>
                 <asp:TableCell>
-                    <dx:ASPxCheckBox ID="ckDrugTestRefusedDueToOtherReason" runat="server" CheckState="Unchecked" Text="Refused due to Other Reason" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                        <dx:ASPxRadioButtonList ID="rblAlcoholTestResults" runat="server"  ValueType="System.Int32" AutoPostBack="true" OnSelectedIndexChanged="rblAlcoholTestResults_SelectedIndexChanged" >
+                             <Items>
+                                 <dx:ListEditItem Text="Test Result was less 0.02" Value="0" />
+                                 <dx:ListEditItem Text="Test was Cancelled" Value="1" />
+                                 <dx:ListEditItem Text="Test Result was Refused" Value="2" />
+                                 <dx:ListEditItem Text="Test Result was ≥ 0.02" Value="3" />
+                             </Items>
+                         </dx:ASPxRadioButtonList>                                                             
                 </asp:TableCell>
             <asp:TableCell>
-                <dx:ASPxCheckBox ID="ckDrugTestCancelled" runat="server" CheckState="Unchecked" Text="Test Cancelled" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
+                 <dx:ASPxRadioButtonList ID="rblAlcoholTestRefused" runat="server" SelectedIndex="-1" ValueType="System.Int32" Visible="false">
+                             <Items>
+                                 <dx:ListEditItem Text="'Shy' lung"  Value="2" />
+                                 <dx:ListEditItem Text="Other Refusal"  Value="3" />
+                             </Items>
+                         </dx:ASPxRadioButtonList>                                    
             </asp:TableCell>
             <asp:TableCell>
-            </asp:TableCell>
-             <asp:TableCell  Width="10%"></asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-    <br />
-    <br />
-    <%-- DOT Alcohol Results --%>
-    <asp:Table runat="server"  Width="100%">
-         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel26" runat="server" Font-Size="Large" Text="DOT Alcohol Results"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
-         <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
-        <asp:TableRow>
-                 <asp:TableCell  Width="10%"></asp:TableCell>
-                <asp:TableCell>
-                    <dx:ASPxCheckBox ID="ckResultLessthan02" runat="server" CheckState="Unchecked" Text="Result < 0.02" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
-                </asp:TableCell>
-            <asp:TableCell>
-                <dx:ASPxCheckBox ID="ckResult02orGreater" runat="server" CheckState="Unchecked" Text="Result < 0.02" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
-            </asp:TableCell>
-            <asp:TableCell>
-            </asp:TableCell>
-             <asp:TableCell  Width="10%"></asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-                 <asp:TableCell  Width="10%"></asp:TableCell>
-                <asp:TableCell>
-                    <dx:ASPxCheckBox ID="ckConfirmationResultBetween02and039" runat="server" CheckState="Unchecked" Text="Confirmation result 0.02 to 0.039" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
-                </asp:TableCell>
-            <asp:TableCell>
-                <dx:ASPxCheckBox ID="ckConfirmationResultGreaterorequalto04" runat="server" CheckState="Unchecked" Text="Confirmation result > 0.039" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
-            </asp:TableCell>
-            <asp:TableCell>
+                 <dx:ASPxRadioButtonList ID="rblAlcoholTestPositiveResults" runat="server" SelectedIndex="-1" ValueType="System.Int32" Visible="false">
+                             <Items>
+                                 <dx:ListEditItem Text="Confirm Result was 0.02 - 0.039" Value="0" />
+                                 <dx:ListEditItem Text="Confirm Result was ≥ 0.04" Value="1" />
+                                 <dx:ListEditItem Text="No Confirmation Result recorded" Value="2" />
+                             </Items>
+                         </dx:ASPxRadioButtonList>                                                 
             </asp:TableCell>
              <asp:TableCell  Width="10%"></asp:TableCell>
         </asp:TableRow>
     </asp:Table>
     <br />
-    <br />
-    <%-- DOT Alcohol Results  Refused --%>
-    <asp:Table runat="server" Width="100%">
-         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel27" runat="server" Font-Size="Large" Text="DOT Alcohol Results Refusal"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
-         <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
-        <asp:TableRow>
-                 <asp:TableCell  Width="10%"></asp:TableCell>
-                <asp:TableCell>
-                    <dx:ASPxCheckBox ID="ckRefusedDueToShyLung" runat="server" CheckState="Unchecked" Text="Refused due to 'Shy' Lung" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
-                </asp:TableCell>
-                <asp:TableCell>
-                    <dx:ASPxCheckBox ID="ckAlcoholTestRefusedDueToOtherReason" runat="server" CheckState="Unchecked" Text="Refused due to Other Reason" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
-                </asp:TableCell>
-            <asp:TableCell>
-                <dx:ASPxCheckBox ID="ckAlcoholTestCancelled" runat="server" CheckState="Unchecked" Text="Test Cancelled" Font-Size="Small" Enabled="false"></dx:ASPxCheckBox>
-            </asp:TableCell>
-             <asp:TableCell  Width="10%"></asp:TableCell>
-        </asp:TableRow>
-    </asp:Table>
-     
+    <br />    
      </div>
 
-    <%--Data Source--%>
-   <asp:SqlDataSource ID="dsProjectDetails" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_ProjectDetailsPatientInfo" SelectCommandType="StoredProcedure">
+    <%-- Data Sources --%>
+   <asp:SqlDataSource ID="dsProjectDetails" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_ProjectDOTDetails_Select" SelectCommandType="StoredProcedure">
        <SelectParameters>
            <asp:SessionParameter Name="ProjectID" SessionField="ProjectID" Type="Int64" />
        </SelectParameters>
    </asp:SqlDataSource>
 
-    <asp:SqlDataSource ID="dsProjectDetailsViewProtocolInfo" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_ProjectViewDetailsProtocols" SelectCommandType="StoredProcedure">
-        <SelectParameters>
-            <asp:SessionParameter Name="ProjectID" SessionField="ProjectID" Type="Int64" />
-            <asp:SessionParameter DefaultValue="" Name="EmployerID" SessionField="WorkingEmployerID" Type="Int64" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-    
-    <asp:SqlDataSource ID="dsProjectDetailsViewNotes" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_ProjectViewDetailsNotes" SelectCommandType="StoredProcedure">
-        <SelectParameters>
-            <asp:SessionParameter Name="ProjectID" SessionField="ProjectID" Type="Int64" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-
     <asp:SqlDataSource ID="dsFiles" runat="server" ></asp:SqlDataSource>
 
     <asp:SqlDataSource ID="dsJobCategory" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="ohsn_Web_GetJobCategorList"></asp:SqlDataSource>
-
     <br />
 
 </asp:Content>

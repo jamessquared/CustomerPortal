@@ -8,15 +8,10 @@
     using System.Drawing;
     using System.Linq;
     using System.Web;
+    using DevExpress.Web;
 
     public partial class ChangePassword : System.Web.UI.Page
     {
-        #region Properties
-
-        private bool IsValid { get; set; }
-       
-        #endregion
-
         #region Private
 
         private int PasswordLengthScore(string password)
@@ -183,7 +178,7 @@
             return result;
         }
 
-        private bool UserFound()
+        private bool UserFound(string oldPassword)
         {
             bool result = false;
 
@@ -196,7 +191,7 @@
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@UserName", Session["UserName"].ToString());
-                        cmd.Parameters.AddWithValue("@UserPassword", txtOldPassword.Text);
+                        cmd.Parameters.AddWithValue("@UserPassword", oldPassword);
                         SqlDataReader rdr = cmd.ExecuteReader();
 
                         result = rdr.HasRows;
@@ -273,20 +268,56 @@
             }
         }
 
-        protected void CheckValidate()
+        protected bool IsValid()
         {
-            IsValid = true;
+            bool result = true;
 
-            // Check that the Confirm password was entered
-            txtOldPassword.Validate();
-
-
-            // Check that the Confirm password was entered
-            if (IsValid)
+            // Check Old password
+            if (string.IsNullOrEmpty(txtOldPassword.Text) || UserFound(txtOldPassword.Text) == false)
             {
-                txtNewPassword.Validate();
-                txtConfirmPassword.Validate();
-            }   
+                txtOldPassword.IsValid = false;
+                txtOldPassword.ValidationSettings.ErrorText = "Password is incorrect!";
+                result = false;
+            }
+
+            // Check New password
+            if (string.IsNullOrEmpty(txtNewPassword.Text) == true)
+            {
+                txtNewPassword.IsValid = false;
+                txtNewPassword.ValidationSettings.ErrorText = "Password cannot be empty!";
+                result = false;
+            }
+
+            if (string.Compare(txtNewPassword.Text, txtOldPassword.Text, false) == 0)
+            {
+                txtNewPassword.IsValid = false;
+                txtNewPassword.ValidationSettings.ErrorText = "The new pasword cannot the same as the old password!";
+                result = false;
+            }
+
+            if (CalculatedPasswordStrength(txtNewPassword.Text) < 40)
+            {
+                txtNewPassword.IsValid = false;
+                txtNewPassword.ValidationSettings.ErrorText = "The new pasword is to weak!";
+                result = false;
+            }
+
+            // Check Confirm password
+            if (string.IsNullOrEmpty(txtConfirmPassword.Text) == true)
+            {
+                txtConfirmPassword.IsValid = false;
+                txtConfirmPassword.ErrorText = "Password cannot be empty!";
+                result = false;
+            }
+
+            if (string.Compare(txtNewPassword.Text, txtConfirmPassword.Text, false) != 0)
+            {
+                txtConfirmPassword.IsValid = false;
+                txtConfirmPassword.ErrorText = "Does not match the new pasword!";
+                result = false;
+            }
+
+            return result;
         }
 
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
@@ -301,9 +332,7 @@
 
                 case "btnSubmit":
                     {
-                        SetStrengthOfPassword();
-                        CheckValidate();
-                        if (IsValid)
+                        if (IsValid())
                         {
                             if (ChangeUserPassword(Session["UserName"].ToString(), txtOldPassword.Text, txtNewPassword.Text, Convert.ToInt64(Session["EmployerID"])) == true)
                             {
@@ -321,67 +350,9 @@
             }
         }
 
-        protected void txtNewPassword_TextChanged(object sender, EventArgs e)
+        protected void txtConfirmPassword_Validation(object sender, ValidationEventArgs e)
         {
             SetStrengthOfPassword();
-        }
-
-        protected void txtOldPassword_Validation(object sender, DevExpress.Web.ValidationEventArgs e)
-        {
-            e.IsValid = (UserFound() == true);
-            e.ErrorText = "Password is incorrect!";
-            IsValid = e.IsValid;
-        }
-
-        protected void txtNewPassword_Validation(object sender, DevExpress.Web.ValidationEventArgs e)
-        {
-            e.IsValid = true;
-
-            if (string.IsNullOrEmpty(txtNewPassword.Text) == true)
-            {
-                e.IsValid = false;
-                IsValid = e.IsValid;
-                e.ErrorText = "Password cannot be empty!";
-                return;
-            }
-
-            if (string.Compare(txtNewPassword.Text, txtOldPassword.Text, false) == 0)
-            {
-                e.IsValid = false;
-                IsValid = e.IsValid;
-                e.ErrorText = "The new pasword cannot the same as the old password!";
-                return;
-            }
-
-            // Check password strength
-            if (CalculatedPasswordStrength(txtNewPassword.Text) < 40)
-            {
-                e.IsValid = false;
-                IsValid = e.IsValid;
-                e.ErrorText = "The new pasword is to weak!";
-                return;
-            }
-        }
-
-        protected void txtConfirmPassword_Validation(object sender, DevExpress.Web.ValidationEventArgs e)
-        {
-            e.IsValid = true;
-
-            if (string.IsNullOrEmpty(txtConfirmPassword.Text) == true)
-            {
-                e.IsValid = false;
-                IsValid = e.IsValid;
-                e.ErrorText = "Password cannot be empty!";
-                return;
-            }
-
-            if (string.Compare(txtNewPassword.Text, txtConfirmPassword.Text, false) != 0)
-            {
-                e.IsValid = false;
-                IsValid = e.IsValid;
-                e.ErrorText = "Does not match the new pasword!";
-                return;
-            }
         }
     }
 }

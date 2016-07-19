@@ -29,11 +29,23 @@
             // Validate that the user has access to this page
             if (Session["Privileges"] != null)
             {
-                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
-                Priviliges p = priv["New Project"];
-
-                if (p.AllowAccess == 0)
+                try
                 {
+                    Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                    Priviliges p = priv["New Project"];
+
+                    if (p.AllowAccess == 0)
+                    {
+                        Response.Redirect("~/Default.aspx");
+                    }
+                }
+                catch (KeyNotFoundException)
+                {
+                    Response.Redirect("~/Default.aspx");
+                }
+                catch (Exception ex)
+                {
+                    ExceptionUtility.LogException(ex, "New Project - Page_Load");
                     Response.Redirect("~/Default.aspx");
                 }
             }
@@ -54,12 +66,105 @@
                 HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
             }
 
-            dedScheduleBy.Date = DateTime.Now.Date;
-            dedCompleteBy.Date = DateTime.MinValue;
+            deScheduleBy.Date = DateTime.Now.Date;
+            deCompleteBy.Date = DateTime.MinValue;
         }
 
-        protected void Save()
+        protected bool IsValid()
         {
+            bool result = true;
+
+            // Patient MUST have a Name
+            if (string.IsNullOrEmpty(txtbxLastName.Text))
+            {
+                txtbxLastName.ErrorText = "Cannot be blank";
+                txtbxLastName.IsValid = false;
+                result = false;
+            }
+
+            if (string.IsNullOrEmpty(txtbxFirstName.Text))
+            {
+                txtbxFirstName.ErrorText = "Cannot be blank";
+                txtbxFirstName.IsValid = false;
+                result = false;
+            }
+
+            // Patient MUST have an Address
+            if (string.IsNullOrEmpty(txtbxPrimaryAddressline.Text))
+            {
+                txtbxPrimaryAddressline.ErrorText = "Cannot be blank";
+                txtbxPrimaryAddressline.IsValid = false;
+                result = false;
+            }
+
+            if (string.IsNullOrEmpty(cbxState.Text))
+            {
+                cbxState.ErrorText = "Cannot be blank";
+                cbxState.IsValid = false;
+                result = false;
+            }
+                
+            if (string.IsNullOrEmpty(txtbxPostalCode.Text))
+            {
+                txtbxPostalCode.ErrorText = "Cannot be blank";
+                txtbxPostalCode.IsValid = false;
+                result = false;
+            }
+
+            // Must have a contact phone
+            if (string.IsNullOrEmpty(txtbxMainPhone.Text))
+            {
+                txtbxMainPhone.ErrorText = "Cannot be blank";
+                txtbxMainPhone.IsValid = false;
+                result = false;
+            }
+
+            // Must have a Date of Birth
+            if (string.IsNullOrEmpty(deDOB.Text))
+            {
+                deDOB.ErrorText = "Cannot be blank";
+                deDOB.IsValid = false;
+                result = false;
+            }
+
+            // Must have a SSN
+            if (string.IsNullOrEmpty(txtbxSSN.Text))
+            {
+                txtbxSSN.ErrorText = "Cannot be blank";
+                txtbxSSN.IsValid = false;
+                result = false;
+            }
+
+            // Must have a Protocol
+            if (string.IsNullOrEmpty(cbxProtocol.Text))
+            {
+                cbxProtocol.ErrorText = "Cannot be blank";
+                cbxProtocol.IsValid = false;
+                result = false;
+            }
+
+            // Must have a Schedule by
+            if (string.IsNullOrEmpty(deScheduleBy.Text))
+            {
+                deScheduleBy.ErrorText = "Cannot be blank";
+                deScheduleBy.IsValid = false;
+                result = false;
+            }
+
+            // If it is a DOT Protocol then must have an Agency & Category
+             if (cbxProtocol.SelectedItem != null && (bool)cbxProtocol.SelectedItem.GetValue("ReportToMIS") && (string.IsNullOrEmpty(cbxDOTAgency.Text) || string.IsNullOrEmpty(cbxDOTServiceCategory.Text)))
+             {
+                 cbxDOTAgency.ErrorText = "Cannot be blank";
+                 cbxDOTAgency.IsValid = false;
+                 result = false;
+             }
+
+            return result;
+        }
+        protected bool Save()
+        {
+            bool result = false;
+
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
@@ -80,7 +185,7 @@
                         cmd.Parameters.AddWithValue("@PrimaryAddressLine", txtbxPrimaryAddressline.Text);
                         cmd.Parameters.AddWithValue("@SecondaryAddressLine", txtbxSecondaryAddressline.Text);
                         cmd.Parameters.AddWithValue("@City", txtbxCity.Text);
-                        cmd.Parameters.AddWithValue("@State", cmbxStates.Text);
+                        cmd.Parameters.AddWithValue("@State", cbxState.Text);
                         cmd.Parameters.AddWithValue("@PostalCode", txtbxPostalCode.Text);
 
                         cmd.Parameters.AddWithValue("@DOB", deDOB.Value);
@@ -93,8 +198,8 @@
                         cmd.Parameters.AddWithValue("@JobTitleClassificationTID", cbxJobCategory.Value);
                         cmd.Parameters.AddWithValue("@JobTitle", txtbxJobTitle.Text);
 
-                        cmd.Parameters.AddWithValue("@ScheduledByDeadline", dedScheduleBy.Value);
-                        cmd.Parameters.AddWithValue("@CompletedByDeadline", dedCompleteBy.Value);
+                        cmd.Parameters.AddWithValue("@ScheduledByDeadline", deScheduleBy.Value);
+                        cmd.Parameters.AddWithValue("@CompletedByDeadline", deCompleteBy.Value);
 
                         cmd.Parameters.AddWithValue("@RequestTypeTID", cbxRequestType.Value);
                         cmd.Parameters.AddWithValue("@SpecialInstructions", memSpecialInstructions.Text);
@@ -108,7 +213,7 @@
                         param.Direction = ParameterDirection.Output;
                         cmd.Parameters.Add(param);
 
-                        var result = (int)cmd.ExecuteNonQuery();
+                        result = ((int)cmd.ExecuteNonQuery() > 0);
 
                     }
                     conn.Close();
@@ -121,7 +226,9 @@
                 ExceptionUtility.NotifySupport(ex);
 
                 HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-            } 
+            }
+
+            return result;
         }
 
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
@@ -136,8 +243,19 @@
 
                 case "btnSubmit":
                     {
-                        Save();
-                        Response.Redirect("~/Default.aspx");
+                        if (IsValid())
+                        {
+                            if (Save())
+                            {
+                                Response.Redirect("~/Default.aspx");
+                            }
+                            else
+                            {
+                                Exception ex = new Exception("Project record did not save!");
+                                ExceptionUtility.LogException(ex, "New Project - mainToolbar_CommandExecuted");
+                                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
+                            }
+                        }
                         break;
                     }
 
@@ -162,6 +280,22 @@
         protected void cbxDOTAgency_SelectedIndexChanged(object sender, EventArgs e)
         {
             dsDOTServiceCategory.DataBind();
+        }
+
+        protected void cbxProtocol_ValueChanged(object sender, EventArgs e)
+        {
+            bool reportToMIS = (bool)cbxProtocol.SelectedItem.GetValue("ReportToMIS");
+            lblDOTAgency.Visible = reportToMIS;
+            cbxDOTAgency.Visible = reportToMIS;
+            lblDOTServiceAgency.Visible = reportToMIS;
+            cbxDOTServiceCategory.Visible = reportToMIS;
+
+            // Clear out DOT info in case Protocol was switched from Report to MIS to Don't report to MIS
+            if (reportToMIS == false)
+            {
+                cbxDOTAgency.SelectedIndex = -1;
+                cbxDOTServiceCategory.SelectedIndex = -1;
+            }
         }
     }
 }

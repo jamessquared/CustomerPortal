@@ -54,7 +54,7 @@
          <asp:TableRow><asp:TableCell><dx:ASPxLabel ID="ASPxLabel3" runat="server" Font-Size="X-Large" Text="Add Protocol"></dx:ASPxLabel></asp:TableCell></asp:TableRow>
      </asp:Table> 
     <br />
-
+    
     <div runat="server" style="overflow:auto; max-height:650px" >
 
             <%-- Protocol --%>
@@ -65,7 +65,22 @@
                     <asp:TableCell Width="10%"></asp:TableCell>
                     <%-- Left Column --%>
                     <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel10" runat="server" Text="Name:"  ></dx:ASPxLabel></asp:TableCell>
-                    <asp:TableCell Width="60%"><dx:ASPxComboBox ID="cbxProtocolName" runat="server" ValueType="System.Int32" DataSourceID="dsProtocols" TextField="ProtocolName" ValueField="ID" Width="30%" OnValidation="cbxProtocolName_Validation"><ClientSideEvents SelectedIndexChanged="SelectedIndexChanged"  /></dx:ASPxComboBox></asp:TableCell>
+                    <asp:TableCell Width="50%"><dx:ASPxComboBox ID="cbxProtocolName" runat="server" ValueType="System.Int32" DataSourceID="dsProtocols" TextField="ProtocolName" ValueField="ID" Width="70%" OnValidation="cbxProtocolName_Validation"><ClientSideEvents SelectedIndexChanged="SelectedIndexChanged"  /></dx:ASPxComboBox></asp:TableCell>
+                     <%-- Center Margin --%>
+                    <asp:TableCell Width="10%"></asp:TableCell>
+                    <%-- Right Column --%>
+                    <asp:TableCell Width="10%"></asp:TableCell>
+                    <%-- Right Margin --%>
+                    <asp:TableCell Width="10%"></asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow><asp:TableCell> &nbsp;&nbsp;&nbsp;</asp:TableCell></asp:TableRow>
+                <%-- Protocol Name --%>
+                <asp:TableRow>
+                    <%-- Left Margin --%>
+                    <asp:TableCell Width="10%"></asp:TableCell>
+                    <%-- Left Column --%>
+                    <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel2" runat="server" Text=""  ></dx:ASPxLabel></asp:TableCell>
+                    <asp:TableCell><dx:ASPxCheckBox ID="ckReportToMIS" runat="server" Text="Report to M.I.S."></dx:ASPxCheckBox></asp:TableCell>
                      <%-- Center Margin --%>
                     <asp:TableCell Width="10%"></asp:TableCell>
                     <%-- Right Column --%>

@@ -67,6 +67,24 @@ namespace CustomerPortal.Account {
         protected global::DevExpress.Web.ASPxComboBox cbxProtocolName;
         
         /// <summary>
+        /// ASPxLabel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxLabel ASPxLabel2;
+        
+        /// <summary>
+        /// ckReportToMIS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCheckBox ckReportToMIS;
+        
+        /// <summary>
         /// Table3 control.
         /// </summary>
         /// <remarks>

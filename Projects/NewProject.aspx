@@ -106,7 +106,14 @@
             <asp:TableCell><dx:ASPxTextBox ID="txtbxCity" runat="server"  ></dx:ASPxTextBox></asp:TableCell>
             <%-- Center Margin --%>
             <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel5" runat="server" Text="State:"></dx:ASPxLabel></asp:TableCell>
-            <asp:TableCell><dx:ASPxComboBox ID="cmbxStates" runat="server" ValueType="System.String" DataSourceID="dsStates" TextField="Name" ValueField="Name" ></dx:ASPxComboBox></asp:TableCell>
+            <asp:TableCell>
+                    <dx:ASPxComboBox ID="cbxState" runat="server" DropDownStyle="DropDownList" DataSourceID="dsStates" ValueField="Name"  ValueType="System.String" EnableCallbackMode="true">
+                        <Columns>
+                            <dx:ListBoxColumn FieldName="Name" Width="30%" />
+                            <dx:ListBoxColumn FieldName="Description"  Width="70%"/>
+                        </Columns>
+                    </dx:ASPxComboBox>
+            </asp:TableCell>
             <%-- Right Column --%>
             <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel6" runat="server" Text="Postal Code:"></dx:ASPxLabel></asp:TableCell>
             <asp:TableCell><dx:ASPxTextBox ID="txtbxPostalCode" runat="server" ><MaskSettings Mask="00000-9999"  IncludeLiterals="None" /></dx:ASPxTextBox></asp:TableCell>
@@ -194,7 +201,7 @@
             <asp:TableCell ></asp:TableCell>
             <%-- Right Column --%>
             <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel13" runat="server" Text="Schedule By:"></dx:ASPxLabel></asp:TableCell>
-            <asp:TableCell><dx:ASPxDateEdit ID="dedScheduleBy" runat="server" DisplayFormatString="d"   MinDate="1900-01-01"></dx:ASPxDateEdit></asp:TableCell>
+            <asp:TableCell><dx:ASPxDateEdit ID="deScheduleBy" runat="server" DisplayFormatString="d"   MinDate="1900-01-01"></dx:ASPxDateEdit></asp:TableCell>
             <%-- Right Margin --%>
             <asp:TableCell Width="10%"></asp:TableCell>
         </asp:TableRow>
@@ -211,7 +218,7 @@
             <asp:TableCell ></asp:TableCell>
             <%-- Right Column --%>
             <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel14" runat="server" Text="Complete By:"></dx:ASPxLabel></asp:TableCell>
-            <asp:TableCell><dx:ASPxDateEdit ID="dedCompleteBy" runat="server" DisplayFormatString="d"  MinDate="1900-01-01"></dx:ASPxDateEdit></asp:TableCell>
+            <asp:TableCell><dx:ASPxDateEdit ID="deCompleteBy" runat="server" DisplayFormatString="d"  MinDate="1900-01-01"></dx:ASPxDateEdit></asp:TableCell>
             <%-- Right Margin --%>
             <asp:TableCell Width="10%"></asp:TableCell>
         </asp:TableRow>
@@ -222,11 +229,18 @@
             <asp:TableCell  Width="10%"></asp:TableCell>
             <%-- Left Column --%>
              <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel20" runat="server" Text="Protocol:"></dx:ASPxLabel></asp:TableCell>
-            <asp:TableCell><dx:ASPxComboBox ID="cbxProtocol" runat="server" ValueType="System.String" DataSourceID="dsProtocols" TextField="Name" ValueField="ID"></dx:ASPxComboBox></asp:TableCell>
+            <asp:TableCell>
+                    <dx:ASPxComboBox ID="cbxProtocol" runat="server" DataSourceID="dsProtocols"  ValueField="ID" AutoCallback="true" OnValueChanged="cbxProtocol_ValueChanged" AutoPostBack="True" ClientInstanceName="cbxProtocol" EnableCallbackMode="True"  TextField="Name">
+                        <Columns>
+                            <dx:ListBoxColumn FieldName="Name" Name="Name" Width="200px" />
+                            <dx:ListBoxColumn FieldName="ReportToMIS" Name="ReportToMIS" Visible="False" />
+                        </Columns>
+                    </dx:ASPxComboBox>
+            </asp:TableCell>
             <%-- Center Margin --%>
-            <asp:TableCell HorizontalAlign="Right" ><dx:ASPxLabel ID="ASPxLabel17" runat="server" Text="D.O.T. Agency:"></dx:ASPxLabel></asp:TableCell>
+            <asp:TableCell HorizontalAlign="Right" ><dx:ASPxLabel ID="lblDOTAgency" runat="server" Text="D.O.T. Agency:"  Visible="false"></dx:ASPxLabel></asp:TableCell>
             <asp:TableCell >
-                <dx:ASPxComboBox ID="cbxDOTAgency" runat="server" DataSourceID="dsDOTAgency" TextField="Name" ValueField="ID" Width="236px" AutoPostBack="true" ClientInstanceName="cbxDOTAgency" OnSelectedIndexChanged="cbxDOTAgency_SelectedIndexChanged"  ValueType="System.Int32" >
+                <dx:ASPxComboBox ID="cbxDOTAgency" runat="server" DataSourceID="dsDOTAgency" TextField="Name" ValueField="ID" Width="236px" AutoPostBack="true" ClientInstanceName="cbxDOTAgency" Visible="false" OnSelectedIndexChanged="cbxDOTAgency_SelectedIndexChanged"  ValueType="System.Int32" >
                         <Columns>
                             <dx:ListBoxColumn Caption="Abreviation" FieldName="NAME" Width="35px" />
                             <dx:ListBoxColumn Caption="Name" FieldName="Description" Width="275px" />
@@ -234,8 +248,8 @@
                     </dx:ASPxComboBox>
             </asp:TableCell>
             <%-- Right Column --%>
-            <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel21" runat="server" Text="D.O.T. Service Category:"></dx:ASPxLabel></asp:TableCell>
-            <asp:TableCell><dx:ASPxComboBox ID="cbxDOTServiceCategory" runat="server"  ValueType="System.String" DataSourceID="dsDOTServiceCategory" TextField="Name" ValueField="ID"  ></dx:ASPxComboBox></asp:TableCell>
+            <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="lblDOTServiceAgency" runat="server" Text="D.O.T. Service Category:"  Visible="false"></dx:ASPxLabel></asp:TableCell>
+            <asp:TableCell><dx:ASPxComboBox ID="cbxDOTServiceCategory" runat="server"  ValueType="System.String" DataSourceID="dsDOTServiceCategory" TextField="Name" ValueField="ID"  Visible="false"></dx:ASPxComboBox></asp:TableCell>
             <%-- Right Margin --%>
             <asp:TableCell Width="10%"></asp:TableCell>
         </asp:TableRow>
@@ -261,6 +275,10 @@
     </asp:Table>
     <br />     
     
+
+
+
+
     </div>
 
         <asp:SqlDataSource ID="dsStates" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetStatesList" SelectCommandType="StoredProcedure"></asp:SqlDataSource>

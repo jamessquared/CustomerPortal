@@ -4,13 +4,16 @@ namespace CustomerPortal
     using System;
 
 
-    public partial class RootMaster : System.Web.UI.MasterPage 
+    public partial class RootMaster : System.Web.UI.MasterPage
     {
+        #region private Variables
         private string _userName;
         private string _company;
         private string _accountType;
         private DateTime _lastLogin;
+        #endregion
 
+        #region Properties
         public string UserName 
         { 
             get
@@ -84,6 +87,8 @@ namespace CustomerPortal
             }
         }
 
+        #endregion
+
         public void SetLoginLabels()
         {
             this.UserName = string.Format("{0} {1}", Session["FirstName"].ToString(), Session["LastName"].ToString());
@@ -97,7 +102,6 @@ namespace CustomerPortal
             lblCopyright.Text = Server.HtmlDecode(String.Format(" &copy;{0} Copyright by OSSI Online, LLC", DateTime.Now.Year));
             hlChangePassword.Visible = (Session["ContactID"] != null);
             TimeoutControl1.TimeOutUrl = "~/TimeOutPage.aspx";
-
         }
 
         protected void ASPxImage1_CustomJSProperties(object sender, CustomJSPropertiesEventArgs e)

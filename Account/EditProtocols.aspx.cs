@@ -34,12 +34,24 @@
             // Validate that the user has access to this page
             if (Session["Privileges"] != null)
             {
-                Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
-                Priviliges p = priv["Protocol Management"];
-
-                if (p.AllowAccess == null || p.AllowAddorEdit == null || p.AllowAccess == 0 || p.AllowAddorEdit == 0)
+                try
                 {
-                    Response.Redirect("~/Default.aspx");
+                    Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
+                    Priviliges p = priv["Protocol Management"];
+
+                    if (p.AllowAccess == null || p.AllowAddorEdit == null || p.AllowAccess == 0 || p.AllowAddorEdit == 0)
+                    {
+                        Response.Redirect("~/Account/ProtocolManagement.aspx");
+                    }
+                }
+                catch (KeyNotFoundException)
+                {
+                    Response.Redirect("~/Account/ProtocolManagement.aspx");
+                }
+                catch (Exception ex)
+                {
+                    ExceptionUtility.LogException(ex, "Edit Protocol - Page_Load");
+                    Response.Redirect("~/Account/ProtocolManagement.aspx");
                 }
 
             if (!IsPostBack)
@@ -277,6 +289,7 @@
                         cmd.Parameters.AddWithValue("@ProtocolID", Session["WorkingProtocolID"]);
                         cmd.Parameters.AddWithValue("@ProtocolName", txtProtocolName.Text);
                         cmd.Parameters.AddWithValue("@Active", ckActive.Checked);
+                        cmd.Parameters.AddWithValue("@ReportToMIS", ckReportToMIS.Checked);
                         cmd.Parameters.AddWithValue("@ServiceInfo", serviceInfo);
                         cmd.Parameters.AddWithValue("@JobTitleClassificationInfo", jobTitleClassificationInfo);
                         cmd.Parameters.AddWithValue("@ContactInfo", contactInfo);

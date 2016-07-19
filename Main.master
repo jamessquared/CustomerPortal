@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
         <div class="MainMenuPane">    
 
-            <dx:ASPxRibbon ID="ribMainMenu" runat="server" ShowFileTab="False" OnCommandExecuted="ribMainMenu_CommandExecuted" Width="100%" ClientInstanceName="ribMainMenu">
+            <dx:ASPxRibbon ID="ribMainMenu" runat="server" ShowFileTab="False" OnCommandExecuted="ribMainMenu_CommandExecuted" Width="100%" ClientInstanceName="ribMainMenu" ActiveTabIndex="3">
                                 <Tabs>
                                     <dx:RibbonTab Name="Main" Text="Main">
                                         <Groups>
@@ -39,8 +39,16 @@
                                             </dx:RibbonGroup>
                                             <dx:RibbonGroup Name="FindProject" Text="">
                                                 <Items>
-                                                    <dx:RibbonButtonItem Name="btnFind" Size="Large" Text="Find"  ToolTip="Allows the user to view both completed and in-process projects.">
+                                                    <dx:RibbonButtonItem Name="btnFindProject" Size="Large" Text="Find"  ToolTip="Allows the user to view both completed and in-process projects.">
                                                         <LargeImage Url="~\Images\MainMenu\FindProject.png"></LargeImage>
+                                                        <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
+                                                    </dx:RibbonButtonItem>
+                                                </Items>
+                                            </dx:RibbonGroup>
+                                            <dx:RibbonGroup Name="ProjectDOT" Text="">
+                                                <Items>
+                                                    <dx:RibbonButtonItem Name="btnProjectManageDOT" Size="Large" Text="D.O.T. Results"  ToolTip="Allows the user to update D.O.T. Results for a project.">
+                                                        <LargeImage Url="~/Images/MainMenu/AddProjectDOT.png"></LargeImage>
                                                         <ItemStyle Width="75px" HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </dx:RibbonButtonItem>
                                                 </Items>
@@ -433,5 +441,4 @@
                 </ContentCollection>
             </dx:ASPxPopupControl>
          </div>
-
        </asp:Content>

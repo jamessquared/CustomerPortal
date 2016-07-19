@@ -1,22 +1,14 @@
 ﻿namespace CustomerPortal.Reports
 {
     using CustomerPortal.Classes;
+    using CustomerPortal.Utility;
     using System;
     using System.Collections.Generic;
-    using System.Data;
 
     public partial class DOTDrugandAlcoholMISManagement : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Session["WorkingEmployerID"] = 22232;
-            //Session["ContactID"] = 92629;
-            //Session["FirstName"] = "Matt";
-            //Session["LastName"] = "Hess";
-            //Session["UserCompany"] = "OHS National, LLC";
-            //Session["UserAccountType"] = "Master Administrator";
-            //Session["DOTReportID"] = 0;     
-
             // Redirect to Login if NOT logged in
             if (Session["ContactID"] == null)
             {
@@ -34,10 +26,23 @@
             if (Session["Privileges"] != null)
             {
                 Dictionary<string, Priviliges> priv = Session["Privileges"] as Dictionary<string, Priviliges>;
-                Priviliges p = priv["D.O.T. Drug & Alcohol MIS Data Collection"];
-
-                if (p.AllowAccess == 0)
+                try
                 {
+                    Priviliges p = priv["D.O.T. Drug & Alcohol MIS Data Collection"];
+
+                    if (p.AllowAccess == 0)
+                    {
+                        Response.Redirect("~/Default.aspx");
+                    }
+                }
+                catch (KeyNotFoundException)
+                {
+                    CustomerPortal.RootMaster mainMasterPage = (CustomerPortal.RootMaster)this.Master;
+                    Response.Redirect("~/Default.aspx");
+                }
+                catch (Exception ex)
+                {
+                    ExceptionUtility.LogException(ex, "DOTDrugandAlcoholMISManagement - Page_Load");
                     Response.Redirect("~/Default.aspx");
                 }
             }
@@ -49,7 +54,7 @@
         protected void gvDOTDrugandAlcoholMISReport_SelectionChanged(object sender, EventArgs e)
         {
             mainToolbar.Tabs[0].Groups[1].Items[1].Visible = (gvDOTDrugandAlcoholMISReport.VisibleRowCount > 0);
-            //mainToolbar.Tabs[0].Groups[1].Items[2].Visible = (gvDOTDrugandAlcoholMISReport.VisibleRowCount > 0);
+
             List<object> fieldValues = gvDOTDrugandAlcoholMISReport.GetSelectedFieldValues(new string[] { "ReportYear", "ReportFor", "ID" });
             foreach (object[] item in fieldValues)
             {
@@ -58,8 +63,7 @@
                 Session["DOTReportID"] = item[2].ToString();
             }
         }
-
-
+        
         protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
         {
             switch (e.Item.Name)
@@ -81,13 +85,6 @@
                         Response.Redirect("~/Reports/EditDOTDrugandAlcoholMIS.aspx");
                         break;
                     }
-
-                //case "btnCopy":
-                //    {
-                //        Response.Redirect("~/Reports/EditDOTDrugandAlcoholMIS.aspx");
-                //        break;
-                //    }
-
             }
         }
     }
