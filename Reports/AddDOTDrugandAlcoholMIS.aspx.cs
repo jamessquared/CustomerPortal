@@ -194,7 +194,11 @@
                             txtbxPreparedByTelephone.Text = Convert.ToString(rdr["PreparedByTelephone"]);
                             txtbxTPAName.Text = Convert.ToString(rdr["TPA"]);
                             txtbxTPATelephoneNumber.Text = Convert.ToString(rdr["TPAPhone"]);
+
                             txtbxTotalNoOfSafetySensitveEmployees.Text = Convert.ToString(rdr["CoverEmployeesAllCategories"]);
+                            txtbxTotalNoOfEmployeeCategories.Text = Convert.ToString(rdr["CoverEmployeesTotalNoOfCategories"]);
+                            txtbxEmployeeCategory.Text = Convert.ToString(rdr["CoverEmployeesCategory"]);
+                            txtbxTotalNoOfEmployeesInThisCategory.Text = Convert.ToString(rdr["CoverEmployeesTotalNoOfInCategory"]);
                         }
                     }
 
@@ -379,9 +383,7 @@
                         cmd.Parameters.AddWithValue("@ID", Session["DOTReportID"]);
                         cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
                         //
-                        cmd.Parameters.AddWithValue("@DoingBusinessAs", txtbxDBAName.Value);
-
-
+                        cmd.Parameters.AddWithValue("@DoingBusinessAs", txtbxDBAName.Text);
 
                         cmd.Parameters.AddWithValue("@Email", txtbxEmail.Text);
                         //

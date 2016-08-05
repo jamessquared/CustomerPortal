@@ -55,7 +55,7 @@
      </asp:Table> 
     <br />
     
-    <div runat="server" style="overflow:auto; max-height:650px" >
+    <div runat="server" style="overflow:auto; max-height:600px" >
 
             <%-- Protocol --%>
             <asp:Table runat="server" id="MainForm" Width="100%" >

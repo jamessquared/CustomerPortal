@@ -22,15 +22,6 @@ namespace CustomerPortal.Content {
         protected global::DevExpress.Web.ASPxRibbon mainToolbar;
         
         /// <summary>
-        /// maintable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table maintable;
-        
-        /// <summary>
         /// calendar control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace CustomerPortal.Content {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxScheduler.ASPxScheduler calendar;
+        
+        /// <summary>
+        /// maintable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table maintable;
         
         /// <summary>
         /// Table1 control.

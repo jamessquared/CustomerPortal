@@ -228,7 +228,7 @@
                           <dx:ASPxSummaryItem DisplayFormat="N0" FieldName="CancelledResults" ShowInColumn="Cancelled Results" SummaryType="Sum" ValueDisplayFormat="N" />
                       </TotalSummary>
                       <Columns>
-                          <dx:GridViewCommandColumn ShowEditButton="True" VisibleIndex="0">
+                          <dx:GridViewCommandColumn VisibleIndex="0">
                           </dx:GridViewCommandColumn>
                           <dx:GridViewDataTextColumn FieldName="TotalNoOfTestResults" Width="7.5%" Caption="Total Number of Test Results [Should equal the sum of Columns 2, 3, 9, 10, 11, and 12]" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="2" ToolTip="This column requires a count of the total number of test results in each testing category during the entire reporting year. Count the number of test results as the number of testing events resulting in negative, positive, and refusal results. Do not count cancelled tests and blind specimens in this total.  [Example: A company that conducted fifty pre-employment tests would enter “50” on the PreEmployment row. If it conducted one hundred random tests, “100’ would be entered on the Random row. If that company did no post-accident, reasonable suspicion, reasonable cause, return-to-duty, or follow-up tests, those categories will be left blank or zeros entered.]">
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
@@ -331,7 +331,7 @@
                       <SettingsPager Visible="False">
                       </SettingsPager>
                       <Settings ShowFooter="True" />
-                      <SettingsDataSecurity AllowDelete="False" AllowInsert="False" />
+                      <SettingsDataSecurity AllowDelete="False" AllowInsert="False" AllowEdit="False" />
                     </dx:ASPxGridView>       
             </asp:TableCell>
        </asp:TableRow>
@@ -362,10 +362,10 @@
                             <dx:ASPxSummaryItem FieldName="CancelledResults" ShowInColumn="Cancelled Results" SummaryType="Sum" DisplayFormat="N0" ValueDisplayFormat="N" />
                         </TotalSummary>
                       <Columns>
-                          <dx:GridViewCommandColumn ShowEditButton="True" VisibleIndex="0">
+                          <dx:GridViewCommandColumn VisibleIndex="0">
                           </dx:GridViewCommandColumn>
                           <dx:GridViewDataTextColumn FieldName="TotalNoOfTestResults" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="2" Caption="Total Number of Screening Test Results">
-<HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
+                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
                               <CellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </CellStyle>
                               <FooterCellStyle HorizontalAlign="Right" VerticalAlign="Middle">
@@ -374,7 +374,7 @@
                           <dx:GridViewDataTextColumn FieldName="ResultsBelow02" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True" VisibleIndex="3">
                               <PropertiesTextEdit DisplayFormatString="N">
                               </PropertiesTextEdit>
-<HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
+                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
                               <CellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </CellStyle>
                               <FooterCellStyle HorizontalAlign="Right" VerticalAlign="Middle">
@@ -383,7 +383,7 @@
                           <dx:GridViewDataTextColumn FieldName="Results02orGreater" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="4">
                               <PropertiesTextEdit DisplayFormatString="N">
                               </PropertiesTextEdit>
-<HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
                               <CellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </CellStyle>
                               <FooterCellStyle HorizontalAlign="Right" VerticalAlign="Middle">
@@ -392,42 +392,42 @@
                           <dx:GridViewDataTextColumn FieldName="NoOfConfirmationTests" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="5">
                               <PropertiesTextEdit DisplayFormatString="N">
                               </PropertiesTextEdit>
-<HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
+                                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
                               <CellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </CellStyle>
                               <FooterCellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </FooterCellStyle>
                           </dx:GridViewDataTextColumn>
                           <dx:GridViewDataTextColumn FieldName="ConfirmationTests02thru039" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="6">
-<HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
+                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
                               <CellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </CellStyle>
                               <FooterCellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </FooterCellStyle>
                           </dx:GridViewDataTextColumn>
                           <dx:GridViewDataTextColumn FieldName="ConfirmationTests04orGreater" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="7">
-<HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
+                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
                               <CellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </CellStyle>
                               <FooterCellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </FooterCellStyle>
                           </dx:GridViewDataTextColumn>
                           <dx:GridViewDataTextColumn FieldName="RefusalResultsShyLungNoMedExplaination" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="8">
-<HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
+                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
                               <CellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </CellStyle>
                               <FooterCellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </FooterCellStyle>
                           </dx:GridViewDataTextColumn>
                           <dx:GridViewDataTextColumn FieldName="RefusalResultsOther" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="9">
-<HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
+                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
                               <CellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </CellStyle>
                               <FooterCellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </FooterCellStyle>
                           </dx:GridViewDataTextColumn>
                           <dx:GridViewDataTextColumn FieldName="CancelledResults" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="10">
-<HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
+                            <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
                               <CellStyle HorizontalAlign="Right" VerticalAlign="Middle">
                               </CellStyle>
                               <FooterCellStyle HorizontalAlign="Right" VerticalAlign="Middle">
@@ -441,13 +441,11 @@
                         <SettingsPager Visible="False">
                         </SettingsPager>
                       <Settings ShowFooter="True" />
-                      <SettingsDataSecurity AllowDelete="False" AllowInsert="False" />
+                      <SettingsDataSecurity AllowDelete="False" AllowInsert="False" AllowEdit="False" />
                     </dx:ASPxGridView>                         
            </asp:TableCell>
        </asp:TableRow>
     </asp:Table> 
-
-
 
     </div>
 

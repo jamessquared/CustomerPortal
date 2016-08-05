@@ -49,13 +49,6 @@
         </Tabs>
     </dx:ASPxRibbon>
 
-
-    <div runat="server" style="overflow:auto; max-height:675px">
-         
-        <asp:Table runat="server" id="maintable" Width="100%" >
-            <asp:TableRow>
-                <%-- Calendar --%>
-                <asp:TableCell Width="90%">
                     <dxwschs:ASPxScheduler ID="calendar" runat="server" ActiveViewType="Month" AppointmentDataSourceID="dsCalendar" ClientIDMode="AutoID" ResourceDataSourceID="" Start="2015-12-27" ClientInstanceName="clientCalendar" OnInitAppointmentImages="calendar_InitAppointmentImages" OnActiveViewChanged="calendar_ActiveViewChanged">
                             <Storage EnableReminders="False">
                                 <Appointments ResourceSharing="True" AutoRetrieveId="True">
@@ -70,7 +63,7 @@
                             </Storage>
                             <Views>
 
-                            <DayView ShowMoreButtons="False" ShowWorkTimeOnly="True">
+                            <DayView ShowMoreButtons="False" ShowWorkTimeOnly="True" WorkTime-Start="7:00" WorkTime-End="20:00" VisibleTime-End="20:00" VisibleTime-Start="6:00">
                                 <TimeRulers>
                                         <cc1:TimeRuler></cc1:TimeRuler>        
                                 </TimeRulers>
@@ -109,7 +102,15 @@
                             <OptionsForms AppointmentFormVisibility="None" GotoDateFormVisibility="None" RecurrentAppointmentDeleteFormVisibility="None" RecurrentAppointmentEditFormVisibility="None" />
                             <OptionsToolTips ShowAppointmentDragToolTip="False" ShowSelectionToolTip="False" />
                             <OptionsView NavigationButtons-Visibility="Never" />
-                        </dxwschs:ASPxScheduler>                   
+                        </dxwschs:ASPxScheduler>               
+
+    <div runat="server" style="overflow:auto; max-height:675px">
+         
+        <asp:Table runat="server" id="maintable" Width="100%" >
+            <asp:TableRow>
+                <%-- Calendar --%>
+                <asp:TableCell Width="90%">
+    
                 </asp:TableCell>
                 <%-- Legend --%>
                 <asp:TableCell Width="10%">

@@ -59,6 +59,17 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary21 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary22 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrLabel165 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel163 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel164 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel161 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel162 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel159 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel160 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel157 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel158 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel156 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel155 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox4 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel154 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel153 = new DevExpress.XtraReports.UI.XRLabel();
@@ -253,19 +264,8 @@
             this.GasGatheringcalc = new DevExpress.XtraReports.UI.CalculatedField();
             this.GasDistributioncalc = new DevExpress.XtraReports.UI.CalculatedField();
             this.GasTransmissioncalc = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrLabel155 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel156 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel157 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel158 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel159 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel160 = new DevExpress.XtraReports.UI.XRLabel();
             this.TransportHazardousLiquidcalc = new DevExpress.XtraReports.UI.CalculatedField();
             this.TransportCarbonDioxidecalc = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrLabel161 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel162 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel163 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel164 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel165 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -341,12 +341,165 @@
             this.xrLabel40,
             this.xrLabel26});
             this.Detail.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Detail.HeightF = 459.875F;
+            this.Detail.HeightF = 455.875F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.StylePriority.UseFont = false;
             this.Detail.StylePriority.UseTextAlignment = false;
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel165
+            // 
+            this.xrLabel165.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
+            this.xrLabel165.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.CoverEmployeesTotalNoOfCategories")});
+            this.xrLabel165.LocationFloat = new DevExpress.Utils.PointFloat(279.6669F, 367.9999F);
+            this.xrLabel165.Name = "xrLabel165";
+            this.xrLabel165.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel165.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel165.StylePriority.UseBorders = false;
+            // 
+            // xrLabel163
+            // 
+            this.xrLabel163.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel163.LocationFloat = new DevExpress.Utils.PointFloat(598.7082F, 252.9998F);
+            this.xrLabel163.Name = "xrLabel163";
+            this.xrLabel163.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel163.SizeF = new System.Drawing.SizeF(133.7502F, 23F);
+            this.xrLabel163.StylePriority.UseFont = false;
+            this.xrLabel163.StylePriority.UseTextAlignment = false;
+            this.xrLabel163.Text = "Transport Carbon Dioxide:";
+            this.xrLabel163.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel164
+            // 
+            this.xrLabel164.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel164.CanGrow = false;
+            this.xrLabel164.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.TransportCarbonDioxidecalc")});
+            this.xrLabel164.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel164.LocationFloat = new DevExpress.Utils.PointFloat(724.625F, 252.9998F);
+            this.xrLabel164.Name = "xrLabel164";
+            this.xrLabel164.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel164.SizeF = new System.Drawing.SizeF(25F, 23F);
+            this.xrLabel164.StylePriority.UseBorders = false;
+            this.xrLabel164.StylePriority.UseFont = false;
+            this.xrLabel164.StylePriority.UseTextAlignment = false;
+            this.xrLabel164.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel161
+            // 
+            this.xrLabel161.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel161.LocationFloat = new DevExpress.Utils.PointFloat(440.7499F, 253.0001F);
+            this.xrLabel161.Name = "xrLabel161";
+            this.xrLabel161.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel161.SizeF = new System.Drawing.SizeF(147.8337F, 22.99998F);
+            this.xrLabel161.StylePriority.UseFont = false;
+            this.xrLabel161.StylePriority.UseTextAlignment = false;
+            this.xrLabel161.Text = "Transport Hazardous Liquids:";
+            this.xrLabel161.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel162
+            // 
+            this.xrLabel162.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel162.CanGrow = false;
+            this.xrLabel162.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.TransportHazardousLiquidcalc")});
+            this.xrLabel162.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel162.LocationFloat = new DevExpress.Utils.PointFloat(583.6666F, 253.0001F);
+            this.xrLabel162.Name = "xrLabel162";
+            this.xrLabel162.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel162.SizeF = new System.Drawing.SizeF(25F, 23F);
+            this.xrLabel162.StylePriority.UseBorders = false;
+            this.xrLabel162.StylePriority.UseFont = false;
+            this.xrLabel162.StylePriority.UseTextAlignment = false;
+            this.xrLabel162.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel159
+            // 
+            this.xrLabel159.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel159.LocationFloat = new DevExpress.Utils.PointFloat(327.3726F, 253F);
+            this.xrLabel159.Name = "xrLabel159";
+            this.xrLabel159.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel159.SizeF = new System.Drawing.SizeF(98.50008F, 23F);
+            this.xrLabel159.StylePriority.UseFont = false;
+            this.xrLabel159.StylePriority.UseTextAlignment = false;
+            this.xrLabel159.Text = "Gas Distribution:";
+            this.xrLabel159.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel160
+            // 
+            this.xrLabel160.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel160.CanGrow = false;
+            this.xrLabel160.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.GasDistributioncalc")});
+            this.xrLabel160.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel160.LocationFloat = new DevExpress.Utils.PointFloat(423.3701F, 253.0001F);
+            this.xrLabel160.Name = "xrLabel160";
+            this.xrLabel160.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel160.SizeF = new System.Drawing.SizeF(25F, 23F);
+            this.xrLabel160.StylePriority.UseBorders = false;
+            this.xrLabel160.StylePriority.UseFont = false;
+            this.xrLabel160.StylePriority.UseTextAlignment = false;
+            this.xrLabel160.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel157
+            // 
+            this.xrLabel157.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel157.LocationFloat = new DevExpress.Utils.PointFloat(217.8309F, 252.9998F);
+            this.xrLabel157.Name = "xrLabel157";
+            this.xrLabel157.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel157.SizeF = new System.Drawing.SizeF(98.50008F, 23F);
+            this.xrLabel157.StylePriority.UseFont = false;
+            this.xrLabel157.StylePriority.UseTextAlignment = false;
+            this.xrLabel157.Text = "Gas Transmission:";
+            this.xrLabel157.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel158
+            // 
+            this.xrLabel158.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel158.CanGrow = false;
+            this.xrLabel158.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.GasTransmissioncalc")});
+            this.xrLabel158.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel158.LocationFloat = new DevExpress.Utils.PointFloat(316.3309F, 253F);
+            this.xrLabel158.Name = "xrLabel158";
+            this.xrLabel158.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel158.SizeF = new System.Drawing.SizeF(25F, 23F);
+            this.xrLabel158.StylePriority.UseBorders = false;
+            this.xrLabel158.StylePriority.UseFont = false;
+            this.xrLabel158.StylePriority.UseTextAlignment = false;
+            this.xrLabel158.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // xrLabel156
+            // 
+            this.xrLabel156.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel156.LocationFloat = new DevExpress.Utils.PointFloat(124.294F, 253F);
+            this.xrLabel156.Name = "xrLabel156";
+            this.xrLabel156.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel156.SizeF = new System.Drawing.SizeF(82.99774F, 23F);
+            this.xrLabel156.StylePriority.UseFont = false;
+            this.xrLabel156.StylePriority.UseTextAlignment = false;
+            this.xrLabel156.Text = "Gas Gathering:";
+            this.xrLabel156.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel155
+            // 
+            this.xrLabel155.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
+            this.xrLabel155.CanGrow = false;
+            this.xrLabel155.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.GasGatheringcalc")});
+            this.xrLabel155.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrLabel155.LocationFloat = new DevExpress.Utils.PointFloat(204.2917F, 253F);
+            this.xrLabel155.Name = "xrLabel155";
+            this.xrLabel155.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel155.SizeF = new System.Drawing.SizeF(25F, 23F);
+            this.xrLabel155.StylePriority.UseBorders = false;
+            this.xrLabel155.StylePriority.UseFont = false;
+            this.xrLabel155.StylePriority.UseTextAlignment = false;
+            this.xrLabel155.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrPictureBox4
             // 
@@ -504,14 +657,13 @@
             // 
             this.xrLabel144.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
             this.xrLabel144.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.CoverEmployeesCategory")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.FRAcalcFRASelected")});
             this.xrLabel144.LocationFloat = new DevExpress.Utils.PointFloat(605.5837F, 275.9999F);
             this.xrLabel144.Name = "xrLabel144";
             this.xrLabel144.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel144.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel144.StylePriority.UseBorders = false;
             this.xrLabel144.StylePriority.UseTextAlignment = false;
-            this.xrLabel144.Text = "xrLabel144";
             this.xrLabel144.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel39
@@ -521,7 +673,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel39.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.CoverEmployeesAllCategories")});
-            this.xrLabel39.LocationFloat = new DevExpress.Utils.PointFloat(560.5835F, 340.9999F);
+            this.xrLabel39.LocationFloat = new DevExpress.Utils.PointFloat(563.5835F, 340.9999F);
             this.xrLabel39.Name = "xrLabel39";
             this.xrLabel39.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel39.SizeF = new System.Drawing.SizeF(128.9166F, 33.41666F);
@@ -639,7 +791,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel44.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel44.LocationFloat = new DevExpress.Utils.PointFloat(446.5012F, 388.0001F);
+            this.xrLabel44.LocationFloat = new DevExpress.Utils.PointFloat(446.5012F, 383.0001F);
             this.xrLabel44.Name = "xrLabel44";
             this.xrLabel44.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel44.SizeF = new System.Drawing.SizeF(293.4988F, 71.87491F);
@@ -652,7 +804,7 @@
             this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(36.79174F, 398F);
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(36.79174F, 394F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1,
@@ -699,7 +851,7 @@
             // xrTableCell4
             // 
             this.xrTableCell4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.CoverEmployeesTotalNoOfCategories")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.CoverEmployeesCategory")});
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -717,7 +869,7 @@
             // xrLabel43
             // 
             this.xrLabel43.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold);
-            this.xrLabel43.LocationFloat = new DevExpress.Utils.PointFloat(10.0001F, 396F);
+            this.xrLabel43.LocationFloat = new DevExpress.Utils.PointFloat(10.0001F, 394F);
             this.xrLabel43.Name = "xrLabel43";
             this.xrLabel43.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel43.SizeF = new System.Drawing.SizeF(26.79157F, 23.00003F);
@@ -744,7 +896,7 @@
             this.xrLabel41.LocationFloat = new DevExpress.Utils.PointFloat(0F, 344.9999F);
             this.xrLabel41.Name = "xrLabel41";
             this.xrLabel41.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel41.SizeF = new System.Drawing.SizeF(568.75F, 23F);
+            this.xrLabel41.SizeF = new System.Drawing.SizeF(573F, 23F);
             this.xrLabel41.StylePriority.UseFont = false;
             this.xrLabel41.StylePriority.UseTextAlignment = false;
             this.xrLabel41.Text = "II. Covered Employers: (A) Enter Total Number Safety-Sensitive Employees In All E" +
@@ -1180,7 +1332,7 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 30.20833F;
+            this.TopMargin.HeightF = 19.79167F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -1303,7 +1455,7 @@
             this.xrLabel75,
             this.xrLabel74,
             this.xrLabel48});
-            this.Detail1.HeightF = 23F;
+            this.Detail1.HeightF = 20F;
             this.Detail1.Name = "Detail1";
             // 
             // xrLabel82
@@ -1317,7 +1469,7 @@
             this.xrLabel82.LocationFloat = new DevExpress.Utils.PointFloat(17.00007F, 0F);
             this.xrLabel82.Name = "xrLabel82";
             this.xrLabel82.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel82.SizeF = new System.Drawing.SizeF(138.6666F, 23F);
+            this.xrLabel82.SizeF = new System.Drawing.SizeF(138.6666F, 20F);
             this.xrLabel82.StylePriority.UseBorders = false;
             this.xrLabel82.StylePriority.UseFont = false;
             this.xrLabel82.StylePriority.UseTextAlignment = false;
@@ -1335,7 +1487,7 @@
             this.xrLabel81.LocationFloat = new DevExpress.Utils.PointFloat(155.6666F, 0F);
             this.xrLabel81.Name = "xrLabel81";
             this.xrLabel81.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel81.SizeF = new System.Drawing.SizeF(103.7505F, 23F);
+            this.xrLabel81.SizeF = new System.Drawing.SizeF(103.7505F, 20F);
             this.xrLabel81.StylePriority.UseBorders = false;
             this.xrLabel81.StylePriority.UseFont = false;
             this.xrLabel81.StylePriority.UseTextAlignment = false;
@@ -1348,16 +1500,15 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel80.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.ResultsBelow02")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.Results02orGreater")});
             this.xrLabel80.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel80.LocationFloat = new DevExpress.Utils.PointFloat(333.5017F, 0F);
             this.xrLabel80.Name = "xrLabel80";
             this.xrLabel80.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel80.SizeF = new System.Drawing.SizeF(57.33282F, 23F);
+            this.xrLabel80.SizeF = new System.Drawing.SizeF(57.33282F, 20F);
             this.xrLabel80.StylePriority.UseBorders = false;
             this.xrLabel80.StylePriority.UseFont = false;
             this.xrLabel80.StylePriority.UseTextAlignment = false;
-            this.xrLabel80.Text = "xrLabel80";
             this.xrLabel80.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel79
@@ -1366,16 +1517,15 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel79.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.Results02orGreater")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.ResultsBelow02")});
             this.xrLabel79.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel79.LocationFloat = new DevExpress.Utils.PointFloat(258.252F, 0F);
             this.xrLabel79.Name = "xrLabel79";
             this.xrLabel79.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel79.SizeF = new System.Drawing.SizeF(76.41504F, 23F);
+            this.xrLabel79.SizeF = new System.Drawing.SizeF(76.41504F, 20F);
             this.xrLabel79.StylePriority.UseBorders = false;
             this.xrLabel79.StylePriority.UseFont = false;
             this.xrLabel79.StylePriority.UseTextAlignment = false;
-            this.xrLabel79.Text = "xrLabel79";
             this.xrLabel79.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel78
@@ -1390,7 +1540,7 @@
             this.xrLabel78.LocationFloat = new DevExpress.Utils.PointFloat(557.6665F, 0F);
             this.xrLabel78.Name = "xrLabel78";
             this.xrLabel78.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel78.SizeF = new System.Drawing.SizeF(59.16748F, 23F);
+            this.xrLabel78.SizeF = new System.Drawing.SizeF(59.16748F, 20F);
             this.xrLabel78.StylePriority.UseBorders = false;
             this.xrLabel78.StylePriority.UseFont = false;
             this.xrLabel78.StylePriority.UseTextAlignment = false;
@@ -1408,7 +1558,7 @@
             this.xrLabel77.LocationFloat = new DevExpress.Utils.PointFloat(616.834F, 0F);
             this.xrLabel77.Name = "xrLabel77";
             this.xrLabel77.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel77.SizeF = new System.Drawing.SizeF(62.04303F, 23F);
+            this.xrLabel77.SizeF = new System.Drawing.SizeF(62.04303F, 20F);
             this.xrLabel77.StylePriority.UseBorders = false;
             this.xrLabel77.StylePriority.UseFont = false;
             this.xrLabel77.StylePriority.UseTextAlignment = false;
@@ -1426,11 +1576,10 @@
             this.xrLabel76.LocationFloat = new DevExpress.Utils.PointFloat(391.0014F, 0F);
             this.xrLabel76.Name = "xrLabel76";
             this.xrLabel76.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel76.SizeF = new System.Drawing.SizeF(55.49979F, 23F);
+            this.xrLabel76.SizeF = new System.Drawing.SizeF(55.49979F, 20F);
             this.xrLabel76.StylePriority.UseBorders = false;
             this.xrLabel76.StylePriority.UseFont = false;
             this.xrLabel76.StylePriority.UseTextAlignment = false;
-            this.xrLabel76.Text = "xrLabel76";
             this.xrLabel76.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel75
@@ -1445,7 +1594,7 @@
             this.xrLabel75.LocationFloat = new DevExpress.Utils.PointFloat(503.8345F, 0F);
             this.xrLabel75.Name = "xrLabel75";
             this.xrLabel75.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel75.SizeF = new System.Drawing.SizeF(53.83185F, 23F);
+            this.xrLabel75.SizeF = new System.Drawing.SizeF(53.83185F, 20F);
             this.xrLabel75.StylePriority.UseBorders = false;
             this.xrLabel75.StylePriority.UseFont = false;
             this.xrLabel75.StylePriority.UseTextAlignment = false;
@@ -1464,7 +1613,7 @@
             this.xrLabel74.LocationFloat = new DevExpress.Utils.PointFloat(446.5012F, 0F);
             this.xrLabel74.Name = "xrLabel74";
             this.xrLabel74.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel74.SizeF = new System.Drawing.SizeF(57.3331F, 23F);
+            this.xrLabel74.SizeF = new System.Drawing.SizeF(57.3331F, 20F);
             this.xrLabel74.StylePriority.UseBorders = false;
             this.xrLabel74.StylePriority.UseFont = false;
             this.xrLabel74.StylePriority.UseTextAlignment = false;
@@ -1482,7 +1631,7 @@
             this.xrLabel48.LocationFloat = new DevExpress.Utils.PointFloat(678.877F, 0F);
             this.xrLabel48.Name = "xrLabel48";
             this.xrLabel48.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel48.SizeF = new System.Drawing.SizeF(56.16467F, 23F);
+            this.xrLabel48.SizeF = new System.Drawing.SizeF(56.16467F, 20F);
             this.xrLabel48.StylePriority.UseBorders = false;
             this.xrLabel48.StylePriority.UseFont = false;
             this.xrLabel48.StylePriority.UseTextAlignment = false;
@@ -1863,7 +2012,7 @@
             this.xrLabel87.LocationFloat = new DevExpress.Utils.PointFloat(155.6666F, 0F);
             this.xrLabel87.Name = "xrLabel87";
             this.xrLabel87.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel87.SizeF = new System.Drawing.SizeF(103.7506F, 23F);
+            this.xrLabel87.SizeF = new System.Drawing.SizeF(103.7506F, 20F);
             this.xrLabel87.StylePriority.UseBorders = false;
             this.xrLabel87.StylePriority.UseFont = false;
             this.xrLabel87.StylePriority.UseTextAlignment = false;
@@ -1877,12 +2026,12 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel88.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.Results02orGreater")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.ResultsBelow02")});
             this.xrLabel88.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel88.LocationFloat = new DevExpress.Utils.PointFloat(259.4172F, 0F);
             this.xrLabel88.Name = "xrLabel88";
             this.xrLabel88.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel88.SizeF = new System.Drawing.SizeF(75.24971F, 23F);
+            this.xrLabel88.SizeF = new System.Drawing.SizeF(75.24971F, 20F);
             this.xrLabel88.StylePriority.UseBorders = false;
             this.xrLabel88.StylePriority.UseFont = false;
             this.xrLabel88.StylePriority.UseTextAlignment = false;
@@ -1896,12 +2045,12 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLabel89.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.ResultsBelow02")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Select.Results02orGreater")});
             this.xrLabel89.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel89.LocationFloat = new DevExpress.Utils.PointFloat(334.3353F, 0F);
             this.xrLabel89.Name = "xrLabel89";
             this.xrLabel89.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel89.SizeF = new System.Drawing.SizeF(56.49973F, 23F);
+            this.xrLabel89.SizeF = new System.Drawing.SizeF(56.49973F, 20F);
             this.xrLabel89.StylePriority.UseBorders = false;
             this.xrLabel89.StylePriority.UseFont = false;
             this.xrLabel89.StylePriority.UseTextAlignment = false;
@@ -1920,7 +2069,7 @@
             this.xrLabel90.LocationFloat = new DevExpress.Utils.PointFloat(390.8348F, 0F);
             this.xrLabel90.Name = "xrLabel90";
             this.xrLabel90.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel90.SizeF = new System.Drawing.SizeF(56.49973F, 23F);
+            this.xrLabel90.SizeF = new System.Drawing.SizeF(56.49973F, 20F);
             this.xrLabel90.StylePriority.UseBorders = false;
             this.xrLabel90.StylePriority.UseFont = false;
             this.xrLabel90.StylePriority.UseTextAlignment = false;
@@ -1940,7 +2089,7 @@
             this.xrLabel91.LocationFloat = new DevExpress.Utils.PointFloat(447.3353F, 0F);
             this.xrLabel91.Name = "xrLabel91";
             this.xrLabel91.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel91.SizeF = new System.Drawing.SizeF(56.4989F, 23F);
+            this.xrLabel91.SizeF = new System.Drawing.SizeF(56.4989F, 20F);
             this.xrLabel91.StylePriority.UseBorders = false;
             this.xrLabel91.StylePriority.UseFont = false;
             this.xrLabel91.StylePriority.UseTextAlignment = false;
@@ -1960,7 +2109,7 @@
             this.xrLabel92.LocationFloat = new DevExpress.Utils.PointFloat(503.8345F, 0F);
             this.xrLabel92.Name = "xrLabel92";
             this.xrLabel92.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel92.SizeF = new System.Drawing.SizeF(53.99896F, 23F);
+            this.xrLabel92.SizeF = new System.Drawing.SizeF(53.99896F, 20F);
             this.xrLabel92.StylePriority.UseBorders = false;
             this.xrLabel92.StylePriority.UseFont = false;
             this.xrLabel92.StylePriority.UseTextAlignment = false;
@@ -1980,7 +2129,7 @@
             this.xrLabel93.LocationFloat = new DevExpress.Utils.PointFloat(557.6665F, 0F);
             this.xrLabel93.Name = "xrLabel93";
             this.xrLabel93.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel93.SizeF = new System.Drawing.SizeF(59.16748F, 23F);
+            this.xrLabel93.SizeF = new System.Drawing.SizeF(59.16748F, 20F);
             this.xrLabel93.StylePriority.UseBorders = false;
             this.xrLabel93.StylePriority.UseFont = false;
             this.xrLabel93.StylePriority.UseTextAlignment = false;
@@ -1999,7 +2148,7 @@
             this.xrLabel94.LocationFloat = new DevExpress.Utils.PointFloat(616.0004F, 0F);
             this.xrLabel94.Name = "xrLabel94";
             this.xrLabel94.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel94.SizeF = new System.Drawing.SizeF(63.91809F, 23F);
+            this.xrLabel94.SizeF = new System.Drawing.SizeF(63.91809F, 20F);
             this.xrLabel94.StylePriority.UseBorders = false;
             this.xrLabel94.StylePriority.UseFont = false;
             this.xrLabel94.StylePriority.UseTextAlignment = false;
@@ -2018,7 +2167,7 @@
             this.xrLabel95.LocationFloat = new DevExpress.Utils.PointFloat(678.877F, 0F);
             this.xrLabel95.Name = "xrLabel95";
             this.xrLabel95.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel95.SizeF = new System.Drawing.SizeF(56.49933F, 23F);
+            this.xrLabel95.SizeF = new System.Drawing.SizeF(56.49933F, 20F);
             this.xrLabel95.StylePriority.UseBorders = false;
             this.xrLabel95.StylePriority.UseFont = false;
             this.xrLabel95.StylePriority.UseTextAlignment = false;
@@ -2035,7 +2184,7 @@
             this.xrLabel86.LocationFloat = new DevExpress.Utils.PointFloat(16.8335F, 0F);
             this.xrLabel86.Name = "xrLabel86";
             this.xrLabel86.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel86.SizeF = new System.Drawing.SizeF(138.8332F, 23.3334F);
+            this.xrLabel86.SizeF = new System.Drawing.SizeF(138.8332F, 20F);
             this.xrLabel86.StylePriority.UseBorders = false;
             this.xrLabel86.StylePriority.UseFont = false;
             this.xrLabel86.StylePriority.UseTextAlignment = false;
@@ -2084,7 +2233,7 @@
             this.xrLabel97,
             this.xrLabel84,
             this.xrLabel83});
-            this.Detail2.HeightF = 23F;
+            this.Detail2.HeightF = 20F;
             this.Detail2.Name = "Detail2";
             // 
             // xrLabel108
@@ -2099,7 +2248,7 @@
             this.xrLabel108.LocationFloat = new DevExpress.Utils.PointFloat(239.6667F, 0F);
             this.xrLabel108.Name = "xrLabel108";
             this.xrLabel108.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel108.SizeF = new System.Drawing.SizeF(49.99998F, 23F);
+            this.xrLabel108.SizeF = new System.Drawing.SizeF(49.99998F, 20F);
             this.xrLabel108.StylePriority.UseBorders = false;
             this.xrLabel108.StylePriority.UseFont = false;
             this.xrLabel108.StylePriority.UseTextAlignment = false;
@@ -2117,7 +2266,7 @@
             this.xrLabel107.LocationFloat = new DevExpress.Utils.PointFloat(194.6668F, 0F);
             this.xrLabel107.Name = "xrLabel107";
             this.xrLabel107.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel107.SizeF = new System.Drawing.SizeF(45.99988F, 23F);
+            this.xrLabel107.SizeF = new System.Drawing.SizeF(45.99998F, 20F);
             this.xrLabel107.StylePriority.UseBorders = false;
             this.xrLabel107.StylePriority.UseFont = false;
             this.xrLabel107.StylePriority.UseTextAlignment = false;
@@ -2135,7 +2284,7 @@
             this.xrLabel106.LocationFloat = new DevExpress.Utils.PointFloat(5.000051F, 0F);
             this.xrLabel106.Name = "xrLabel106";
             this.xrLabel106.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel106.SizeF = new System.Drawing.SizeF(116.1667F, 23F);
+            this.xrLabel106.SizeF = new System.Drawing.SizeF(116.1667F, 20F);
             this.xrLabel106.StylePriority.UseBorders = false;
             this.xrLabel106.StylePriority.UseFont = false;
             this.xrLabel106.StylePriority.UseTextAlignment = false;
@@ -2150,10 +2299,10 @@
             this.xrLabel105.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISDrugTestingData_Select.TotalNoOfTestResults")});
             this.xrLabel105.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel105.LocationFloat = new DevExpress.Utils.PointFloat(121.6667F, 0F);
+            this.xrLabel105.LocationFloat = new DevExpress.Utils.PointFloat(120.6667F, 0F);
             this.xrLabel105.Name = "xrLabel105";
             this.xrLabel105.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel105.SizeF = new System.Drawing.SizeF(73.75017F, 23F);
+            this.xrLabel105.SizeF = new System.Drawing.SizeF(74.75005F, 20F);
             this.xrLabel105.StylePriority.UseBorders = false;
             this.xrLabel105.StylePriority.UseFont = false;
             this.xrLabel105.StylePriority.UseTextAlignment = false;
@@ -2171,7 +2320,7 @@
             this.xrLabel104.LocationFloat = new DevExpress.Utils.PointFloat(557.6665F, 0F);
             this.xrLabel104.Name = "xrLabel104";
             this.xrLabel104.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel104.SizeF = new System.Drawing.SizeF(47.00024F, 23F);
+            this.xrLabel104.SizeF = new System.Drawing.SizeF(47.00024F, 20F);
             this.xrLabel104.StylePriority.UseBorders = false;
             this.xrLabel104.StylePriority.UseFont = false;
             this.xrLabel104.StylePriority.UseTextAlignment = false;
@@ -2190,7 +2339,7 @@
             this.xrLabel103.LocationFloat = new DevExpress.Utils.PointFloat(604.6666F, 0F);
             this.xrLabel103.Name = "xrLabel103";
             this.xrLabel103.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel103.SizeF = new System.Drawing.SizeF(47.00012F, 23F);
+            this.xrLabel103.SizeF = new System.Drawing.SizeF(47.00012F, 20F);
             this.xrLabel103.StylePriority.UseBorders = false;
             this.xrLabel103.StylePriority.UseFont = false;
             this.xrLabel103.StylePriority.UseTextAlignment = false;
@@ -2208,7 +2357,7 @@
             this.xrLabel102.LocationFloat = new DevExpress.Utils.PointFloat(651.6667F, 0F);
             this.xrLabel102.Name = "xrLabel102";
             this.xrLabel102.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel102.SizeF = new System.Drawing.SizeF(46.99994F, 23F);
+            this.xrLabel102.SizeF = new System.Drawing.SizeF(46.99994F, 20F);
             this.xrLabel102.StylePriority.UseBorders = false;
             this.xrLabel102.StylePriority.UseFont = false;
             this.xrLabel102.StylePriority.UseTextAlignment = false;
@@ -2226,7 +2375,7 @@
             this.xrLabel101.LocationFloat = new DevExpress.Utils.PointFloat(513.0414F, 0F);
             this.xrLabel101.Name = "xrLabel101";
             this.xrLabel101.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel101.SizeF = new System.Drawing.SizeF(44.62506F, 23F);
+            this.xrLabel101.SizeF = new System.Drawing.SizeF(44.62506F, 20F);
             this.xrLabel101.StylePriority.UseBorders = false;
             this.xrLabel101.StylePriority.UseFont = false;
             this.xrLabel101.StylePriority.UseTextAlignment = false;
@@ -2244,7 +2393,7 @@
             this.xrLabel100.LocationFloat = new DevExpress.Utils.PointFloat(378.6667F, 0F);
             this.xrLabel100.Name = "xrLabel100";
             this.xrLabel100.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel100.SizeF = new System.Drawing.SizeF(46.00006F, 23F);
+            this.xrLabel100.SizeF = new System.Drawing.SizeF(46.00006F, 20F);
             this.xrLabel100.StylePriority.UseBorders = false;
             this.xrLabel100.StylePriority.UseFont = false;
             this.xrLabel100.StylePriority.UseTextAlignment = false;
@@ -2262,7 +2411,7 @@
             this.xrLabel99.LocationFloat = new DevExpress.Utils.PointFloat(423.3701F, 0F);
             this.xrLabel99.Name = "xrLabel99";
             this.xrLabel99.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel99.SizeF = new System.Drawing.SizeF(46.29684F, 23F);
+            this.xrLabel99.SizeF = new System.Drawing.SizeF(46.29684F, 20F);
             this.xrLabel99.StylePriority.UseBorders = false;
             this.xrLabel99.StylePriority.UseFont = false;
             this.xrLabel99.StylePriority.UseTextAlignment = false;
@@ -2280,7 +2429,7 @@
             this.xrLabel98.LocationFloat = new DevExpress.Utils.PointFloat(288.6668F, 0F);
             this.xrLabel98.Name = "xrLabel98";
             this.xrLabel98.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel98.SizeF = new System.Drawing.SizeF(46.00003F, 23F);
+            this.xrLabel98.SizeF = new System.Drawing.SizeF(46.00003F, 20F);
             this.xrLabel98.StylePriority.UseBorders = false;
             this.xrLabel98.StylePriority.UseFont = false;
             this.xrLabel98.StylePriority.UseTextAlignment = false;
@@ -2298,7 +2447,7 @@
             this.xrLabel97.LocationFloat = new DevExpress.Utils.PointFloat(333.667F, 0F);
             this.xrLabel97.Name = "xrLabel97";
             this.xrLabel97.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel97.SizeF = new System.Drawing.SizeF(46F, 23F);
+            this.xrLabel97.SizeF = new System.Drawing.SizeF(46F, 20F);
             this.xrLabel97.StylePriority.UseBorders = false;
             this.xrLabel97.StylePriority.UseFont = false;
             this.xrLabel97.StylePriority.UseTextAlignment = false;
@@ -2316,7 +2465,7 @@
             this.xrLabel84.LocationFloat = new DevExpress.Utils.PointFloat(467.75F, 0F);
             this.xrLabel84.Name = "xrLabel84";
             this.xrLabel84.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel84.SizeF = new System.Drawing.SizeF(46.00003F, 23F);
+            this.xrLabel84.SizeF = new System.Drawing.SizeF(46.00003F, 20F);
             this.xrLabel84.StylePriority.UseBorders = false;
             this.xrLabel84.StylePriority.UseFont = false;
             this.xrLabel84.StylePriority.UseTextAlignment = false;
@@ -2334,7 +2483,7 @@
             this.xrLabel83.LocationFloat = new DevExpress.Utils.PointFloat(697.6667F, 0F);
             this.xrLabel83.Name = "xrLabel83";
             this.xrLabel83.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel83.SizeF = new System.Drawing.SizeF(47.33325F, 23F);
+            this.xrLabel83.SizeF = new System.Drawing.SizeF(47.33325F, 20F);
             this.xrLabel83.StylePriority.UseBorders = false;
             this.xrLabel83.StylePriority.UseFont = false;
             this.xrLabel83.StylePriority.UseTextAlignment = false;
@@ -2536,7 +2685,7 @@
             this.xrLabel50.LocationFloat = new DevExpress.Utils.PointFloat(121.6667F, 22.99983F);
             this.xrLabel50.Name = "xrLabel50";
             this.xrLabel50.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel50.SizeF = new System.Drawing.SizeF(73.75005F, 108.9793F);
+            this.xrLabel50.SizeF = new System.Drawing.SizeF(73.75005F, 108.9792F);
             this.xrLabel50.StylePriority.UseBorders = false;
             this.xrLabel50.StylePriority.UseFont = false;
             this.xrLabel50.StylePriority.UsePadding = false;
@@ -2814,7 +2963,7 @@
             this.xrLabel120,
             this.xrLabel121,
             this.xrLabel96});
-            this.GroupFooter2.HeightF = 23.3334F;
+            this.GroupFooter2.HeightF = 20F;
             this.GroupFooter2.Name = "GroupFooter2";
             // 
             // xrLabel109
@@ -2825,10 +2974,10 @@
             this.xrLabel109.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_Web_DOTDrugAndAlcoholMISDrugTestingData_Select.TotalNoOfTestResults")});
             this.xrLabel109.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel109.LocationFloat = new DevExpress.Utils.PointFloat(121.6667F, 0F);
+            this.xrLabel109.LocationFloat = new DevExpress.Utils.PointFloat(120.6667F, 0F);
             this.xrLabel109.Name = "xrLabel109";
             this.xrLabel109.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel109.SizeF = new System.Drawing.SizeF(73.75017F, 23.3334F);
+            this.xrLabel109.SizeF = new System.Drawing.SizeF(74.00006F, 20F);
             this.xrLabel109.StylePriority.UseBorders = false;
             this.xrLabel109.StylePriority.UseFont = false;
             this.xrLabel109.StylePriority.UseTextAlignment = false;
@@ -2847,7 +2996,7 @@
             this.xrLabel110.LocationFloat = new DevExpress.Utils.PointFloat(194.6668F, 0F);
             this.xrLabel110.Name = "xrLabel110";
             this.xrLabel110.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel110.SizeF = new System.Drawing.SizeF(46.00002F, 23.3334F);
+            this.xrLabel110.SizeF = new System.Drawing.SizeF(46.00002F, 20F);
             this.xrLabel110.StylePriority.UseBorders = false;
             this.xrLabel110.StylePriority.UseFont = false;
             this.xrLabel110.StylePriority.UseTextAlignment = false;
@@ -2867,7 +3016,7 @@
             this.xrLabel111.LocationFloat = new DevExpress.Utils.PointFloat(239.6667F, 0F);
             this.xrLabel111.Name = "xrLabel111";
             this.xrLabel111.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel111.SizeF = new System.Drawing.SizeF(50F, 23.3334F);
+            this.xrLabel111.SizeF = new System.Drawing.SizeF(50F, 20F);
             this.xrLabel111.StylePriority.UseBorders = false;
             this.xrLabel111.StylePriority.UseFont = false;
             this.xrLabel111.StylePriority.UseTextAlignment = false;
@@ -2886,7 +3035,7 @@
             this.xrLabel112.LocationFloat = new DevExpress.Utils.PointFloat(288.6668F, 0F);
             this.xrLabel112.Name = "xrLabel112";
             this.xrLabel112.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel112.SizeF = new System.Drawing.SizeF(46.00024F, 23.3334F);
+            this.xrLabel112.SizeF = new System.Drawing.SizeF(46.00024F, 20F);
             this.xrLabel112.StylePriority.UseBorders = false;
             this.xrLabel112.StylePriority.UseFont = false;
             this.xrLabel112.StylePriority.UseTextAlignment = false;
@@ -2905,7 +3054,7 @@
             this.xrLabel113.LocationFloat = new DevExpress.Utils.PointFloat(333.667F, 0F);
             this.xrLabel113.Name = "xrLabel113";
             this.xrLabel113.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel113.SizeF = new System.Drawing.SizeF(46.00021F, 23.3334F);
+            this.xrLabel113.SizeF = new System.Drawing.SizeF(46.00021F, 20F);
             this.xrLabel113.StylePriority.UseBorders = false;
             this.xrLabel113.StylePriority.UseFont = false;
             this.xrLabel113.StylePriority.UseTextAlignment = false;
@@ -2924,7 +3073,7 @@
             this.xrLabel114.LocationFloat = new DevExpress.Utils.PointFloat(378.6667F, 0F);
             this.xrLabel114.Name = "xrLabel114";
             this.xrLabel114.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel114.SizeF = new System.Drawing.SizeF(46.00015F, 23.3334F);
+            this.xrLabel114.SizeF = new System.Drawing.SizeF(46.00015F, 20F);
             this.xrLabel114.StylePriority.UseBorders = false;
             this.xrLabel114.StylePriority.UseFont = false;
             this.xrLabel114.StylePriority.UseTextAlignment = false;
@@ -2943,7 +3092,7 @@
             this.xrLabel115.LocationFloat = new DevExpress.Utils.PointFloat(423.6669F, 0F);
             this.xrLabel115.Name = "xrLabel115";
             this.xrLabel115.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel115.SizeF = new System.Drawing.SizeF(46.00003F, 23.3334F);
+            this.xrLabel115.SizeF = new System.Drawing.SizeF(46.00003F, 20F);
             this.xrLabel115.StylePriority.UseBorders = false;
             this.xrLabel115.StylePriority.UseFont = false;
             this.xrLabel115.StylePriority.UseTextAlignment = false;
@@ -2962,7 +3111,7 @@
             this.xrLabel116.LocationFloat = new DevExpress.Utils.PointFloat(468.75F, 0F);
             this.xrLabel116.Name = "xrLabel116";
             this.xrLabel116.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel116.SizeF = new System.Drawing.SizeF(43.91669F, 23.3334F);
+            this.xrLabel116.SizeF = new System.Drawing.SizeF(43.91669F, 20F);
             this.xrLabel116.StylePriority.UseBorders = false;
             this.xrLabel116.StylePriority.UseFont = false;
             this.xrLabel116.StylePriority.UseTextAlignment = false;
@@ -2981,7 +3130,7 @@
             this.xrLabel117.LocationFloat = new DevExpress.Utils.PointFloat(513.0414F, 0F);
             this.xrLabel117.Name = "xrLabel117";
             this.xrLabel117.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel117.SizeF = new System.Drawing.SizeF(44.62506F, 23.3334F);
+            this.xrLabel117.SizeF = new System.Drawing.SizeF(44.62506F, 20F);
             this.xrLabel117.StylePriority.UseBorders = false;
             this.xrLabel117.StylePriority.UseFont = false;
             this.xrLabel117.StylePriority.UseTextAlignment = false;
@@ -3000,7 +3149,7 @@
             this.xrLabel118.LocationFloat = new DevExpress.Utils.PointFloat(557.6665F, 0F);
             this.xrLabel118.Name = "xrLabel118";
             this.xrLabel118.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel118.SizeF = new System.Drawing.SizeF(47.00024F, 23.3334F);
+            this.xrLabel118.SizeF = new System.Drawing.SizeF(47.00024F, 20F);
             this.xrLabel118.StylePriority.UseBorders = false;
             this.xrLabel118.StylePriority.UseFont = false;
             this.xrLabel118.StylePriority.UseTextAlignment = false;
@@ -3020,7 +3169,7 @@
             this.xrLabel119.LocationFloat = new DevExpress.Utils.PointFloat(604.6666F, 0F);
             this.xrLabel119.Name = "xrLabel119";
             this.xrLabel119.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel119.SizeF = new System.Drawing.SizeF(47.00012F, 23.3334F);
+            this.xrLabel119.SizeF = new System.Drawing.SizeF(47.00012F, 20F);
             this.xrLabel119.StylePriority.UseBorders = false;
             this.xrLabel119.StylePriority.UseFont = false;
             this.xrLabel119.StylePriority.UseTextAlignment = false;
@@ -3039,7 +3188,7 @@
             this.xrLabel120.LocationFloat = new DevExpress.Utils.PointFloat(651.6667F, 0F);
             this.xrLabel120.Name = "xrLabel120";
             this.xrLabel120.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel120.SizeF = new System.Drawing.SizeF(46.99994F, 23.3334F);
+            this.xrLabel120.SizeF = new System.Drawing.SizeF(46.99994F, 20F);
             this.xrLabel120.StylePriority.UseBorders = false;
             this.xrLabel120.StylePriority.UseFont = false;
             this.xrLabel120.StylePriority.UseTextAlignment = false;
@@ -3058,7 +3207,7 @@
             this.xrLabel121.LocationFloat = new DevExpress.Utils.PointFloat(697.6667F, 0F);
             this.xrLabel121.Name = "xrLabel121";
             this.xrLabel121.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel121.SizeF = new System.Drawing.SizeF(47.33325F, 23.3334F);
+            this.xrLabel121.SizeF = new System.Drawing.SizeF(47.33325F, 20F);
             this.xrLabel121.StylePriority.UseBorders = false;
             this.xrLabel121.StylePriority.UseFont = false;
             this.xrLabel121.StylePriority.UseTextAlignment = false;
@@ -3075,7 +3224,7 @@
             this.xrLabel96.LocationFloat = new DevExpress.Utils.PointFloat(5.000051F, 0F);
             this.xrLabel96.Name = "xrLabel96";
             this.xrLabel96.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel96.SizeF = new System.Drawing.SizeF(116.6667F, 23.3334F);
+            this.xrLabel96.SizeF = new System.Drawing.SizeF(116.6667F, 20F);
             this.xrLabel96.StylePriority.UseBorders = false;
             this.xrLabel96.StylePriority.UseFont = false;
             this.xrLabel96.StylePriority.UseTextAlignment = false;
@@ -3155,90 +3304,6 @@
             this.GasTransmissioncalc.FieldType = DevExpress.XtraReports.UI.FieldType.Boolean;
             this.GasTransmissioncalc.Name = "GasTransmissioncalc";
             // 
-            // xrLabel155
-            // 
-            this.xrLabel155.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel155.CanGrow = false;
-            this.xrLabel155.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.GasGatheringcalc")});
-            this.xrLabel155.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel155.LocationFloat = new DevExpress.Utils.PointFloat(206.2917F, 253F);
-            this.xrLabel155.Name = "xrLabel155";
-            this.xrLabel155.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel155.SizeF = new System.Drawing.SizeF(24.375F, 23F);
-            this.xrLabel155.StylePriority.UseBorders = false;
-            this.xrLabel155.StylePriority.UseFont = false;
-            this.xrLabel155.StylePriority.UseTextAlignment = false;
-            this.xrLabel155.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrLabel156
-            // 
-            this.xrLabel156.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel156.LocationFloat = new DevExpress.Utils.PointFloat(124.294F, 253F);
-            this.xrLabel156.Name = "xrLabel156";
-            this.xrLabel156.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel156.SizeF = new System.Drawing.SizeF(82.99774F, 23F);
-            this.xrLabel156.StylePriority.UseFont = false;
-            this.xrLabel156.StylePriority.UseTextAlignment = false;
-            this.xrLabel156.Text = "Gas Gathering:";
-            this.xrLabel156.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrLabel157
-            // 
-            this.xrLabel157.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel157.LocationFloat = new DevExpress.Utils.PointFloat(219.3333F, 252.9998F);
-            this.xrLabel157.Name = "xrLabel157";
-            this.xrLabel157.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel157.SizeF = new System.Drawing.SizeF(98.50008F, 23F);
-            this.xrLabel157.StylePriority.UseFont = false;
-            this.xrLabel157.StylePriority.UseTextAlignment = false;
-            this.xrLabel157.Text = "Gas Transmission:";
-            this.xrLabel157.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrLabel158
-            // 
-            this.xrLabel158.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel158.CanGrow = false;
-            this.xrLabel158.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.GasTransmissioncalc")});
-            this.xrLabel158.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel158.LocationFloat = new DevExpress.Utils.PointFloat(316.3309F, 253F);
-            this.xrLabel158.Name = "xrLabel158";
-            this.xrLabel158.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel158.SizeF = new System.Drawing.SizeF(26.04163F, 23F);
-            this.xrLabel158.StylePriority.UseBorders = false;
-            this.xrLabel158.StylePriority.UseFont = false;
-            this.xrLabel158.StylePriority.UseTextAlignment = false;
-            this.xrLabel158.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrLabel159
-            // 
-            this.xrLabel159.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel159.LocationFloat = new DevExpress.Utils.PointFloat(327.3726F, 253F);
-            this.xrLabel159.Name = "xrLabel159";
-            this.xrLabel159.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel159.SizeF = new System.Drawing.SizeF(98.50008F, 23F);
-            this.xrLabel159.StylePriority.UseFont = false;
-            this.xrLabel159.StylePriority.UseTextAlignment = false;
-            this.xrLabel159.Text = "Gas Distribution:";
-            this.xrLabel159.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrLabel160
-            // 
-            this.xrLabel160.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel160.CanGrow = false;
-            this.xrLabel160.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.GasDistributioncalc")});
-            this.xrLabel160.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel160.LocationFloat = new DevExpress.Utils.PointFloat(423.3701F, 253.0001F);
-            this.xrLabel160.Name = "xrLabel160";
-            this.xrLabel160.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel160.SizeF = new System.Drawing.SizeF(26.04163F, 23F);
-            this.xrLabel160.StylePriority.UseBorders = false;
-            this.xrLabel160.StylePriority.UseFont = false;
-            this.xrLabel160.StylePriority.UseTextAlignment = false;
-            this.xrLabel160.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
             // TransportHazardousLiquidcalc
             // 
             this.TransportHazardousLiquidcalc.DataMember = "OHSN_rpt_DOTDrugAndAlcoholMIS";
@@ -3250,76 +3315,6 @@
             this.TransportCarbonDioxidecalc.DataMember = "OHSN_rpt_DOTDrugAndAlcoholMIS";
             this.TransportCarbonDioxidecalc.Expression = "Iif( [TransportHazardousCarbonDioxide]== 1,\'X\'  , \'  \' )";
             this.TransportCarbonDioxidecalc.Name = "TransportCarbonDioxidecalc";
-            // 
-            // xrLabel161
-            // 
-            this.xrLabel161.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel161.LocationFloat = new DevExpress.Utils.PointFloat(442.7499F, 253.0001F);
-            this.xrLabel161.Name = "xrLabel161";
-            this.xrLabel161.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel161.SizeF = new System.Drawing.SizeF(147.8337F, 22.99998F);
-            this.xrLabel161.StylePriority.UseFont = false;
-            this.xrLabel161.StylePriority.UseTextAlignment = false;
-            this.xrLabel161.Text = "Transport Hazardous Liquids:";
-            this.xrLabel161.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrLabel162
-            // 
-            this.xrLabel162.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel162.CanGrow = false;
-            this.xrLabel162.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.TransportHazardousLiquidcalc")});
-            this.xrLabel162.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel162.LocationFloat = new DevExpress.Utils.PointFloat(586.6666F, 253.0001F);
-            this.xrLabel162.Name = "xrLabel162";
-            this.xrLabel162.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel162.SizeF = new System.Drawing.SizeF(26.04163F, 23F);
-            this.xrLabel162.StylePriority.UseBorders = false;
-            this.xrLabel162.StylePriority.UseFont = false;
-            this.xrLabel162.StylePriority.UseTextAlignment = false;
-            this.xrLabel162.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrLabel163
-            // 
-            this.xrLabel163.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel163.LocationFloat = new DevExpress.Utils.PointFloat(605.7082F, 252.9998F);
-            this.xrLabel163.Name = "xrLabel163";
-            this.xrLabel163.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel163.SizeF = new System.Drawing.SizeF(133.7502F, 23F);
-            this.xrLabel163.StylePriority.UseFont = false;
-            this.xrLabel163.StylePriority.UseTextAlignment = false;
-            this.xrLabel163.Text = "Transport Carbon Dioxide:";
-            this.xrLabel163.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // xrLabel164
-            // 
-            this.xrLabel164.Borders = DevExpress.XtraPrinting.BorderSide.Bottom;
-            this.xrLabel164.CanGrow = false;
-            this.xrLabel164.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.TransportCarbonDioxidecalc")});
-            this.xrLabel164.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel164.LocationFloat = new DevExpress.Utils.PointFloat(736.625F, 252.9998F);
-            this.xrLabel164.Name = "xrLabel164";
-            this.xrLabel164.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel164.SizeF = new System.Drawing.SizeF(26.04163F, 23F);
-            this.xrLabel164.StylePriority.UseBorders = false;
-            this.xrLabel164.StylePriority.UseFont = false;
-            this.xrLabel164.StylePriority.UseTextAlignment = false;
-            this.xrLabel164.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrLabel165
-            // 
-            this.xrLabel165.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrLabel165.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "OHSN_rpt_DOTDrugAndAlcoholMIS.CoverEmployeesCategory")});
-            this.xrLabel165.LocationFloat = new DevExpress.Utils.PointFloat(279.6669F, 367.9999F);
-            this.xrLabel165.Name = "xrLabel165";
-            this.xrLabel165.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel165.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel165.StylePriority.UseBorders = false;
-            this.xrLabel165.Text = "xrLabel165";
             // 
             // rptDOTDrugandAlcoholMIS
             // 
@@ -3350,7 +3345,7 @@
             this.dsAlcoholTestingData});
             this.DataMember = "OHSN_rpt_DOTDrugAndAlcoholMIS";
             this.DataSource = this.dsDOTDrugandAlcoholMIS;
-            this.Margins = new System.Drawing.Printing.Margins(51, 49, 30, 2);
+            this.Margins = new System.Drawing.Printing.Margins(51, 49, 20, 2);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.FromDate,
             this.ToDate,

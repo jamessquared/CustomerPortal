@@ -91,7 +91,11 @@ namespace CustomerPortal {
         {
             try
             {
+                var x  = Session["WorkingEmployerID"];
+                var x1 = Session["KPIDaysToDisplay"];
+
                 DataView dv = (DataView)dsPerformanceMetrics.Select(System.Web.UI.DataSourceSelectArguments.Empty);
+
                 if (dv != null)
                 {
                     DataRow dr = dv.Table.Rows[0];

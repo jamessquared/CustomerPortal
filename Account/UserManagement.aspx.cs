@@ -152,6 +152,7 @@
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@ContactID", Session["WorkingContactID"]);
+                        cmd.Parameters.AddWithValue("@UserID", Session["ContactID"]);
                         var result = (int)cmd.ExecuteNonQuery();
                     }
                     conn.Close();

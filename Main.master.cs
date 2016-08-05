@@ -283,7 +283,7 @@ namespace CustomerPortal
         {
             if (Session["WorkingEmployerID"] == null)
             {
-                return;
+                Session["WorkingEmployerID"] = cbxCompany.SelectedItem.Value;
             }
 
             try

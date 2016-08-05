@@ -315,7 +315,7 @@
           <asp:TableRow>
                 <asp:TableCell  Width="10%"></asp:TableCell>
                 <asp:TableCell>
-                        <dx:ASPxRadioButtonList ID="rblDrugTestResults" runat="server" ClientInstanceName="rblDrugTestResults"  ValueType="System.Int32" AutoPostBack="true" OnSelectedIndexChanged="rblDrugTestResults_SelectedIndexChanged">
+                        <dx:ASPxRadioButtonList ID="rblDrugTestResults" runat="server" ClientInstanceName="rblDrugTestResults"  ValueType="System.Int32" AutoPostBack="true" Enabled="false" OnSelectedIndexChanged="rblDrugTestResults_SelectedIndexChanged">
                              <Items>
                                  <dx:ListEditItem Text="Test Result was Negative" Value="0" />
                                  <dx:ListEditItem Text="Test was Cancelled" Value="1" />
@@ -323,11 +323,11 @@
                                  <dx:ListEditItem Text="Test Result was Positive" Value="3" />
                              </Items>
                          </dx:ASPxRadioButtonList>  
-                         <dx:ASPxCheckBox ID="ckBlindSpecimensSubmitted" runat="server" CheckState="Unchecked" Text="Blind Specimen collected" Font-Size="Small"></dx:ASPxCheckBox>
-                          <dx:ASPxCheckBox ID="ckSecondCollectionPerformed" runat="server" CheckState="Unchecked" Text="2nd Collection was performed" Font-Size="Small"></dx:ASPxCheckBox>                                                               
+                         <dx:ASPxCheckBox ID="ckBlindSpecimensSubmitted" runat="server" CheckState="Unchecked" Text="Blind Specimen collected" Font-Size="Small" Enabled="false" ></dx:ASPxCheckBox>
+                          <dx:ASPxCheckBox ID="ckSecondCollectionPerformed" runat="server" CheckState="Unchecked" Text="2nd Collection was performed" Font-Size="Small" Enabled="false" ></dx:ASPxCheckBox>                                                               
                 </asp:TableCell>
                 <asp:TableCell>
-                         <dx:ASPxRadioButtonList ID="rblDrugTestRefused" runat="server" SelectedIndex="-1" ValueType="System.Int32" Visible="false">
+                         <dx:ASPxRadioButtonList ID="rblDrugTestRefused" runat="server" SelectedIndex="-1" ValueType="System.Int32" Visible="false" Enabled="false" >
                              <Items>
                                  <dx:ListEditItem Text="Adulterated Specimen" Value="0" />
                                  <dx:ListEditItem Text="Substituted Specimen" Value="1"  />
@@ -337,7 +337,7 @@
                          </dx:ASPxRadioButtonList>                                    
             </asp:TableCell>
                 <asp:TableCell>
-                    <asp:CheckBoxList ID="clbDrugTestPositiveResults" runat="server" Visible="false">
+                    <asp:CheckBoxList ID="clbDrugTestPositiveResults" runat="server" Visible="false" Enabled="false" >
                                  <asp:ListItem>Positive for Marijuana</asp:ListItem>
                                  <asp:ListItem>Positive for Cocaine</asp:ListItem>
                                  <asp:ListItem>Positive for PCP</asp:ListItem>
@@ -364,7 +364,7 @@
          <asp:TableRow>
                 <asp:TableCell  Width="10%"></asp:TableCell>
                 <asp:TableCell>
-                        <dx:ASPxRadioButtonList ID="rblAlcoholTestResults" runat="server"  ValueType="System.Int32" AutoPostBack="true" OnSelectedIndexChanged="rblAlcoholTestResults_SelectedIndexChanged" >
+                        <dx:ASPxRadioButtonList ID="rblAlcoholTestResults" runat="server"  ValueType="System.Int32" AutoPostBack="true" Enabled="false"  OnSelectedIndexChanged="rblAlcoholTestResults_SelectedIndexChanged" >
                              <Items>
                                  <dx:ListEditItem Text="Test Result was less 0.02" Value="0" />
                                  <dx:ListEditItem Text="Test was Cancelled" Value="1" />
@@ -374,7 +374,7 @@
                          </dx:ASPxRadioButtonList>                                                             
                 </asp:TableCell>
             <asp:TableCell>
-                 <dx:ASPxRadioButtonList ID="rblAlcoholTestRefused" runat="server" SelectedIndex="-1" ValueType="System.Int32" Visible="false">
+                 <dx:ASPxRadioButtonList ID="rblAlcoholTestRefused" runat="server" SelectedIndex="-1" ValueType="System.Int32" Visible="false" Enabled="false" >
                              <Items>
                                  <dx:ListEditItem Text="'Shy' lung"  Value="2" />
                                  <dx:ListEditItem Text="Other Refusal"  Value="3" />
@@ -382,7 +382,7 @@
                          </dx:ASPxRadioButtonList>                                    
             </asp:TableCell>
             <asp:TableCell>
-                 <dx:ASPxRadioButtonList ID="rblAlcoholTestPositiveResults" runat="server" SelectedIndex="-1" ValueType="System.Int32" Visible="false">
+                 <dx:ASPxRadioButtonList ID="rblAlcoholTestPositiveResults" runat="server" SelectedIndex="-1" ValueType="System.Int32" Visible="false" Enabled="false" >
                              <Items>
                                  <dx:ListEditItem Text="Confirm Result was 0.02 - 0.039" Value="0" />
                                  <dx:ListEditItem Text="Confirm Result was ≥ 0.04" Value="1" />

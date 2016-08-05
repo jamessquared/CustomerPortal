@@ -194,7 +194,12 @@
                             txtbxPreparedByTelephone.Text = rdr["PreparedByTelephone"].ToString();
                             txtbxTPAName.Text = rdr["TPA"].ToString();
                             txtbxTPATelephoneNumber.Text = rdr["TPAPhone"].ToString();
-                            txtbxTotalNoOfSafetySensitveEmployees.Text = rdr["CoverEmployeesAllCategories"].ToString();
+                            
+                            txtbxTotalNoOfSafetySensitveEmployees.Text = Convert.ToString(rdr["CoverEmployeesAllCategories"]);
+                            txtbxTotalNoOfEmployeeCategories.Text = Convert.ToString(rdr["CoverEmployeesTotalNoOfCategories"]);
+                            txtbxEmployeeCategory.Text = Convert.ToString(rdr["CoverEmployeesCategory"]);
+                            txtbxTotalNoOfEmployeesInThisCategory.Text = Convert.ToString(rdr["CoverEmployeesTotalNoOfInCategory"]);
+
                         }
                     }
 

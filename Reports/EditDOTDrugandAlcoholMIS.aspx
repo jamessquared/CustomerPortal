@@ -60,7 +60,7 @@
     </asp:Table>
     <br />
 
-    <div runat="server" style="overflow-x:auto; overflow-y:auto; max-height:600px;">
+    <div runat="server" style="overflow-x:auto; overflow-y:auto; max-height:550px;">
 
      <%--I.  Employer--%>
     <asp:Table runat="server" Width="100%">

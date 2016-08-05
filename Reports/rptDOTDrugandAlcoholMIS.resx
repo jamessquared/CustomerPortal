@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="xrLabel44.Text" xml:space="preserve">
-    <value>If you have multiple employee categories, complete Sections I and II(A) &amp;(B).  Take that filled-in fomr and make one copy for each employee category and complete sections II(C), III, and IV for each seperate employee category.</value>
+    <value>If you have multiple employee categories, complete Sections I and II(A) &amp;(B).  Take that filled-in from and make one copy for each employee category and complete sections II(C), III, and IV for each seperate employee category.</value>
   </data>
   <metadata name="dsDrugTestingData.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 95</value>
@@ -136,6 +136,6 @@
     <value>17, 134</value>
   </metadata>
   <data name="dsAlcoholTestingData.ResultSchemaSerializable" xml:space="preserve">
-    <value>PERhdGFTZXQgTmFtZT0iZHNBbGNvaG9sVGVzdGluZ0RhdGEiPjxWaWV3IE5hbWU9Ik9IU05fV2ViX0RPVERydWdBbmRBbGNvaG9sTUlTQWxjb2hvbFRlc3RpbmdEYXRhX1NlbGVjdCI+PEZpZWxkIE5hbWU9IlR5cGVPZlRlc3QiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVG90YWxOb09mVGVzdFJlc3VsdHMiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iUmVzdWx0c0JlbG93MDIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iUmVzdWx0czAyb3JHcmVhdGVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5vT2ZDb21maXJtYXRpb25UZXN0cyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDb25maXJtYXRpb25UZXN0czAydGhydTAzOSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDb25maXJtYXRpb25UZXN0czA0b3JHcmVhdGVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlJlZnVzYWxSZXN1bHRzU2h5THVuZ05vTWVkRXhwbGFpbmF0aW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlJlZnVzYWxSZXN1bHRzT3RoZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ2FuY2VsbGVkUmVzdWx0cyIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+    <value>PERhdGFTZXQgTmFtZT0iZHNBbGNvaG9sVGVzdGluZ0RhdGEiPjxWaWV3IE5hbWU9Ik9IU05fV2ViX0RPVERydWdBbmRBbGNvaG9sTUlTQWxjb2hvbFRlc3RpbmdEYXRhX1NlbGVjdCI+PEZpZWxkIE5hbWU9IlR5cGVPZlRlc3QiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVG90YWxOb09mVGVzdFJlc3VsdHMiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iUmVzdWx0c0JlbG93MDIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iUmVzdWx0czAyb3JHcmVhdGVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5vT2ZDb25maXJtYXRpb25UZXN0cyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDb25maXJtYXRpb25UZXN0czAydGhydTAzOSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDb25maXJtYXRpb25UZXN0czA0b3JHcmVhdGVyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlJlZnVzYWxSZXN1bHRzU2h5THVuZ05vTWVkRXhwbGFpbmF0aW9uIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlJlZnVzYWxSZXN1bHRzT3RoZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ2FuY2VsbGVkUmVzdWx0cyIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
   </data>
 </root>

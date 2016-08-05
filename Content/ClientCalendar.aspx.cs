@@ -191,15 +191,15 @@
 
                     case "Return to Duty":
                     {
-                        scheduler.ImageProperties.ToolTip = "Return to Duty";
                         scheduler.ImageProperties = new ImageProperties("~/Images/Request Type/ReturntoDuty.png");
+                        scheduler.ImageProperties.ToolTip = "Return to Duty";
                         break;
                     }
 
                     case "Follow Up":
                     {
-                        scheduler.ImageProperties.ToolTip = "Follow-up";
                         scheduler.ImageProperties = new ImageProperties("~/Images/Request Type/FollowUp.png");
+                        scheduler.ImageProperties.ToolTip = "Follow-up";
                         break;
                     }
                     default:

@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
         <div class="MainMenuPane">    
 
-            <dx:ASPxRibbon ID="ribMainMenu" runat="server" ShowFileTab="False" OnCommandExecuted="ribMainMenu_CommandExecuted" Width="100%" ClientInstanceName="ribMainMenu" ActiveTabIndex="3">
+            <dx:ASPxRibbon ID="ribMainMenu" runat="server" ShowFileTab="False" OnCommandExecuted="ribMainMenu_CommandExecuted" Width="100%" ClientInstanceName="ribMainMenu">
                                 <Tabs>
                                     <dx:RibbonTab Name="Main" Text="Main">
                                         <Groups>

@@ -189,7 +189,7 @@
                                 <dx:GridViewDataTextColumn FieldName="ID" ReadOnly="True" VisibleIndex="1" Visible="False">
                                     <EditFormSettings Visible="False" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn FieldName="Name" VisibleIndex="2" Width="60%" Caption="Protocol" ToolTip="Select Protocols are authorized for this user.">
+                                <dx:GridViewDataTextColumn FieldName="Name" VisibleIndex="2" ReadOnly="true" Width="60%" Caption="Protocol" ToolTip="Select Protocols are authorized for this user.">
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="ContactID" VisibleIndex="4" ReadOnly="true" Visible="False">
                                 </dx:GridViewDataTextColumn>
