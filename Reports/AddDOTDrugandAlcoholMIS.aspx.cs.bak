@@ -55,6 +55,18 @@
         protected bool FindEmployerData()
         {
             long result = 0;
+            long calendarYear = 0;
+            long reportFor = 0;
+
+            if (cbxCalendarYear.SelectedItem != null)
+            {
+                calendarYear = (int)cbxCalendarYear.SelectedItem.Value;
+            }
+
+            if (cbxReportFor.SelectedItem != null)
+            {
+                reportFor = (int)cbxReportFor.SelectedItem.Value;
+            }
 
             try
             {
@@ -65,8 +77,8 @@
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
-                        cmd.Parameters.AddWithValue("@ReportYear", (int)cbxCalendarYear.SelectedItem.Value);
-                        cmd.Parameters.AddWithValue("@ReportForTID", (int)cbxReportFor.SelectedItem.Value);
+                        cmd.Parameters.AddWithValue("@ReportYear", calendarYear);
+                        cmd.Parameters.AddWithValue("@ReportForTID", reportFor);
 
                         result = (int)cmd.ExecuteScalar();
                     }
@@ -479,6 +491,7 @@
                             Response.Redirect("~/Reports/DOTDrugandAlcoholMISManagement.aspx");
                         }
 
+
                         break;
                     }
 
@@ -564,7 +577,7 @@
         {
             //FindTheData();
 
-            switch (cbxReportFor.Text)
+            switch (Session["DOTReportFor"].ToString())
             {
                 case "Federal Motor Carrier Safety Administration":
                     {
@@ -663,6 +676,7 @@
             }
         }
 
+
         protected void cbxCalendarYear_SelectedIndexChanged(object sender, EventArgs e)
         {
             Session["DOTReportYear"] = cbxCalendarYear.Value;
@@ -678,7 +692,7 @@
             }
 
             Session["DOTReportFor"] = cbxReportFor.Value;
-            ConfigureFields();
+
             dsDOTEmployeeCategoryList.DataBind();
 
 
@@ -696,8 +710,6 @@
                 return;
             }
 
-            Session["EmployeeCategory"] = cbxEmployeeCategory.Value;
-            this.MISReportIsSelected = true;
 
             if (FindEmployerData() == false)
             {
@@ -724,9 +736,7 @@
 
             ConfigureFields();
 
-            cbxCalendarYear.Enabled = false;
-            cbxReportFor.Enabled = false;
-            cbxEmployeeCategory.Enabled = false; 
+            this.MISReportIsSelected = true;
         }
 
         #endregion

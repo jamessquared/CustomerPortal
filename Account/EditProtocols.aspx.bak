@@ -168,7 +168,7 @@
                 <asp:TableRow >
                     <asp:TableCell  Width="10%"></asp:TableCell>
                     <asp:TableCell>
-                            <dx:ASPxGridView ID="gvAuthorizedUsers" runat="server" DataSourceID="dsAuthorizedUsers" AutoGenerateColumns="False" Width="56%" ClientInstanceName="gvAuthorizedProtocols" ToolTip="Selected protocols are authorized for this user." KeyFieldName="ID" >
+                                    <dx:ASPxGridView ID="gvAuthorizedUsers" runat="server" DataSourceID="dsAuthorizedUsers" AutoGenerateColumns="False" Width="56%" ClientInstanceName="gvAuthorizedProtocols" ToolTip="Selected protocols are authorized for this user." >
                                 <Columns>
                                     <dx:GridViewCommandColumn ShowClearFilterButton="True" ShowEditButton="True" VisibleIndex="0" Width="5%">
                                     </dx:GridViewCommandColumn>
@@ -196,13 +196,10 @@
                                         <EditFormSettings Caption="Reporting Method" Visible="True" />
                                         <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                     </dx:GridViewDataComboBoxColumn>
-                                    <dx:GridViewDataTextColumn FieldName="ProtocolID" Visible="False" VisibleIndex="5" ReadOnly="True">
-                                        <EditFormSettings Visible="False" />
-                                    </dx:GridViewDataTextColumn>
                                 </Columns>
-                                <Settings ShowFilterRow="True" />
+                                        <Settings ShowFilterRow="True" />
                             <SettingsDataSecurity AllowDelete="False" AllowEdit="true" AllowInsert="False" />
-                        </dx:ASPxGridView> 
+                        </dx:ASPxGridView>
                     </asp:TableCell>
                     <asp:TableCell  Width="10%"></asp:TableCell>
                 </asp:TableRow>

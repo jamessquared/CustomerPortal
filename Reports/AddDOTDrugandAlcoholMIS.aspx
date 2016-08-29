@@ -51,9 +51,14 @@
                     <dx:ASPxComboBox ID="cbxReportFor" runat="server" Caption="Report For:" DataSourceID="dsDOTAgencyList" TextField="ReportFor" ValueField="ReportForTID" ValueType="System.Int32" AutoPostBack="true" OnSelectedIndexChanged="cbxcbxReportFor_SelectedIndexChanged" Width="300px"  ></dx:ASPxComboBox>                    
              </asp:TableCell>
         </asp:TableRow>
+        <asp:TableRow Height="50%"><asp:TableCell>&nbsp;</asp:TableCell></asp:TableRow>
+        <asp:TableRow runat="server" Width="100%" HorizontalAlign="Center">
+            <asp:TableCell>
+                    <dx:ASPxComboBox ID="cbxEmployeeCategory" runat="server" Caption="Employee Category:" DataSourceID="dsDOTEmployeeCategoryList" TextField="EmployeeCategoryAbbrv" ValueField="EmployeeCategoryTID" ValueType="System.Int32" AutoPostBack="true" OnSelectedIndexChanged="cbxEmployeeCategory_SelectedIndexChanged" Width="300px"  ></dx:ASPxComboBox>                    
+             </asp:TableCell>
+        </asp:TableRow>
         <asp:TableRow><asp:TableCell>&nbsp;</asp:TableCell></asp:TableRow>
     </asp:Table>
-
     <br />
 
     <div runat="server" style="overflow-x:auto; overflow-y:auto; max-height:550px;">
@@ -332,11 +337,10 @@
                       </SettingsPager>
                       <Settings ShowFooter="True" />
                       <SettingsDataSecurity AllowDelete="False" AllowInsert="False" AllowEdit="False" />
-                    </dx:ASPxGridView>       
+                    </dx:ASPxGridView>     
             </asp:TableCell>
        </asp:TableRow>
   </asp:Table>
-
 
    <%--IV. Drug Testing Data --%>
    <asp:Table runat="server" Width="100%">
@@ -348,7 +352,7 @@
 
        <asp:TableRow>
            <asp:TableCell>
-                    <dx:ASPxGridView ID="gvAlcoholTestingData" runat="server" DataSourceID="dsDOTDrugandAlcoholMISAlcoholTestData" AutoGenerateColumns="False" Width="90%" KeyFieldName="TypeOfTest">
+                   <dx:ASPxGridView ID="gvAlcoholTestingData" runat="server" DataSourceID="dsDOTDrugandAlcoholMISAlcoholTestData" AutoGenerateColumns="False" Width="90%" KeyFieldName="TypeOfTest">
                         <TotalSummary>
                             <dx:ASPxSummaryItem DisplayFormat="Total" FieldName="TypeOfTest" ShowInColumn="Type of Test" SummaryType="Sum" />
                             <dx:ASPxSummaryItem FieldName="TotalNoOfTestResults" ShowInColumn="Total Number of Screening Test Results" SummaryType="Sum" DisplayFormat="N0" ValueDisplayFormat="N" />
@@ -442,7 +446,7 @@
                         </SettingsPager>
                       <Settings ShowFooter="True" />
                       <SettingsDataSecurity AllowDelete="False" AllowInsert="False" AllowEdit="False" />
-                    </dx:ASPxGridView>                         
+                    </dx:ASPxGridView>                      
            </asp:TableCell>
        </asp:TableRow>
     </asp:Table> 
@@ -458,6 +462,15 @@
         <SelectParameters>
             <asp:SessionParameter Name="EmployerID" SessionField="WorkingEmployerID" Type="Int64" />
             <asp:ControlParameter ControlID="cbxCalendarYear" Name="ReportYear" PropertyName="Value" Type="Int64" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="dsDOTEmployeeCategoryList" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetAvailableEmployeeCategoriesForDOTDrugAndAlcoholMIS_Select" SelectCommandType="StoredProcedure">
+        <SelectParameters>
+            <asp:SessionParameter Name="EmployerID" SessionField="WorkingEmployerID" Type="Int64" />
+            <asp:SessionParameter Name="ReportYear" SessionField="DOTReportYear" Type="Int64" />
+            <asp:SessionParameter Name="ReportFor" SessionField="DOTReportFor" Type="Int64" /> 
+
         </SelectParameters>
     </asp:SqlDataSource>
 
@@ -499,7 +512,7 @@
             <asp:Parameter Name="TypeOfTestTID"   DbType="Int64" />
             <asp:Parameter Name="TotalNoOfTestResults"   DbType="String" />
             <asp:Parameter Name="ResultsBelow02"   DbType="String" />
-            <asp:Parameter Name="Results02orGreater" Type="String" />
+            <asp:Parameter Name="Results02orGreater" DbType="String" />
             <asp:Parameter Name="NoOfConfirmationTests"   DbType="String" />
             <asp:Parameter Name="ConfirmationTests02thru039"   DbType="String" />
             <asp:Parameter Name="ConfirmationTests04orGreater"   DbType="String" />

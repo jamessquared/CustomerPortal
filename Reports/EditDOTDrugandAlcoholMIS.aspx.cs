@@ -42,15 +42,20 @@
             {
                 dsReportYears.DataBind();
                 dsDOTAgencyList.DataBind();
+                dsDOTEmployeeCategoryList.DataBind();
                 dsProjectRequestTypeList.DataBind();
 
-                cbxCalendarYear.Text = Convert.ToString(Session["DOTReportYear"]);
-                cbxReportFor.Text = Convert.ToString(Session["DOTReportFor"]);
+                if (!Page.IsPostBack)
+                {
+                    cbxCalendarYear.Text = Convert.ToString(Session["DOTReportYear"]);
+                    cbxReportFor.Text = Convert.ToString(Session["DOTReportFor"]);
+                    cbxEmployeeCategory.Text = Convert.ToString(Session["EmployeeCategory"]);
+                    ConfigureFields();
 
-                ConfigureFields();
-
-                cbxCalendarYear.Enabled = false;
-                cbxReportFor.Enabled = false;
+                    cbxCalendarYear.Enabled = false;
+                    cbxReportFor.Enabled = false;
+                    cbxEmployeeCategory.Enabled = false;
+                }
             }
         }
 
@@ -219,6 +224,7 @@
         private bool Save()
         {
             bool result = false;
+          
 
             try
             {
@@ -231,13 +237,10 @@
                         cmd.Parameters.AddWithValue("@ID", Session["DOTReportID"]);
                         cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
                         //
-                        cmd.Parameters.AddWithValue("@DoingBusinessAs", txtbxDBAName.Value);
-
-                        
-
+                        cmd.Parameters.AddWithValue("@DoingBusinessAs", txtbxDBAName.Text);
                         cmd.Parameters.AddWithValue("@Email", txtbxEmail.Text);
                         //
-                        cmd.Parameters.AddWithValue("@CertifyingOFfical", txtbxNameOfCertifyingOfficial.Text);
+                        cmd.Parameters.AddWithValue("@CertifyingOffical", txtbxNameOfCertifyingOfficial.Text);
                         cmd.Parameters.AddWithValue("@CertifyingOfficalTelephone", txtbxTelephone.Text);
                         cmd.Parameters.AddWithValue("@DateCertified", dedDateCertified.Date.ToString());
                         //
@@ -298,12 +301,6 @@
                 case "btnCancel":
                     {
                         Response.Redirect("~/Reports/DOTDrugandAlcoholMISManagement.aspx");
-                        break;
-                    }
-
-                case "btnPrint":
-                    {
-                        Response.Redirect("~/Reports/ReportViewer.aspx?NameID=MIS");
                         break;
                     }
 

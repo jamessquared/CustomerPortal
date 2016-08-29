@@ -269,6 +269,7 @@
 
         protected void cbxJobCategory_TextChanged(object sender, EventArgs e)
         {
+            cbxProtocol.Text = string.Empty;
             dsProtocols.DataBind();
         }
 

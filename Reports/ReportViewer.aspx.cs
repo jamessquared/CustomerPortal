@@ -12,7 +12,7 @@
 
     public partial class ReportViewer : System.Web.UI.Page
     {
-        private XtraReport GetReport()
+         private XtraReport GetReport()
         {
             var rpt = new XtraReport();
     
@@ -81,7 +81,6 @@
             return rpt;
         }
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             // Redirect to Login if NOT logged in
@@ -110,6 +109,7 @@
             }
 
             Session["ReportName"] = Request.QueryString["NameID"].ToString();
+
             if (!IsPostBack)
             {
                 XtraReport mainRpt = GetReport();

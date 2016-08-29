@@ -12,7 +12,7 @@
 
     public partial class ReportViewer : System.Web.UI.Page
     {
-        private XtraReport GetReport()
+          private XtraReport GetReport()
         {
             var rpt = new XtraReport();
     
@@ -66,6 +66,11 @@
                         break;
                     }
 
+                case "MIS":
+                    {
+                        rpt = new rptDOTDrugandAlcoholMIS();
+                        break;
+                    }
                 default:
                     {
                         Response.Redirect("~/");
@@ -74,33 +79,6 @@
             }
 
             return rpt;
-        }
-
-        private void InitalizeReport()
-        {
-            try
-            {
-                XtraReport mainRpt = GetReport();
-                if (!IsCallback)
-                {
-                    mainRpt.Parameters[0].Value = DateTime.Now.AddDays(-30);
-                    mainRpt.Parameters[1].Value = DateTime.Now;
-                }
-
-                mainRpt.Parameters[2].Value = Convert.ToInt64(Session["WorkingEmployerID"]);
-                mainRpt.Parameters[2].Visible = false;
-
-                rptDocViewer.Report = mainRpt;
-                rptDocViewer.ReportTypeName = mainRpt.ToString();
-                rptDocViewer.Report.CreateDocument();
-                rptDocViewer.DataBind();
-            }
-            catch (Exception ex)
-            {
-                ExceptionUtility.LogException(ex, "Report Viewer - Page_Load");
-
-                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-            }
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -130,21 +108,48 @@
                 }
             }
 
-            Session["ReportName"] = Convert.ToString(Request.QueryString["NameID"]);
-            InitalizeReport();
-        }
+            Session["ReportName"] = Request.QueryString["NameID"].ToString();
 
-
-        protected void mainToolbar_CommandExecuted(object source, DevExpress.Web.RibbonCommandExecutedEventArgs e)
-        {
-            switch (e.Item.Name)
+            if (!IsPostBack)
             {
-                case "btnBack":
-                    {
-                        Response.Redirect("~/");
-                        break;
-                    }
+                XtraReport mainRpt = GetReport();
+                if (Session["ReportName"].ToString() != "MIS")
+                {
+                    mainRpt.Parameters[0].Value = DateTime.Now.AddDays(-30);
+                    mainRpt.Parameters[1].Value = DateTime.Now;
+                }
+                else
+                {
+                    mainRpt.Parameters[0].Visible = false;
+                    mainRpt.Parameters[1].Visible = false;
+                    mainRpt.Parameters[2].Visible = false;
+                    mainRpt.Parameters[3].Visible = false;
+                    mainRpt.Parameters[3].Value = Session["DOTReportID"];
+                }
+
+                mainRpt.Parameters[2].Value = Convert.ToInt64(Session["WorkingEmployerID"]);
+                mainRpt.Parameters[2].Visible = false;
+
+                mainRpt.CreateDocument();
+                rptDocViewer.Report = mainRpt;
+                rptDocViewer.ReportTypeName = mainRpt.ToString();
+                rptDocViewer.DataBind();
             }
         }
+
+
+        //protected void btnBack()
+        //{
+        //    if (Session["ReportName"].ToString() != "MIS")
+        //    {
+        //        Response.Redirect("~/");
+        //    }
+        //    else
+        //    {
+        //        Response.Redirect("~/Reports/EditDOTDrugandAlcoholMIS.aspx");
+        //    }
+        //}
+
+
     }
 }

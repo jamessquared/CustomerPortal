@@ -242,30 +242,26 @@
 
         protected string GetContact()
         {
-            List<object> contactInfoValues;
             string result = string.Empty;
             try
             {
-                try
-                {
-                    gvAuthorizedUsers.DataBind();
-                    contactInfoValues = gvAuthorizedUsers.GetSelectedFieldValues(new string[] { "ID" });
+                gvAuthorizedUsers.DataBind();
+                    
 
-                    foreach (long contactData in contactInfoValues)
+                for (int ndx = 0; ndx <= gvAuthorizedUsers.VisibleRowCount; ndx++)
+                {
+                    object keyvalue = gvAuthorizedUsers.GetRowValues(ndx, new string[] {"Selected"});
+                    if (keyvalue != null && keyvalue.ToString() == "1")
                     {
-                        result += contactData.ToString() + ';';
+                        result = gvAuthorizedUsers.GetRowValues(ndx, new string[] { "ID" }) + ";";
                     }
                 }
-                catch (Exception ex)
-                {
-                    ExceptionUtility.LogException(ex, "Edit Protocol - GetContact");
-
-                    ExceptionUtility.NotifySupport(ex);
-                }
             }
-            finally
+            catch (Exception ex)
             {
-                contactInfoValues = null;
+                ExceptionUtility.LogException(ex, "Edit Protocol - GetContact");
+
+                ExceptionUtility.NotifySupport(ex);
             }
 
             return result;
@@ -347,20 +343,21 @@
 
                 case "btnShowSelected":
                     {
-                        CriteriaOperator selectionCriteria = new InOperator(gvServices.KeyFieldName, gvServices.GetSelectedFieldValues(gvServices.KeyFieldName));
                         if (Convert.ToBoolean(Session["ShowSelection"]) == true)
                         {
+                            CriteriaOperator selectionCriteria = new InOperator(gvServices.KeyFieldName, gvServices.GetSelectedFieldValues("ID"));
                             mainToolbar.Tabs[0].Groups[2].Items[0].Text = "Show All";
                             Session["ShowSelection"] = false;
+                            gvServices.FilterExpression = (GroupOperator.Combine(GroupOperatorType.And, selectionCriteria)).ToString();
                         }
                         else
                         {
-                            mainToolbar.Tabs[0].Groups[2].Items[0].Text = "Show Selected";
+                            mainToolbar.Tabs[0].Groups[2].Items[0].Text = "Show Selected Only";
                             Session["ShowSelection"] = true;
-                            selectionCriteria = selectionCriteria.Not();
+                            gvServices.FilterExpression = null;
                         }
 
-                        gvServices.FilterExpression = (GroupOperator.Combine(GroupOperatorType.And, selectionCriteria)).ToString();
+                        
                         break;
                     }
             }

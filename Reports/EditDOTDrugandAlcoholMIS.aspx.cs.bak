@@ -9,10 +9,8 @@
     using System.Data.SqlClient;
     using System.Web;
 
-    public partial class AddDOTDrugandAlcoholMIS : System.Web.UI.Page
+    public partial class EditDOTDrugandAlcoholMIS : System.Web.UI.Page
     {
-        public bool MISReportIsSelected{ get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             // Redirect to Login if NOT logged in
@@ -20,7 +18,7 @@
             {
                 Response.Redirect("~/Default.aspx");
             }
-
+            
             // Set Login Header
             CustomerPortal.RootMaster siteMasterPage = (CustomerPortal.RootMaster)this.Master;
             if (siteMasterPage != null)
@@ -40,22 +38,40 @@
                 }
             }
 
-            if (IsCallback)
+            if (!IsCallback)
             {
-                MISReportIsSelected = false;
                 dsReportYears.DataBind();
                 dsDOTAgencyList.DataBind();
-                dsDOTEmployeeCategoryList.DataBind();
                 dsProjectRequestTypeList.DataBind();
+
+                cbxCalendarYear.Text = Convert.ToString(Session["DOTReportYear"]);
+                cbxReportFor.Text = Convert.ToString(Session["DOTReportFor"]);
+
+                ConfigureFields();
+
+                cbxCalendarYear.Enabled = false;
+                cbxReportFor.Enabled = false;
             }
         }
 
         #region Data Scripts
 
+        protected void FindTheData()
+        {
+            // Load the Master Record - Populates the Session[DOTReportID] variable
+            LoadEmployerData();
+
+            // Child Records
+            FindDrugTestingData();
+            dsDOTDrugandAlcoholMISDrugTestData.DataBind();
+
+            FindAlcoholTestingData();
+            dsDOTDrugandAlcoholMISAlcoholTestData.DataBind();
+        }
+
         protected bool FindEmployerData()
         {
             long result = 0;
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
@@ -65,8 +81,8 @@
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
-                        cmd.Parameters.AddWithValue("@ReportYear", (int)cbxCalendarYear.SelectedItem.Value);
-                        cmd.Parameters.AddWithValue("@ReportForTID", (int)cbxReportFor.SelectedItem.Value);
+                        cmd.Parameters.AddWithValue("@ReportYear", cbxCalendarYear.SelectedItem.Value);
+                        cmd.Parameters.AddWithValue("@ReportForTID", cbxReportFor.SelectedItem.Value);
 
                         result = (int)cmd.ExecuteScalar();
                     }
@@ -76,7 +92,7 @@
             }
             catch (Exception ex)
             {
-                ExceptionUtility.LogException(ex, "AddDOTDrugandAlcoholMIS - FindEmployerData");
+                ExceptionUtility.LogException(ex, "DOTDrugandAlcoholMIS - FindEmployerData");
 
                 ExceptionUtility.NotifySupport(ex);
 
@@ -107,7 +123,7 @@
             }
             catch (Exception ex)
             {
-                ExceptionUtility.LogException(ex, "AddDOTDrugandAlcoholMIS -  FindDrugTestingData");
+                ExceptionUtility.LogException(ex, "DOTDrugandAlcoholMIS -  FindDrugTestingData");
 
                 ExceptionUtility.NotifySupport(ex);
 
@@ -138,7 +154,7 @@
             }
             catch (Exception ex)
             {
-                ExceptionUtility.LogException(ex, "AddDOTDrugandAlcoholMIS -  FindAlcoholTestingData");
+                ExceptionUtility.LogException(ex, "DOTDrugandAlcoholMIS -  FindAlcoholTestingData");
 
                 ExceptionUtility.NotifySupport(ex);
 
@@ -150,11 +166,6 @@
 
         protected void LoadEmployerData()
         {
-            if (cbxCalendarYear.SelectedItem == null || cbxReportFor.SelectedItem == null)
-            {
-                return;
-            }
-
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
@@ -168,26 +179,27 @@
                         SqlDataReader rdr = cmd.ExecuteReader();
                         while (rdr.Read())
                         {
-                            txtbxCompanyName.Text = Convert.ToString(rdr["CompanyName"]);
-                            txtbxDBAName.Text = Convert.ToString(rdr["DBA"]);
-                            txtbxAddress.Text = Convert.ToString(rdr["Address"]);
-                            txtbxEmail.Text = Convert.ToString(rdr["Email"]);
-                            txtbxNameOfCertifyingOfficial.Text = Convert.ToString(rdr["CertifyingOffical"]);
-                            txtbxTelephone.Text = Convert.ToString(rdr["CertifyingOfficalTelephone"]);
+                            txtbxCompanyName.Text = rdr["CompanyName"].ToString();
+                            txtbxDBAName.Text = rdr["DBA"].ToString();
+                            txtbxAddress.Text = rdr["Address"].ToString();
+                            txtbxEmail.Text = rdr["Email"].ToString();
+                            txtbxNameOfCertifyingOfficial.Text = rdr["CertifyingOffical"].ToString();
+                            txtbxTelephone.Text = rdr["CertifyingOfficalTelephone"].ToString();
                             if (rdr["DateCertified"] != DBNull.Value)
                             {
                                 dedDateCertified.Date = Convert.ToDateTime(rdr["DateCertified"]);
                             }
 
-                            txtbxPreparedBy.Text = Convert.ToString(rdr["PreparedBy"]);
-                            txtbxPreparedByTelephone.Text = Convert.ToString(rdr["PreparedByTelephone"]);
-                            txtbxTPAName.Text = Convert.ToString(rdr["TPA"]);
-                            txtbxTPATelephoneNumber.Text = Convert.ToString(rdr["TPAPhone"]);
-
+                            txtbxPreparedBy.Text = rdr["PreparedBy"].ToString();
+                            txtbxPreparedByTelephone.Text = rdr["PreparedByTelephone"].ToString();
+                            txtbxTPAName.Text = rdr["TPA"].ToString();
+                            txtbxTPATelephoneNumber.Text = rdr["TPAPhone"].ToString();
+                            
                             txtbxTotalNoOfSafetySensitveEmployees.Text = Convert.ToString(rdr["CoverEmployeesAllCategories"]);
                             txtbxTotalNoOfEmployeeCategories.Text = Convert.ToString(rdr["CoverEmployeesTotalNoOfCategories"]);
                             txtbxEmployeeCategory.Text = Convert.ToString(rdr["CoverEmployeesCategory"]);
                             txtbxTotalNoOfEmployeesInThisCategory.Text = Convert.ToString(rdr["CoverEmployeesTotalNoOfInCategory"]);
+
                         }
                     }
 
@@ -202,162 +214,6 @@
 
                 HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
             }
-        }
-
-        protected void InsertEmployerData()
-        {
-            if (cbxCalendarYear.SelectedItem == null || cbxReportFor.SelectedItem == null)
-            {
-                return;
-            }
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("OHSN_Web_DOTDrugAndAlcoholMIS_Insert", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
-                        cmd.Parameters.AddWithValue("@ReportYear", cbxCalendarYear.SelectedItem.Value);
-                        cmd.Parameters.AddWithValue("@ReportForTID", cbxReportFor.SelectedItem.Value);
-                        cmd.Parameters.AddWithValue("@EmployeeCategory", cbxEmployeeCategory.SelectedItem.Value);
-
-                        SqlParameter param = new SqlParameter("@ID", SqlDbType.BigInt);
-                        param.Direction = ParameterDirection.Output;
-                        cmd.Parameters.Add(param);
-
-                        cmd.ExecuteNonQuery();
-
-                        Session["DOTReportID"] = param.Value;
-                    }
-
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                ExceptionUtility.LogException(ex, "DOTDrugandAlcoholMIS - InsertEmployerData");
-
-                ExceptionUtility.NotifySupport(ex);
-
-                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-            }
-        }
-
-        protected void InsertDrugTestingDataRecords(string typeOfTest)
-        {
-            long calendarYear = 0;
-            long reportFor = 0;
-
-            if (cbxCalendarYear.SelectedItem != null)
-            {
-                calendarYear = (int)cbxCalendarYear.SelectedItem.Value;
-            }
-
-            if (cbxReportFor.SelectedItem != null)
-            {
-                reportFor = (int)cbxReportFor.SelectedItem.Value;
-            }
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("OHSN_Web_DOTDrugAndAlcoholMISDrugTestingData_Insert", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
-                        cmd.Parameters.AddWithValue("@ReportYear", calendarYear);
-                        cmd.Parameters.AddWithValue("@ReportForTID", reportFor);
-                        cmd.Parameters.AddWithValue("@EmployeeCategory", cbxEmployeeCategory.SelectedItem.Value);
-                        cmd.Parameters.AddWithValue("@TypeOfTest", typeOfTest);
-
-                        cmd.ExecuteNonQuery();
-
-                    }
-
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                ExceptionUtility.LogException(ex, "DOTDrugandAlcoholMIS - InsertDrugTestingDataRecords");
-
-                ExceptionUtility.NotifySupport(ex);
-
-                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-            }
-        }
-
-        protected void InsertDrugTestingData()
-        {
-            InsertDrugTestingDataRecords("Pre-Employment");
-            InsertDrugTestingDataRecords("Random");
-            InsertDrugTestingDataRecords("Post Accident");
-            InsertDrugTestingDataRecords("Reasonable Suspicion");
-            InsertDrugTestingDataRecords("Return to Duty");
-            InsertDrugTestingDataRecords("Follow-up");
-        }
-
-        protected void InsertAlcoholTestingDataRecords(string typeOfTest)
-        {
-            long calendarYear = 0;
-            long reportFor = 0;
-
-            if (cbxCalendarYear.SelectedItem != null)
-            {
-                calendarYear = (int)cbxCalendarYear.SelectedItem.Value;
-            }
-
-            if (cbxReportFor.SelectedItem != null)
-            {
-                reportFor = (int)cbxReportFor.SelectedItem.Value;
-            }
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("OHSN_Web_DOTDrugAndAlcoholMISAlcoholTestingData_Insert", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
-                        cmd.Parameters.AddWithValue("@ReportYear", calendarYear);
-                        cmd.Parameters.AddWithValue("@ReportForTID", reportFor);
-                        cmd.Parameters.AddWithValue("@EmployeeCategory", cbxEmployeeCategory.SelectedItem.Value);
-                        cmd.Parameters.AddWithValue("@TypeOfTest", typeOfTest);
-
-                        cmd.ExecuteNonQuery();
-
-                    }
-
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                ExceptionUtility.LogException(ex, "DOTDrugandAlcoholMIS - InsertAlcoholTestingDataRecords");
-
-                ExceptionUtility.NotifySupport(ex);
-
-                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-            }
-        }
-
-        protected void InsertAlcoholTestingData()
-        {
-            InsertAlcoholTestingDataRecords("Pre-Employment");
-            InsertAlcoholTestingDataRecords("Random");
-            InsertAlcoholTestingDataRecords("Post Accident");
-            InsertAlcoholTestingDataRecords("Reasonable Suspicion");
-            InsertAlcoholTestingDataRecords("Return to Duty");
-            InsertAlcoholTestingDataRecords("Follow-up");
         }
 
         private bool Save()
@@ -375,7 +231,9 @@
                         cmd.Parameters.AddWithValue("@ID", Session["DOTReportID"]);
                         cmd.Parameters.AddWithValue("@EmployerID", Session["WorkingEmployerID"]);
                         //
-                        cmd.Parameters.AddWithValue("@DoingBusinessAs", txtbxDBAName.Text);
+                        cmd.Parameters.AddWithValue("@DoingBusinessAs", txtbxDBAName.Value);
+
+                        
 
                         cmd.Parameters.AddWithValue("@Email", txtbxEmail.Text);
                         //
@@ -408,39 +266,7 @@
                         cmd.Parameters.AddWithValue("@CoveredEmployeesB", txtbxTotalNoOfEmployeeCategories.Text);
                         cmd.Parameters.AddWithValue("@CoveredEmployeesC1", txtbxEmployeeCategory.Text);
                         cmd.Parameters.AddWithValue("@CoveredEmployeesC2", txtbxTotalNoOfEmployeesInThisCategory.Text);
-
-
-                        result = cmd.ExecuteNonQuery() > 0;
-                    }
-
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                ExceptionUtility.LogException(ex, "AddDOTDrugandAlcoholMIS - Save");
-
-                ExceptionUtility.NotifySupport(ex);
-
-                HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
-            }
-
-            return result;
-        }
-
-        private bool Cancel()
-        {
-            bool result = false;
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["OHSN"].ConnectionString))
-                {
-                    conn.Open();
-                    using (SqlCommand cmd = new SqlCommand("OHSN_Web_DOTDrugAndAlcoholMIS_Delete", conn))
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@ID", Session["DOTReportID"]);
+                        
 
                         result = cmd.ExecuteNonQuery() > 0;
                     }
@@ -450,7 +276,7 @@
             }
             catch (Exception ex)
             {
-                ExceptionUtility.LogException(ex, "AddDOTDrugandAlcoholMIS - Save");
+                ExceptionUtility.LogException(ex, "EditDOTDrugandAlcoholMIS - Save");
 
                 ExceptionUtility.NotifySupport(ex);
 
@@ -471,14 +297,13 @@
                 case "btnBack":
                 case "btnCancel":
                     {
-                        cbxCalendarYear.SelectedIndexChanged -= null;
-                        cbxReportFor.SelectedIndexChanged -= null;
+                        Response.Redirect("~/Reports/DOTDrugandAlcoholMISManagement.aspx");
+                        break;
+                    }
 
-                        if (FindEmployerData() == false || Cancel() == true)
-                        {
-                            Response.Redirect("~/Reports/DOTDrugandAlcoholMISManagement.aspx");
-                        }
-
+                case "btnPrint":
+                    {
+                        Response.Redirect("~/Reports/ReportViewer.aspx?NameID=MIS");
                         break;
                     }
 
@@ -493,6 +318,10 @@
                     }
             }
         }
+
+        #endregion
+
+        #region Support
 
         private void ClearFMCSAFields()
         {
@@ -562,9 +391,9 @@
 
         private void ConfigureFields()
         {
-            //FindTheData();
+            FindTheData();
 
-            switch (cbxReportFor.Text)
+            switch (Session["DOTReportFor"].ToString())
             {
                 case "Federal Motor Carrier Safety Administration":
                     {
@@ -661,72 +490,6 @@
                 default:
                     break;
             }
-        }
-
-        protected void cbxCalendarYear_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Session["DOTReportYear"] = cbxCalendarYear.Value;
-
-            dsDOTAgencyList.DataBind();
-        }
-
-        protected void cbxcbxReportFor_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.MISReportIsSelected)
-            {
-                return;
-            }
-
-            Session["DOTReportFor"] = cbxReportFor.Value;
-            ConfigureFields();
-            dsDOTEmployeeCategoryList.DataBind();
-
-
-        }
-
-        protected void cbxEmployeeCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.MISReportIsSelected)
-            {
-                return;
-            }
-
-            if ((string.IsNullOrEmpty(cbxCalendarYear.Text) == true) || (string.IsNullOrEmpty(cbxReportFor.Text) == true) || (string.IsNullOrEmpty(cbxEmployeeCategory.Text) == true))
-            {
-                return;
-            }
-
-            Session["EmployeeCategory"] = cbxEmployeeCategory.Value;
-            this.MISReportIsSelected = true;
-
-            if (FindEmployerData() == false)
-            {
-                InsertEmployerData();
-            }
-
-            // Load the Master Record - Populates the Session[DOTReportID] variable
-            LoadEmployerData();
-
-            if (FindDrugTestingData() == false)
-            {
-                // Child Records
-                InsertDrugTestingData();
-            }
-
-            dsDOTDrugandAlcoholMISDrugTestData.DataBind();
-
-            if (FindAlcoholTestingData() == false)
-            {
-                InsertAlcoholTestingData();
-            }
-
-            dsDOTDrugandAlcoholMISAlcoholTestData.DataBind();
-
-            ConfigureFields();
-
-            cbxCalendarYear.Enabled = false;
-            cbxReportFor.Enabled = false;
-            cbxEmployeeCategory.Enabled = false; 
         }
 
         #endregion

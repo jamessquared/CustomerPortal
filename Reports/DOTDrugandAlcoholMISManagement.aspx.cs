@@ -54,13 +54,16 @@
         protected void gvDOTDrugandAlcoholMISReport_SelectionChanged(object sender, EventArgs e)
         {
             mainToolbar.Tabs[0].Groups[1].Items[1].Visible = (gvDOTDrugandAlcoholMISReport.VisibleRowCount > 0);
+            mainToolbar.Tabs[0].Groups[1].Items[2].Visible = (gvDOTDrugandAlcoholMISReport.VisibleRowCount > 0);
 
-            List<object> fieldValues = gvDOTDrugandAlcoholMISReport.GetSelectedFieldValues(new string[] { "ReportYear", "ReportFor", "ID" });
+            List<object> fieldValues = gvDOTDrugandAlcoholMISReport.GetSelectedFieldValues(new string[] { "ReportYear", "ReportFor", "ReportForTID", "EmployeeCategory", "ID" });
             foreach (object[] item in fieldValues)
             {
                 Session["DOTReportYear"] = item[0].ToString();
                 Session["DOTReportFor"] = item[1].ToString();
-                Session["DOTReportID"] = item[2].ToString();
+                Session["DOTReportForTID"] = item[2].ToString();
+                Session["EmployeeCategory"] = item[3].ToString();
+                Session["DOTReportID"] = item[4].ToString();
             }
         }
         
@@ -83,6 +86,12 @@
                 case "btnEdit":
                     {
                         Response.Redirect("~/Reports/EditDOTDrugandAlcoholMIS.aspx");
+                        break;
+                    }
+
+                case "btnPrint":
+                    {
+                        Response.Redirect("~/Reports/ReportViewer.aspx?NameID=MIS");
                         break;
                     }
             }

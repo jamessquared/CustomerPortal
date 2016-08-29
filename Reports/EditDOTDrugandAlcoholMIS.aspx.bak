@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="EditDOTDrugandAlcoholMIS.aspx.cs" Inherits="CustomerPortal.Reports.EditDOTDrugandAlcoholMIS" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
-
    <%--Ribbon--%>
     <dx:ASPxRibbon ID="mainToolbar" runat="server" ClientInstanceName="MainToolbar" ShowGroupLabels="False" ShowFileTab="False"  ShowTabs="False" OnCommandExecuted="mainToolbar_CommandExecuted">
         <Styles>
@@ -17,6 +16,10 @@
                                 <LargeImage Url="~/Images/Reports/Back.png">
                                 </LargeImage>
                             </dx:RibbonButtonItem>
+                            <dx:RibbonButtonItem Name="btnPrint" Size="Large" Text="Print">
+                                <LargeImage Url="~/Images/Reports/Print.png">
+                                </LargeImage>
+                             </dx:RibbonButtonItem>
                         </Items>
                     </dx:RibbonGroup>
                     <dx:RibbonGroup Text="">
@@ -44,24 +47,24 @@
         <asp:TableRow><asp:TableCell>&nbsp;</asp:TableCell></asp:TableRow>
         <asp:TableRow runat="server" Width="100%" HorizontalAlign="Center">
             <asp:TableCell>
-                    <dx:ASPxComboBox ID="cbxCalendarYear" runat="server" Caption="Calendar Year Covered by this Report:"  DataSourceID="dsReportYears"  TextField="ReportYear" ValueField="ReportYear" ValueType="System.Int32" AutoPostBack="true"   ></dx:ASPxComboBox>        
+                    <dx:ASPxComboBox ID="cbxCalendarYear" runat="server" Caption="Calendar Year Covered by this Report:"  DataSourceID="dsReportYears"  TextField="ReportYear" ValueField="ReportYear" ValueType="System.Int32" AutoPostBack="true" OnSelectedIndexChanged="cbxCalendarYear_SelectedIndexChanged"  ></dx:ASPxComboBox>        
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow Height="50%"><asp:TableCell>&nbsp;</asp:TableCell></asp:TableRow>
         <asp:TableRow runat="server" Width="100%" HorizontalAlign="Center">
             <asp:TableCell>
-                    <dx:ASPxComboBox ID="cbxReportFor" runat="server" Caption="Report For:" DataSourceID="dsDOTAgencyList" TextField="ReportFor" ValueField="ReportForTID" ValueType="System.Int32" AutoPostBack="true"  Width="300px"  ></dx:ASPxComboBox>                    
+                    <dx:ASPxComboBox ID="cbxReportFor" runat="server" Caption="Report For:" DataSourceID="dsDOTAgencyList" TextField="ReportFor" ValueField="ReportForTID" ValueType="System.Int32" AutoPostBack="true" OnSelectedIndexChanged="cbxcbxReportFor_SelectedIndexChanged" Width="300px"  ></dx:ASPxComboBox>                    
              </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow Height="50%"><asp:TableCell>&nbsp;</asp:TableCell></asp:TableRow>
         <asp:TableRow runat="server" Width="100%" HorizontalAlign="Center">
             <asp:TableCell>
-                    <dx:ASPxComboBox ID="cbxEmployeeCategory" runat="server" Caption="Employee Category:" DataSourceID="dsDOTEmployeeCategoryList" TextField="EmployeeCategoryAbbrv" ValueField="EmployeeCategoryTID" ValueType="System.Int32"   Width="300px"  ></dx:ASPxComboBox>            
+                    <dx:ASPxComboBox ID="cbxEmployeeCategory" runat="server" Caption="Employee Category:" DataSourceID="dsDOTEmployeeCategoryList" TextField="EmployeeCategory" ValueField="EmployeeCategoryTID" ValueType="System.Int32" AutoPostBack="true" OnSelectedIndexChanged="cbxcbxReportFor_SelectedIndexChanged" Width="300px"  ></dx:ASPxComboBox>                    
              </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow><asp:TableCell>&nbsp;</asp:TableCell></asp:TableRow>
     </asp:Table>
-    <br />                  
+    <br />
 
     <div runat="server" style="overflow-x:auto; overflow-y:auto; max-height:550px;">
 
@@ -91,14 +94,14 @@
         <asp:TableRow><asp:TableCell>&nbsp;</asp:TableCell></asp:TableRow>
          <%--Name of Certifying Official--%>
         <asp:TableRow>
-            <asp:TableCell Width="40%"><dx:ASPxTextBox ID="txtbxNameOfCertifyingOfficial" runat="server"  ClientInstanceName="x"  Caption="   Name of Certifying Official:" Width="98%" ToolTip="The name of the person who is responsible for the accuracy of this report."></dx:ASPxTextBox></asp:TableCell>
+            <asp:TableCell Width="40%"><dx:ASPxTextBox ID="txtbxNameOfCertifyingOfficial" runat="server" Caption="   Name of Certifying Official:" Width="98%" ToolTip="The name of the person who is responsible for the accuracy of this report."></dx:ASPxTextBox></asp:TableCell>
             <asp:TableCell Width="60%" HorizontalAlign="Left"><dx:ASPxTextBox ID="ASPxTextBox4" runat="server" Caption="   Signature:" Enabled="false" Width="100%" ></dx:ASPxTextBox></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow><asp:TableCell>&nbsp;</asp:TableCell></asp:TableRow>
          <%--Telephone--%>
         <asp:TableRow>
-            <asp:TableCell Width="55%" HorizontalAlign="Left"><dx:ASPxTextBox ID="txtbxTelephone" runat="server" ClientEnabled="true" Caption="   Telephone:" MaskSettings-Mask="(999) 999-9999" Width="95%"   ToolTip="The telephone number of the person who is responsible for the accuracy of this report."></dx:ASPxTextBox></asp:TableCell>
-            <asp:TableCell Width="45%" HorizontalAlign="Left"><dx:ASPxDateEdit ID="dedDateCertified" runat="server" ClientEnabled="true" Caption="Date Certified:"  Width="100%" ToolTip="Enter the date that the certifying official certified the report as complete."></dx:ASPxDateEdit></asp:TableCell>
+            <asp:TableCell Width="55%" HorizontalAlign="Left"><dx:ASPxTextBox ID="txtbxTelephone" runat="server" Caption="   Telephone:" MaskSettings-Mask="(999) 999-9999" Width="95%"   ToolTip="The telephone number of the person who is responsible for the accuracy of this report."></dx:ASPxTextBox></asp:TableCell>
+            <asp:TableCell Width="45%" HorizontalAlign="Left"><dx:ASPxDateEdit ID="dedDateCertified" runat="server" Caption="Date Certified:"  Width="100%" ToolTip="Enter the date that the certifying official certified the report as complete."></dx:ASPxDateEdit></asp:TableCell>
         </asp:TableRow>
         <asp:TableRow><asp:TableCell>&nbsp;</asp:TableCell></asp:TableRow>
         <%--Prepared By--%>
@@ -235,7 +238,7 @@
                           <dx:ASPxSummaryItem DisplayFormat="N0" FieldName="CancelledResults" ShowInColumn="Cancelled Results" SummaryType="Sum" ValueDisplayFormat="N" />
                       </TotalSummary>
                       <Columns>
-                          <dx:GridViewCommandColumn VisibleIndex="0">
+                          <dx:GridViewCommandColumn ShowEditButton="True" VisibleIndex="0">
                           </dx:GridViewCommandColumn>
                           <dx:GridViewDataTextColumn FieldName="TotalNoOfTestResults" Width="7.5%" Caption="Total Number of Test Results [Should equal the sum of Columns 2, 3, 9, 10, 11, and 12]" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="2" ToolTip="This column requires a count of the total number of test results in each testing category during the entire reporting year. Count the number of test results as the number of testing events resulting in negative, positive, and refusal results. Do not count cancelled tests and blind specimens in this total.  [Example: A company that conducted fifty pre-employment tests would enter “50” on the PreEmployment row. If it conducted one hundred random tests, “100’ would be entered on the Random row. If that company did no post-accident, reasonable suspicion, reasonable cause, return-to-duty, or follow-up tests, those categories will be left blank or zeros entered.]">
                                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
@@ -368,7 +371,7 @@
                             <dx:ASPxSummaryItem FieldName="CancelledResults" ShowInColumn="Cancelled Results" SummaryType="Sum" DisplayFormat="N0" ValueDisplayFormat="N" />
                         </TotalSummary>
                       <Columns>
-                          <dx:GridViewCommandColumn VisibleIndex="0">
+                          <dx:GridViewCommandColumn ShowEditButton="True" VisibleIndex="0">
                           </dx:GridViewCommandColumn>
                           <dx:GridViewDataTextColumn FieldName="TotalNoOfTestResults" HeaderStyle-VerticalAlign="Middle" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Wrap="True"  VisibleIndex="2" Caption="Total Number of Screening Test Results">
                         <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" Wrap="True"></HeaderStyle>
@@ -470,8 +473,8 @@
     <asp:SqlDataSource ID="dsDOTEmployeeCategoryList" runat="server" ConnectionString="<%$ ConnectionStrings:OHSN %>" SelectCommand="OHSN_Web_GetAvailableEmployeeCategoriesForDOTDrugAndAlcoholMIS_Select" SelectCommandType="StoredProcedure">
         <SelectParameters>
             <asp:SessionParameter Name="EmployerID" SessionField="WorkingEmployerID" Type="Int64" />
-            <asp:SessionParameter Name="ReportYear" SessionField="DOTReportYear" Type="Int64" />
-            <asp:SessionParameter Name="ReportFor" SessionField="DOTReportForTID" Type="Int64" /> 
+            <asp:ControlParameter ControlID="cbxCalendarYear" Name="ReportYear" PropertyName="Value" Type="Int64" />
+            <asp:ControlParameter ControlID="cbxReportFor" Name="ReportForTID" PropertyName="Value" Type="Int64" />
         </SelectParameters>
     </asp:SqlDataSource>
 

@@ -2200,7 +2200,7 @@
             queryParameter3.Type = typeof(DevExpress.DataAccess.Expression);
             queryParameter3.Value = new DevExpress.DataAccess.Expression("[Parameters.DOTReportID]", typeof(long));
             storedProcQuery3.Parameters.Add(queryParameter3);
-            storedProcQuery3.StoredProcName = "OHSN_Web_rpt_DOTDrugAndAlcoholMISAlcoholTestingData_Select";
+            storedProcQuery3.StoredProcName = "ohsn_Web_rpt_DOTDrugAndAlcoholMISAlcoholTestingData_Select";
             this.dsAlcoholTestingData.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery3});
             this.dsAlcoholTestingData.ResultSchemaSerializable = resources.GetString("dsAlcoholTestingData.ResultSchemaSerializable");

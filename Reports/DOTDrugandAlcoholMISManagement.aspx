@@ -27,6 +27,10 @@
                                 <LargeImage Url="~/Images/General/Edit.png">
                                 </LargeImage>
                             </dx:RibbonButtonItem>
+                            <dx:RibbonButtonItem Name="btnPrint" Size="Large" Text="Print" Visible="false">
+                                <LargeImage Url="~/Images/Reports/Print.png">
+                                </LargeImage>
+                             </dx:RibbonButtonItem>
                         </Items>
                     </dx:RibbonGroup>
                 </Groups>
@@ -53,28 +57,27 @@
      </asp:Table>  
     <br />
                                 
-                             <dx:ASPxGridView ID="gvDOTDrugandAlcoholMISReport" runat="server" AutoGenerateColumns="False" DataSourceID="dsDOTReportList"              KeyFieldName="ID"             Width="95%" EnableCallBacks="False" OnSelectionChanged="gvDOTDrugandAlcoholMISReport_SelectionChanged" ClientInstanceName="gvClientDOTDrugandAlcoholMISReport" >
+    <dx:ASPxGridView ID="gvDOTDrugandAlcoholMISReport" runat="server" AutoGenerateColumns="False" DataSourceID="dsDOTReportList"              KeyFieldName="ID"             Width="95%" EnableCallBacks="False" OnSelectionChanged="gvDOTDrugandAlcoholMISReport_SelectionChanged" ClientInstanceName="gvClientDOTDrugandAlcoholMISReport" >
                                 <Columns>
-                                    <dx:GridViewCommandColumn VisibleIndex="0" SelectAllCheckboxMode="Page" ShowSelectCheckbox="True">
-                                    </dx:GridViewCommandColumn>
-                                    <dx:GridViewDataTextColumn Caption="Report Year" FieldName="ReportYear" Name="reportYear" VisibleIndex="1">
-                                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                    </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn Caption="Reporting To" FieldName="ReportFor" Name="reportingTo" VisibleIndex="2">
-                                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                                    </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn FieldName="ReportForTID" Name="reportingToTID" ReadOnly="True" Visible="False" VisibleIndex="3">
+                                    <dx:GridViewDataTextColumn FieldName="ID" VisibleIndex="0" ReadOnly="True" Visible="False">
                                         <EditFormSettings Visible="False" />
-                                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn Caption="Certifying Official" FieldName="CertifyingOfficial" Name="certifyingOfficial" VisibleIndex="4">
-                                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    <dx:GridViewDataTextColumn Caption="Year" FieldName="ReportYear" VisibleIndex="1">
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn Caption="Certifying Official Telephone" FieldName="CertifyingOfficialTelephone" Name="certifyingOfficialTelephone" VisibleIndex="5">
-                                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                    <dx:GridViewDataTextColumn FieldName="ReportFor" VisibleIndex="2" Caption="Report To">
                                     </dx:GridViewDataTextColumn>
-                                    <dx:GridViewDataTextColumn FieldName="ID" ReadOnly="True" Visible="False" VisibleIndex="6">
-                                        <EditFormSettings Visible="False" />
+                                    <dx:GridViewDataTextColumn FieldName="EmployeeCategory" VisibleIndex="3">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn FieldName="ReportForTID" VisibleIndex="4" Visible="False">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn FieldName="EmployeeCategoryTID" Visible="False" VisibleIndex="5">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn FieldName="CertifyingOfficial" VisibleIndex="6">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn FieldName="CertifyingOfficialTelephone" VisibleIndex="7" Width="50px">
+                                        <PropertiesTextEdit DisplayFormatInEditMode="True">
+                                            <MaskSettings Mask="(999) 000-0000" />
+                                        </PropertiesTextEdit>
                                     </dx:GridViewDataTextColumn>
                                 </Columns>
                                     <SettingsBehavior AllowSelectByRowClick="True" AllowSelectSingleRowOnly="True" ProcessFocusedRowChangedOnServer="True" ProcessSelectionChangedOnServer="True" SelectionStoringMode="PerformanceOptimized" />

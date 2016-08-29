@@ -49,6 +49,15 @@ namespace CustomerPortal.Reports {
         protected global::DevExpress.Web.ASPxComboBox cbxReportFor;
         
         /// <summary>
+        /// cbxEmployeeCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxComboBox cbxEmployeeCategory;
+        
+        /// <summary>
         /// ASPxLabel2 control.
         /// </summary>
         /// <remarks>
@@ -436,6 +445,15 @@ namespace CustomerPortal.Reports {
         protected global::System.Web.UI.WebControls.SqlDataSource dsReportYears;
         
         /// <summary>
+        /// dsProjectRequestTypeList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsProjectRequestTypeList;
+        
+        /// <summary>
         /// dsDOTAgencyList control.
         /// </summary>
         /// <remarks>
@@ -443,6 +461,15 @@ namespace CustomerPortal.Reports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsDOTAgencyList;
+        
+        /// <summary>
+        /// dsDOTEmployeeCategoryList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsDOTEmployeeCategoryList;
         
         /// <summary>
         /// dsDOTDrugandAlcoholMIS control.
@@ -470,14 +497,5 @@ namespace CustomerPortal.Reports {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsDOTDrugandAlcoholMISAlcoholTestData;
-        
-        /// <summary>
-        /// dsProjectRequestTypeList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsProjectRequestTypeList;
     }
 }
