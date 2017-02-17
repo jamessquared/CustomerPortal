@@ -526,13 +526,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxGridView gvFiles;
         
         /// <summary>
-        /// ASPxLabel21 control.
+        /// lblDOTDrugResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel21;
+        protected global::DevExpress.Web.ASPxLabel lblDOTDrugResults;
         
         /// <summary>
         /// ckResultNegative control.
@@ -607,13 +607,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxCheckBox ckSecondCollectionPerformed;
         
         /// <summary>
-        /// ASPxLabel25 control.
+        /// lblDrugResultsRefused control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel25;
+        protected global::DevExpress.Web.ASPxLabel lblDrugResultsRefused;
         
         /// <summary>
         /// ckRefusedDueToAdulterated control.
@@ -661,13 +661,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxCheckBox ckDrugTestCancelled;
         
         /// <summary>
-        /// ASPxLabel26 control.
+        /// lblAlcoholResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel26;
+        protected global::DevExpress.Web.ASPxLabel lblAlcoholResults;
         
         /// <summary>
         /// ckResultLessthan02 control.
@@ -706,13 +706,13 @@ namespace CustomerPortal.Projects {
         protected global::DevExpress.Web.ASPxCheckBox ckConfirmationResultGreaterorequalto04;
         
         /// <summary>
-        /// ASPxLabel27 control.
+        /// lblAlcoholResultsRefusal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxLabel ASPxLabel27;
+        protected global::DevExpress.Web.ASPxLabel lblAlcoholResultsRefusal;
         
         /// <summary>
         /// ckRefusedDueToShyLung control.

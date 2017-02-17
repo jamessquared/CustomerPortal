@@ -22,7 +22,7 @@
     <script type="text/javascript" >
     </script>
 
-        <div id="mainDiv" style="height:625px; width:100%; overflow-y:auto; overflow-x:auto;"  >
+        <div id="mainDiv" style="height:625px; width:100%; overflow-y:auto; overflow-x:auto; max-height:600px""  >
 
         <asp:Table  runat="server" ID="tblMetricsTop"  HorizontalAlign="Center" Width="100%" Height="8%" >
                      <asp:TableRow HorizontalAlign="Center">

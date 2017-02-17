@@ -218,7 +218,7 @@
             <asp:TableCell ></asp:TableCell>
             <%-- Right Column --%>
             <asp:TableCell HorizontalAlign="Right"><dx:ASPxLabel ID="ASPxLabel14" runat="server" Text="Complete By:"></dx:ASPxLabel></asp:TableCell>
-            <asp:TableCell><dx:ASPxDateEdit ID="deCompleteBy" runat="server" DisplayFormatString="d"  MinDate="1900-01-01"></dx:ASPxDateEdit></asp:TableCell>
+            <asp:TableCell><dx:ASPxDateEdit ID="deCompleteBy" runat="server" DisplayFormatString="d"   MinDate="1900-01-01"></dx:ASPxDateEdit></asp:TableCell>
             <%-- Right Margin --%>
             <asp:TableCell Width="10%"></asp:TableCell>
         </asp:TableRow>

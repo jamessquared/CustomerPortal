@@ -66,8 +66,11 @@
                 HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
             }
 
-            deScheduleBy.Date = DateTime.Now.Date;
-            deCompleteBy.Date = DateTime.MinValue;
+            if (!IsPostBack)
+            {
+                deScheduleBy.Date = DateTime.Now.Date;
+                deCompleteBy.Date = DateTime.MinValue;
+            }
         }
 
         protected bool IsValid()
@@ -199,6 +202,7 @@
                         cmd.Parameters.AddWithValue("@JobTitle", txtbxJobTitle.Text);
 
                         cmd.Parameters.AddWithValue("@ScheduledByDeadline", deScheduleBy.Value);
+
                         cmd.Parameters.AddWithValue("@CompletedByDeadline", deCompleteBy.Value);
 
                         cmd.Parameters.AddWithValue("@RequestTypeTID", cbxRequestType.Value);

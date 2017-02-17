@@ -54,13 +54,19 @@
                     ckPositiveForAmphetamines.Checked = Convert.ToBoolean(dv[0]["PositiveForAmphetamines"]);
                     ckBlindSpecimensSubmitted.Checked = Convert.ToBoolean(dv[0]["BlindSpecimensSubmitted"]);
                     ckSecondCollectionPerformed.Checked = Convert.ToBoolean(dv[0]["SecondCollectionPerformed"]);
-                    //
+
                     ckRefusedDueToAdulterated.Checked = Convert.ToBoolean(dv[0]["Adulterated"]);
                     ckRefusedDueToSubstition.Checked = Convert.ToBoolean(dv[0]["Substituted"]);
                     ckRefusedDueToShyBladder.Checked = Convert.ToBoolean(dv[0]["ShyBladder"]);
                     ckDrugTestRefusedDueToOtherReason.Checked = Convert.ToBoolean(dv[0]["DrugOtherRefusal"]);
                     ckDrugTestCancelled.Checked = Convert.ToBoolean(dv[0]["DrugTestWasCancelled"]);
+
                     // Alcohol
+                    ckResultLessthan02.Checked = Convert.ToBoolean(dv[0]["ResultLessthan02"]);
+                    ckResult02orGreater.Checked = Convert.ToBoolean(dv[0]["Result02orGreater"]);
+                    ckConfirmationResultBetween02and039.Checked = Convert.ToBoolean(dv[0]["ConfirmationResultBetween02and039"]);
+                    ckConfirmationResultGreaterorequalto04.Checked = Convert.ToBoolean(dv[0]["ConfirmationResultGreaterorequalto04"]);
+
                     ckRefusedDueToShyLung.Checked = Convert.ToBoolean(dv[0]["ShyLung"]);
                     ckAlcoholTestRefusedDueToOtherReason.Checked = Convert.ToBoolean(dv[0]["AlcoholOtherRefusal"]);
                     ckAlcoholTestCancelled.Checked = Convert.ToBoolean(dv[0]["AlcoholTestWasCancelled"]);
@@ -104,6 +110,8 @@
                             gvFiles.DataBind();
                         }
                     }
+
+                    ShowDOTFields(string.IsNullOrEmpty(Convert.ToString(dv[0]["DOTAgency"])) == false);
                 }
             }
             catch (Exception ex)
@@ -113,7 +121,40 @@
                 HttpContext.Current.Response.Redirect("~/ErrorPage.aspx");
             }
           }
-        
+
+        private void ShowDOTFields(bool showField)
+        {
+            // Drugs
+            lblDOTDrugResults.Visible = showField;
+            ckResultNegative.Visible = showField;
+            ckPositiveForMarijuana.Visible = showField;
+            ckPositiveForCocaine.Visible = showField;
+            ckPositiveForPCP.Visible = showField;
+            ckPositiveForOpiates.Visible = showField;
+            ckPositiveForAmphetamines.Visible = showField;
+            ckBlindSpecimensSubmitted.Visible = showField;
+            ckSecondCollectionPerformed.Visible = showField;
+
+            lblDrugResultsRefused.Visible = showField;
+            ckRefusedDueToAdulterated.Visible = showField;
+            ckRefusedDueToSubstition.Visible = showField;
+            ckRefusedDueToShyBladder.Visible = showField;
+            ckDrugTestRefusedDueToOtherReason.Visible = showField;
+            ckDrugTestCancelled.Visible = showField;
+
+            // Alcohol
+            lblAlcoholResults.Visible = showField;
+            ckResultLessthan02.Visible = showField;
+            ckResult02orGreater.Visible = showField;
+            ckConfirmationResultBetween02and039.Visible = showField;
+            ckConfirmationResultGreaterorequalto04.Visible = showField;
+
+            lblAlcoholResultsRefusal.Visible = showField;
+            ckRefusedDueToShyLung.Visible = showField;
+            ckAlcoholTestRefusedDueToOtherReason.Visible = showField;
+            ckAlcoholTestCancelled.Visible = showField;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["ContactID"] == null)

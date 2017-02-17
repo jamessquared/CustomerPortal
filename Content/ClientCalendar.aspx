@@ -49,6 +49,7 @@
         </Tabs>
     </dx:ASPxRibbon>
 
+    <div runat="server" style="overflow:auto; max-height:600px">
                     <dxwschs:ASPxScheduler ID="calendar" runat="server" ActiveViewType="Month" AppointmentDataSourceID="dsCalendar" ClientIDMode="AutoID" ResourceDataSourceID="" Start="2015-12-27" ClientInstanceName="clientCalendar" OnInitAppointmentImages="calendar_InitAppointmentImages" OnActiveViewChanged="calendar_ActiveViewChanged">
                             <Storage EnableReminders="False">
                                 <Appointments ResourceSharing="True" AutoRetrieveId="True">
@@ -76,6 +77,7 @@
                                 <cc1:TimeRuler></cc1:TimeRuler>
                                 </TimeRulers>
                                     <AppointmentDisplayOptions AppointmentAutoHeight="True" EndTimeVisibility="Never" ShowRecurrence="False" ShowReminder="False" />
+                                    <WorkWeekViewStyles ScrollAreaHeight="600px"></WorkWeekViewStyles>
                                 </WorkWeekView>
 
                                 <MonthView ShowMoreButtons="False" ShowWeekend="False" WeekCount="5">
@@ -89,6 +91,7 @@
                     <cc1:TimeRuler></cc1:TimeRuler>
                     </TimeRulers>
                                     <AppointmentDisplayOptions AppointmentAutoHeight="True" ShowRecurrence="False" />
+                                    <FullWeekViewStyles ScrollAreaHeight="600px"></FullWeekViewStyles>
                                 </FullWeekView>
                             </Views>
                             <Images>
@@ -103,116 +106,87 @@
                             <OptionsToolTips ShowAppointmentDragToolTip="False" ShowSelectionToolTip="False" />
                             <OptionsView NavigationButtons-Visibility="Never" />
                         </dxwschs:ASPxScheduler>               
-
-    <div runat="server" style="overflow:auto; max-height:675px">
          
         <asp:Table runat="server" id="maintable" Width="100%" >
             <asp:TableRow>
-                <%-- Calendar --%>
-                <asp:TableCell Width="90%">
-    
-                </asp:TableCell>
-                <%-- Legend --%>
-                <asp:TableCell Width="10%">
-                       <asp:Table runat="server" id="Table1" Width="100%"  >
-                           <asp:TableRow>
+                <asp:TableCell> <label>Legend</label></asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
                                <%-- Holiday --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                     <dx:ASPxImage ID="ASPxImage3" runat="server" ImageUrl="~/Images/General/CalendarHoliday.png" ShowLoadingImage="true"></dx:ASPxImage>
                                     <dx:ASPxLabel runat="server" Text=" = Holiday  "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Incomplete --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                     <dx:ASPxImage ID="ASPxImage4" runat="server" ImageUrl="~/Images/General/CalendarIncomplete.png" ShowLoadingImage="true"></dx:ASPxImage>
                                     <dx:ASPxLabel runat="server" Text=" = In Progress  "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Pass --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                     <dx:ASPxImage ID="ASPxImage5" runat="server" ImageUrl="~/Images/General/CalendarPass.png" ShowLoadingImage="true"></dx:ASPxImage>
                                     <dx:ASPxLabel runat="server" Text=" = Pass  "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Fail --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                     <dx:ASPxImage ID="ASPxImage6" runat="server" ImageUrl="~/Images/General/CalendarFail.png" ShowLoadingImage="true"></dx:ASPxImage>
                                     <dx:ASPxLabel runat="server" Text=" = Fail  "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Further Evaluation --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                     <dx:ASPxImage ID="ASPxImage7" runat="server" ImageUrl="~/Images/General/CalendarFurtherEvaluation.png" ShowLoadingImage="true"></dx:ASPxImage>
                                     <dx:ASPxLabel runat="server" Text=" = Require Further Evaluation  "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Subject Refusal --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                     <dx:ASPxImage ID="ASPxImage8" runat="server" ImageUrl="~/Images/General/CalendarSubjectRefusal.png" ShowLoadingImage="true"></dx:ASPxImage>
                                     <dx:ASPxLabel runat="server" Text=" = Subject Refused  "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
+            </asp:TableRow>
+            <asp:TableRow>
                                <%-- Pre-Employment --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                     <dx:ASPxImage runat="server" src="../Images/Request%2520Type/PreEmployment.png" ImageUrl="~/Images/Request Type/PreEmployment.png"> </dx:ASPxImage>        
                                     <dx:ASPxLabel runat="server" Text=" = Pre-Employment    "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Random --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                     <dx:ASPxImage runat="server" src="../Images/Request%20Type/Random.png"> </dx:ASPxImage>        
                                     <dx:ASPxLabel runat="server" Text=" = Random    "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Post Accident --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                    <dx:ASPxImage runat="server" src="../Images/Request%20Type/PostAccident.png"> </dx:ASPxImage>        
                                    <dx:ASPxLabel runat="server" Text=" = Post Accident    "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Reasonable Suspicion --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                      <dx:ASPxImage runat="server" src="../Images/Request%20Type/ReasonableSuspicion.png"> </dx:ASPxImage>        
                                      <dx:ASPxLabel runat="server" Text=" = Resonable Suspicion    "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Return to Duty --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                        <dx:ASPxImage runat="server" src="../Images/Request%20Type/ReturnToDuty.png"> </dx:ASPxImage>        
                                        <dx:ASPxLabel runat="server" Text=" = Return To Duty    "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                           <asp:TableRow>
                                <%-- Follow-up --%>
                                <asp:TableCell>
                                    <dx:ASPxLabel runat="server" Text="  "></dx:ASPxLabel>
                                        <dx:ASPxImage runat="server" src="../Images/Request%20Type/FollowUp.png"> </dx:ASPxImage>        
                                        <dx:ASPxLabel runat="server" Text=" = Follow Up    "></dx:ASPxLabel>
                                </asp:TableCell>
-                           </asp:TableRow>
-                       </asp:Table>                                        
-                </asp:TableCell>
+
             </asp:TableRow>
         </asp:Table>
 

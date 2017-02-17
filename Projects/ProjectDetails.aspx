@@ -346,8 +346,8 @@
     <br />
 
      <%-- DOT Drug Results --%>
-     <asp:Table runat="server" Width="100%">
-         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel21" runat="server" Font-Size="Large" Text="DOT Drug Results"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
+    <asp:Table runat="server" Width="100%">
+         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="lblDOTDrugResults" runat="server" Font-Size="Large" Text="DOT Drug Results"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
          <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
         <asp:TableRow>
                 <asp:TableCell  Width="10%"></asp:TableCell>
@@ -399,7 +399,7 @@
     <br />
     <%-- DOT Drug Results  Refused --%>
     <asp:Table runat="server" Width="100%">
-         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel25" runat="server" Font-Size="Large" Text="DOT Drug Results Refusal"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
+         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="lblDrugResultsRefused" runat="server" Font-Size="Large" Text="DOT Drug Results Refusal"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
          <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
         <asp:TableRow>
                  <asp:TableCell  Width="10%"></asp:TableCell>
@@ -431,7 +431,7 @@
     <br />
     <%-- DOT Alcohol Results --%>
     <asp:Table runat="server"  Width="100%">
-         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel26" runat="server" Font-Size="Large" Text="DOT Alcohol Results"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
+         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="lblAlcoholResults" runat="server" Font-Size="Large" Text="DOT Alcohol Results"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
          <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
         <asp:TableRow>
                  <asp:TableCell  Width="10%"></asp:TableCell>
@@ -462,7 +462,7 @@
     <br />
     <%-- DOT Alcohol Results  Refused --%>
     <asp:Table runat="server" Width="100%">
-         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="ASPxLabel27" runat="server" Font-Size="Large" Text="DOT Alcohol Results Refusal"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
+         <asp:TableRow><asp:TableCell></asp:TableCell><asp:TableCell><dx:ASPxLabel ID="lblAlcoholResultsRefusal" runat="server" Font-Size="Large" Text="DOT Alcohol Results Refusal"> </dx:ASPxLabel></asp:TableCell></asp:TableRow>
          <asp:TableRow><asp:TableCell></asp:TableCell></asp:TableRow>
         <asp:TableRow>
                  <asp:TableCell  Width="10%"></asp:TableCell>
